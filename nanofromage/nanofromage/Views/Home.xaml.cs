@@ -24,5 +24,6 @@ namespace nanofromage.Views
         {
             InitializeComponent();
         }
+        
     }
 }

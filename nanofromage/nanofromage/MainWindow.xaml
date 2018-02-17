@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:nanofromage"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-        
+
+    <Grid Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="btnConnexion" Content="OK" Grid.Column="2" HorizontalAlignment="Left" Margin="48,287,0,0" VerticalAlignment="Top" Width="145" Height="54" Click="BtnConnexion_Click"/>
+        <Button Content="Inscription" Grid.Column="2" HorizontalAlignment="Left" Margin="2,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="123" Height="66"/>
+        <CheckBox Content="CheckBox" Grid.Column="2" HorizontalAlignment="Left" Margin="174,95,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="15" Width="74">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.079"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="51" Margin="26,125,0,0" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox Grid.Column="2" HorizontalAlignment="Left" Margin="28,199,0,0" VerticalAlignment="Top" Height="48" Width="198"/>
+        <Label Content="Connexion" Grid.Column="2" HorizontalAlignment="Left" Margin="64,51,0,0" VerticalAlignment="Top" Height="50" Width="132" FontSize="24"/>
     </Grid>
 </Window>

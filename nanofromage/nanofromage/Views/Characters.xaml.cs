@@ -1,5 +1,4 @@
-﻿using nanofromage.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nanofromage
+namespace nanofromage.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Characters.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Characters : Page
     {
-        public MainWindow()
+        public Characters()
         {
             InitializeComponent();
-        }
-
-        private void BtnConnexion_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new Home();
         }
     }
 }

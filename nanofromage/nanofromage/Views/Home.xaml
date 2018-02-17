@@ -14,11 +14,28 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <Button Content="Button" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" Width="253" Height="720" Grid.RowSpan="2"/>
+        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="2,2,0,0" Grid.Row="1" VerticalAlignment="Top" Height="357" Width="509" Content="Info perso" Grid.ColumnSpan="2"/>
+        <Image Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="156" Margin="166,106,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="3,273,0,0" VerticalAlignment="Top" Width="146" Height="88" Grid.RowSpan="2"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="178,272,0,0" VerticalAlignment="Top" Width="146" Height="88" Grid.ColumnSpan="2"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="104,270,0,0" VerticalAlignment="Top" Width="146" Height="88"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="101,147,0,0" VerticalAlignment="Top" Width="146" Height="88"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="107,4,0,0" VerticalAlignment="Top" Width="146" Height="88"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="181,4,0,0" VerticalAlignment="Top" Width="146" Height="88" Grid.ColumnSpan="2"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="5,7,0,0" VerticalAlignment="Top" Width="146" Height="88"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="4,133,0,0" VerticalAlignment="Top" Width="146" Height="88"/>
+        <Label Content="Info" Grid.Column="4" HorizontalAlignment="Left" Height="65" Margin="1,-2,0,0" VerticalAlignment="Top" Width="254"/>
+        <Label Content="Inventaire" Grid.Column="3" HorizontalAlignment="Left" Margin="1,65,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="293" Width="511"/>
+        <Label Content="Espace d'affichage" Grid.Column="3" HorizontalAlignment="Left" Margin="1,1,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="358" Width="511"/>
     </Grid>
+
+
+
 </Page>
