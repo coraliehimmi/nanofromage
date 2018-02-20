@@ -8,7 +8,35 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="FirstConnexion">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Right" Width="1280">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <PasswordBox HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Height="60" Width="550" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label Content="Connexion" FontWeight="Bold" FontSize="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="60" Width="500" Grid.Column="1"/>
+        <CheckBox Content="On/Off" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="9" VerticalAlignment="Center" Width="150" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" Margin="80,23,70,17"/>
+        <Button Content="Confirm" FontSize="30" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Width="200" Height="60" Click="Button_Click"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="80" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="550"/>
+        <Label Content="Login :" FontSize="30" HorizontalAlignment="Center" Height="60" Margin="131,10,72,20" Grid.Row="3" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Password :" FontSize="30" HorizontalAlignment="Center" Height="60" Margin="110,20,0,10" Grid.Row="5" VerticalAlignment="Center"/>
+        <Button Content="Inscription" FontSize="30" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="9" VerticalAlignment="Center" Width="200" Height="60" Click="Button_Click"/>
+
+
     </Grid>
 </Page>
