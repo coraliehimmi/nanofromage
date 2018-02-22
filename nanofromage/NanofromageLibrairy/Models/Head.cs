@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class User : ModelBase
+    public class Head : Equipment
     {
         #region StaticVariables
         #endregion
@@ -18,25 +18,12 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
-        private String login;
-        private String password;
         #endregion
 
         #region Properties
         #endregion
 
         #region Constructors
-        public User()
-        {
-        }
-        public User(String login, String password)
-        {
-            this.Login = login;
-            this.Password = password;
-        }
-
-        public string Login { get => login; set => login = value; }
-        public string Password { get => password; set => password = value; }
         #endregion
 
         #region StaticFunctions
@@ -47,5 +34,8 @@ namespace NanofromageLibrairy.Models
 
         #region Events
         #endregion
+        public Head(string name, string description) : base(name, description)
+        {
+        }
     }
 }
