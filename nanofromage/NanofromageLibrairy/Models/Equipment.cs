@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    class Equipment
+    public class Equipment : Items
     {
         #region StaticVariables
         #endregion
@@ -18,12 +18,25 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private String name;
+        private String description;
+
+
         #endregion
 
         #region Properties
+        public string Name { get => name; set => name = value; }
+        public string Description { get => description; set => description = value; }
         #endregion
 
         #region Constructors
+        public Equipment(string name, string description)
+        {
+            this.Name = name;
+            this.Description = description;
+        }
+
+        
         #endregion
 
         #region StaticFunctions

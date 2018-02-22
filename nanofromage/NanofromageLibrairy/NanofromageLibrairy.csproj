@@ -40,15 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Action.cs" />
+    <Compile Include="Models\Adventure.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Chest.cs" />
     <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\Fight.cs" />
     <Compile Include="Models\Head.cs" />
     <Compile Include="Models\Hunter.cs" />
+    <Compile Include="Models\Items.cs" />
     <Compile Include="Models\LeftHand.cs" />
     <Compile Include="Models\Mage.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\RightHand.cs" />
+    <Compile Include="Models\Usable.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Warrior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

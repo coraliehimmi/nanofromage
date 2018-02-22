@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    class Warrior : Character
+    public class Warrior : Character
     {
         #region StaticVariables
         #endregion
@@ -24,6 +24,13 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
+        public Warrior()
+        {
+        }
+
+        public Warrior(string name, string description, bool sex, int level, int hitpoint) : base(name, description, sex, level, hitpoint)
+        {
+        }
         #endregion
 
         #region StaticFunctions
@@ -34,5 +41,6 @@ namespace NanofromageLibrairy.Models
 
         #region Events
         #endregion
+
     }
 }

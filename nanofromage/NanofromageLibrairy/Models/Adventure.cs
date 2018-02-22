@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Hunter : Character
+    public class Adventure : ModelBase
     {
         #region StaticVariables
         #endregion

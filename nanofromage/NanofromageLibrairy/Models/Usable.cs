@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Hunter : Character
+    public class Usable : Items
     {
         #region StaticVariables
         #endregion
@@ -24,6 +24,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
+        public Usable()
+        {
+        }
         #endregion
 
         #region StaticFunctions
@@ -34,5 +37,6 @@ namespace NanofromageLibrairy.Models
 
         #region Events
         #endregion
+
     }
 }
