@@ -18,11 +18,16 @@ namespace nanofromage.UserControls
     /// <summary>
     /// Logique d'interaction pour ConfirmUserControl.xaml
     /// </summary>
-    public partial class ConfirmUserControl : Page
+    public partial class ConfirmUserControl : UserControl
     {
         public ConfirmUserControl()
         {
             InitializeComponent();
+        }
+
+        private void confirm_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

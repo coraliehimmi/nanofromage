@@ -22,6 +22,6 @@
         </Grid.RowDefinitions>
         <TextBox Grid.Row="1" FontSize="30" Grid.Column="0" TextBlock.TextAlignment="Center" TextWrapping="WrapWithOverflow" Text="TextBox" />
         <CheckBox Content="CheckBox" FontSize="30" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click"/>
-        <CheckBox Content="CheckBox" FontSize="30" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click"/>
+        <CheckBox Content="CheckBox" FontSize="30" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click_1"/>
     </Grid>
 </Page>

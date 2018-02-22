@@ -24,5 +24,45 @@ namespace nanofromage.UserControls
         {
             InitializeComponent();
         }
+
+        private void bouton1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton6_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton7_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bouton8_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

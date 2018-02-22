@@ -26,9 +26,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <uc:Menu x:Name="XAMLMenu" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="0"/>
-        <Button Name="menu" Content="Button" Grid.Column="0" Grid.RowSpan="8" Click="Button_Click" Background="SaddleBrown"/>
+        <uc:Menu x:Name="XAMLMenu" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="8"/>
+        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"/>
         <Label Name="infosPerso" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="Beige"/>
         <Label Name="infos" Content="Info" Grid.Column="3" Grid.Row="0" Background="Beige"/>
         <Label Name="inventaire" Content="Inventaire" Grid.Column="2" Grid.RowSpan="4" Background="Beige"/>

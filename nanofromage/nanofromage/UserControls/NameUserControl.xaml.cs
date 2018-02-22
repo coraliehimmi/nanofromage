@@ -29,5 +29,10 @@ namespace nanofromage.Views
         {
 
         }
+
+        private void CheckBox_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

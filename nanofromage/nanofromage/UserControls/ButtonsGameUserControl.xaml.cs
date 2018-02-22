@@ -18,7 +18,7 @@ namespace nanofromage.UserControls
     /// <summary>
     /// Logique d'interaction pour ButtonsGameUserControl.xaml
     /// </summary>
-    public partial class ButtonsGameUserControl : Page
+    public partial class ButtonsGameUserControl : UserControl
     {
         public ButtonsGameUserControl()
         {

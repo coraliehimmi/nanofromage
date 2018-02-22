@@ -20,7 +20,6 @@ C:\Users\Jaspe\Documents\IMIE N2\C#\nanofromage\nanofromage\nanofromage\obj\Debu
 C:\Users\Jaspe\Documents\IMIE N2\C#\nanofromage\nanofromage\nanofromage\obj\Debug\nanofromage.exe
 C:\Users\Jaspe\Documents\IMIE N2\C#\nanofromage\nanofromage\nanofromage\obj\Debug\nanofromage.pdb
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\nanofromage.csprojResolveAssemblyReference.cache
-C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\MainWindow.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\Views\Characters.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\Views\Fight.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\Views\FirstConnexion.g.cs
@@ -33,7 +32,6 @@ C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\nano
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\nanofromage.pdb
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\NanofromageLibrairy.dll
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\NanofromageLibrairy.pdb
-C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\MainWindow.baml
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\CharacterUserControl.baml
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\UserUserControl.baml
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\Views\Characters.baml
@@ -52,5 +50,10 @@ C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\User
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\ConfirmUserControl.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\MenuUserControl.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\UserUserControl.g.cs
-C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\Views\NameUserControl.g.cs
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\NameUserControl.g.cs
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\ButtonsGameUserControl.baml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\ButtonsUserControl.baml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\ConfirmUserControl.baml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\MenuUserControl.baml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\NameUserControl.baml

@@ -23,14 +23,14 @@
             <RowDefinition Height="5"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="bouton1" Content="Button" Grid.Row="0" Grid.Column="0" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton2" Content="Button" Grid.Row="2" Grid.Column="0" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton3" Content="Button" Grid.Row="5" Grid.Column="0" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton4" Content="Button" Grid.Row="0" Grid.Column="2" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton5" Content="Button" Grid.Row="0" Grid.Column="5" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton6" Content="Button" Grid.Row="2" Grid.Column="5" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton7" Content="Button" Grid.Row="5" Grid.Column="5" Click="Button_Click" Background="DimGray"/>
-        <Button Name="bouton8" Content="Button" Grid.Row="5" Grid.Column="2" Click="Button_Click" Background="DimGray"/>
+        <Button Name="bouton1" Content="Button" Grid.Row="0" Grid.Column="0" Click="bouton1_Click"  Background="DimGray"/>
+        <Button Name="bouton2" Content="Button" Grid.Row="2" Grid.Column="0" Click="bouton2_Click"  Background="DimGray"/>
+        <Button Name="bouton3" Content="Button" Grid.Row="5" Grid.Column="0" Click="bouton3_Click" Background="DimGray"/>
+        <Button Name="bouton4" Content="Button" Grid.Row="0" Grid.Column="2" Click="bouton4_Click" Background="DimGray"/>
+        <Button Name="bouton5" Content="Button" Grid.Row="0" Grid.Column="5" Click="bouton5_Click" Background="DimGray"/>
+        <Button Name="bouton6" Content="Button" Grid.Row="2" Grid.Column="5" Click="bouton6_Click" Background="DimGray"/>
+        <Button Name="bouton7" Content="Button" Grid.Row="5" Grid.Column="5" Click="bouton7_Click" Background="DimGray"/>
+        <Button Name="bouton8" Content="Button" Grid.Row="5" Grid.Column="2" Click="bouton8_Click" Background="DimGray"/>
         <Image Name="character" Grid.Column="2" Grid.Row="2"/>
 
     </Grid>

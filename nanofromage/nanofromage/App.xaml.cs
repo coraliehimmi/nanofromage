@@ -1,4 +1,5 @@
-﻿using NanofromageLibrairy.Models;
+﻿using nanofromage.Views;
+using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,11 @@ namespace nanofromage
     {
         public App()
         {
+            Window MainWindow = new Window();
+            MainWindow.Content = new FirstConnexion();
+            MainWindow.MinHeight = 800;
+            MainWindow.MinWidth = 1200;
+            MainWindow.Show();
    
         }
     }
