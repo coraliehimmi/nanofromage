@@ -1,4 +1,5 @@
-﻿using System;
+﻿using nanofromage.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,8 @@ namespace nanofromage.Views
         public Characters()
         {
             InitializeComponent();
+            new CharactersViewModel(this);
             
-        }
-
-        private void XAMLUserUserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

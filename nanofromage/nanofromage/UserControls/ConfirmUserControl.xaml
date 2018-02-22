@@ -14,6 +14,6 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="confirm" Content="OK" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="26" Click="confirm_Click"/>
+        <Button x:Name="confirm" Content="OK" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="26"/>
     </Grid>
 </UserControl>

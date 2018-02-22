@@ -15,8 +15,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" FontSize="26" Grid.ColumnSpan="2" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="WrapWithOverflow" Text="Nom"/>
-        <CheckBox Content="2" FontSize="26" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click"/>
-        <CheckBox Content="1" FontSize="26" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click_1"/>
+        <TextBox Grid.Row="0" FontSize="20" Grid.ColumnSpan="2" Grid.Column="0" TextWrapping="WrapWithOverflow" />
+        <RadioButton Content="Garçons" FontSize="24" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" />
+        <RadioButton Content="Fille" FontSize="24" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" />
     </Grid>
 </UserControl>

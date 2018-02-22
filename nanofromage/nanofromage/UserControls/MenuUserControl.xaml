@@ -13,8 +13,19 @@
         </Grid.ColumnDefinitions>                                                                                                                                     
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Menu Name="menu" Background="SaddleBrown"/>
+        <Menu Name="menu" Background="SaddleBrown" Grid.RowSpan="7"/>
+        
+        
+        <Button Content="Home" x:Name="home"></Button>
+        <Button Content="Fight" x:Name="fight" Grid.Row="1"></Button>
+        <Button Content="Logout" x:Name="logout" Grid.Row="2"></Button>
     </Grid>
 </UserControl>

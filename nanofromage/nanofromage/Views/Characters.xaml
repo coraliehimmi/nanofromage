@@ -33,14 +33,16 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <uc:UserUserControl x:Name="XAMLUserUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Background="Salmon"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Background="Salmon"/>
-        <uc:UserUserControl x:Name="XAMLUserUserControl2" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="6" Background="Salmon"/>
+        <uc:UserUserControl x:Name="XAMLUserUserControl2" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="6" Background="Salmon"/>
         <Label Content="Description" Background="Beige" FontSize="40" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BorderThickness="3" BorderBrush="Black"/>
         <Label Content="Classe" FontSize="50" Grid.Column="3" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige"/>
         <uc:NameUserControl x:Name="XAMLNameUserControl" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-
+        <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" Grid.Column="2" Grid.Row="12" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
