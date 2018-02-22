@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nanofromage.Views
+namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour Characters.xaml
+    /// Logique d'interaction pour StatUserControl.xaml
     /// </summary>
-    public partial class Characters : Page
+    public partial class StatUserControl : UserControl
     {
-        public Characters()
+        public StatUserControl()
         {
             InitializeComponent();
-            
-        }
-
-        private void XAMLUserUserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -18,7 +18,7 @@ namespace nanofromage.UserControls
     /// <summary>
     /// Logique d'interaction pour Menu.xaml
     /// </summary>
-    public partial class Menu : Page
+    public partial class Menu : UserControl
     {
         public Menu()
         {

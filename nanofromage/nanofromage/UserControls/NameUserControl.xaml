@@ -1,27 +1,22 @@
-﻿<Page x:Class="nanofromage.Views.NameUserControl"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:nanofromage.UserControls"
-      mc:Ignorable="d" 
-      d:DesignHeight="180" d:DesignWidth="1280"
-      Title="ConfirmUserControl"
-      Background="White">
-
+﻿<UserControl x:Class="nanofromage.UserControls.NameUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:nanofromage.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" FontSize="30" Grid.Column="0" TextBlock.TextAlignment="Center" TextWrapping="WrapWithOverflow" Text="TextBox" />
-        <CheckBox Content="CheckBox" FontSize="30" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click"/>
-        <CheckBox Content="CheckBox" FontSize="30" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click_1"/>
+        <TextBox Grid.Row="0" FontSize="26" Grid.ColumnSpan="2" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="WrapWithOverflow" Text="Nom"/>
+        <CheckBox Content="2" FontSize="26" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click"/>
+        <CheckBox Content="1" FontSize="26" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Background="Black" Click="CheckBox_Click_1"/>
     </Grid>
-</Page>
+</UserControl>

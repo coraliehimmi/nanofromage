@@ -19,7 +19,7 @@ namespace nanofromage.UserControls
     /// Logique d'interaction pour ClientUserControl.xaml
     /// </summary>
     /// 
-    public partial class CharacterUserControl : Page
+    public partial class CharacterUserControl : UserControl
     {
         #region StaticVariables
         #endregion

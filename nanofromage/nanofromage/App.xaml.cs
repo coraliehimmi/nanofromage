@@ -20,8 +20,6 @@ namespace nanofromage
         {
             Window MainWindow = new Window();
             MainWindow.Content = new FirstConnexion();
-            MainWindow.MinHeight = 800;
-            MainWindow.MinWidth = 1200;
             MainWindow.Show();
 
             Database<Character> Db = new Database<Character>();

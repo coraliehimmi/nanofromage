@@ -16,8 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            
         </Grid.RowDefinitions>
         <Button Name="bouton1" Grid.Column="0" Grid.Row="0"/>
         <Button Name="bouton2" Grid.Column="0" Grid.Row="1"/>
