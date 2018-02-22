@@ -18,6 +18,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private String name;
         #endregion
 
         #region Properties
