@@ -54,6 +54,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\ButtonsGameUserControl.xaml.cs">
+      <DependentUpon>ButtonsGameUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ButtonsUserControl.xaml.cs">
+      <DependentUpon>ButtonsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CharacterUserControl.xaml.cs">
+      <DependentUpon>CharacterUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConfirmUserControl.xaml.cs">
+      <DependentUpon>ConfirmUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuUserControl.xaml.cs">
+      <DependentUpon>MenuUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserUserControl.xaml.cs">
+      <DependentUpon>UserUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Class1.cs" />
+    <Compile Include="ViewModels\Class2.cs" />
     <Compile Include="Views\Characters.xaml.cs">
       <DependentUpon>Characters.xaml</DependentUpon>
     </Compile>
@@ -65,6 +85,9 @@
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NameUserControl.xaml.cs">
+      <DependentUpon>NameUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +101,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\ButtonsGameUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ButtonsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CharacterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="UserControls\ConfirmUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MenuUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
     <Page Include="Views\Characters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NameUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,10 +172,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="UserControls\" />
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\NanofromageLibrairy\NanofromageLibrairy.csproj">
+      <Project>{ccb67b20-4fac-4b4a-bdd6-51c35e97d5c3}</Project>
+      <Name>NanofromageLibrairy</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

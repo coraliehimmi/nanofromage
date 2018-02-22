@@ -4,27 +4,46 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:nanofromage.Views"
+      xmlns:uc="clr-namespace:nanofromage.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
-      Title="Characters">
+      Title="Characters"
+      Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="233*"/>
-            <RowDefinition Height="60*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Right" Grid.Row="0" VerticalAlignment="Bottom" Height="42" Width="124" Content="Name" FontSize="30" Grid.Column="0"/>
-        <CheckBox Content="CheckBox" FontSize="30" HorizontalAlignment="Right" Grid.Row="0" VerticalAlignment="Bottom" Height="50" Width="200" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <CheckBox Content="CheckBox" FontSize="30" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Bottom" Height="50" Width="200" Grid.Column="2" VerticalContentAlignment="Center"/>
-        <Image Name="Image" HorizontalAlignment="Left" Height="189" VerticalAlignment="Center" Width="239" Grid.Column="0" Margin="302,80,0,328.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button Content="Confirm" FontSize="30" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="285" Height="74" Click="Button_Click" Grid.Column="1"/>
-        <Label Content="Description" FontSize="30" HorizontalAlignment="Left" Grid.Row="1" BorderThickness="3" BorderBrush="Black" VerticalAlignment="Bottom" Height="200" Width="846" Grid.ColumnSpan="3" Margin="208,0,0,122" Grid.RowSpan="2"/>
-        <Label Content="Classe" FontSize="30" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="46" Grid.ColumnSpan="2" Margin="0,109.6,349,0" RenderTransformOrigin="1.003,0.822" HorizontalAlignment="Right" Width="222"/>
+        <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" Grid.Column="0" Grid.ColumnSpan="12" Grid.Row="9" Grid.RowSpan="3"/>
+        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" Grid.RowSpan="4"/>
+        <uc:UserUserControl x:Name="XAMLUserUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" Grid.RowSpan="3"/>
+        <Image Name="Image" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
+        <Label Content="Description" Background="Beige" FontSize="40" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="3" BorderBrush="Black"/>
+        <Label Content="Classe" FontSize="50" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige"/>
     </Grid>
 </Page>

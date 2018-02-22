@@ -1,5 +1,4 @@
-﻿using nanofromage.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nanofromage
+namespace nanofromage.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour NameUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NameUserControl : Page
     {
-        public MainWindow()
+        public NameUserControl()
         {
             InitializeComponent();
-            this.Content = new Home();
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

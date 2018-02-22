@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NanofromageLibrairy.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,9 @@ namespace nanofromage
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+   
+        }
     }
 }
