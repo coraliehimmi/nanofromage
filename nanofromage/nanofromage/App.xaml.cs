@@ -1,4 +1,5 @@
-﻿using nanofromage.Views;
+﻿using Database.MySql;
+using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace nanofromage
             MainWindow.MinHeight = 800;
             MainWindow.MinWidth = 1200;
             MainWindow.Show();
+
+            Database<Character> Db = new Database<Character>();
+            Db.Insert(new Character());
    
         }
     }

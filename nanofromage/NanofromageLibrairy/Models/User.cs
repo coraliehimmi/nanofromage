@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class User
+    public class User : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -29,7 +29,6 @@ namespace NanofromageLibrairy.Models
         #region Constructors
         public User()
         {
-
         }
         public User(String login, String password)
         {

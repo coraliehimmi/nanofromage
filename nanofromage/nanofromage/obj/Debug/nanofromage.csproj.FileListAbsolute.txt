@@ -57,3 +57,12 @@ C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\User
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\ConfirmUserControl.baml
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\MenuUserControl.baml
 C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\obj\Debug\UserControls\NameUserControl.baml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\Database.dll
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\EntityFramework.dll
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\MySql.Data.dll
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\Database.pdb
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\Database.dll.config
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\EntityFramework.xml
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\chimmi\Documents\Dev\nanofromage\nanofromage\nanofromage\bin\Debug\EntityFramework.SqlServer.xml

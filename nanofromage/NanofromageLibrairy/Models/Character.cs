@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Character
+    public class Character : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -48,7 +48,7 @@ namespace NanofromageLibrairy.Models
             this.hitPoint = hitpoint;
         }
 
-        
+
         #endregion
 
         #region StaticFunctions

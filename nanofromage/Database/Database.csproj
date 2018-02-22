@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="MySql\MaDatabase.cs" />
+    <Compile Include="MySql\Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,12 +62,7 @@
       <Project>{ccb67b20-4fac-4b4a-bdd6-51c35e97d5c3}</Project>
       <Name>NanofromageLibrairy</Name>
     </ProjectReference>
-    <ProjectReference Include="..\nanofromage\nanofromage.csproj">
-      <Project>{b3509be8-ab00-48ee-a651-68b85299f9eb}</Project>
-      <Name>nanofromage</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
