@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nanofromage.Views
+namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour NameUserControl.xaml
     /// </summary>
-    public partial class NameUserControl : Page
+    public partial class NameUserControl : UserControl
     {
         public NameUserControl()
         {

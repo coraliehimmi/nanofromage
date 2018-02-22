@@ -14,13 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -38,12 +32,15 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" Grid.Column="0" Grid.ColumnSpan="12" Grid.Row="9" Grid.RowSpan="3"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" Grid.RowSpan="4"/>
-        <uc:UserUserControl x:Name="XAMLUserUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" Grid.RowSpan="3"/>
-        <Image Name="Image" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
-        <Label Content="Description" Background="Beige" FontSize="40" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="3" BorderBrush="Black"/>
-        <Label Content="Classe" FontSize="50" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige"/>
+
+        <uc:UserUserControl x:Name="XAMLUserUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Background="Salmon"/>
+        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Background="Salmon"/>
+        <uc:UserUserControl x:Name="XAMLUserUserControl2" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="6" Background="Salmon"/>
+        <Label Content="Description" Background="Beige" FontSize="40" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BorderThickness="3" BorderBrush="Black"/>
+        <Label Content="Classe" FontSize="50" Grid.Column="3" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige"/>
+        <uc:NameUserControl x:Name="XAMLNameUserControl" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Page>

@@ -26,13 +26,14 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <uc:Menu x:Name="XAMLMenu" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="8"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"/>
-        <Label Name="infosPerso" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="Beige"/>
+       
+        <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="8"/>
+        <uc:ButtonsUserControl x:Name="XAMLButtonsUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"/>
+        <Label Name="infosPerso" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="BurlyWood"/>
         <Label Name="infos" Content="Info" Grid.Column="3" Grid.Row="0" Background="Beige"/>
-        <Label Name="inventaire" Content="Inventaire" Grid.Column="2" Grid.RowSpan="4" Background="Beige"/>
-        <Label Name="inventaireBis" Content="Inventaire" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1" Background="Beige"/>
-        <Label Name="affichage" Content="Espace d'affichage" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Background="Beige"/>
+        <Label Name="inventaire" Content="Inventaire" Grid.Column="2" Grid.RowSpan="4" Background="Lavender"/>
+        <Label Name="inventaireBis" Content="Inventaire" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1" Background="Lavender"/>
+        <Label Name="affichage" Content="Espace d'affichage" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Background="OrangeRed"/>
     </Grid>
 
 </Page>

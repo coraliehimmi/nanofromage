@@ -24,10 +24,6 @@ namespace nanofromage.UserControls
         {
             InitializeComponent();
         }
-
-        private void confirm_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
