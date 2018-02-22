@@ -21,8 +21,6 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private int id;
-
-        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region Properties
@@ -50,16 +48,14 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Events
-        public class EntityBase : INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
         {
-            public event PropertyChangedEventHandler PropertyChanged;
-            protected void OnPropertyChanged(string name)
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                PropertyChangedEventHandler handler = PropertyChanged;
-                if (handler != null)
-                {
-                    handler(this, new PropertyChangedEventArgs(name));
-                }
+                handler(this, new PropertyChangedEventArgs(name));
             }
         }
         #endregion

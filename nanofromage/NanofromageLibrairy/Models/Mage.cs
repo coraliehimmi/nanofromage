@@ -18,17 +18,21 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private int magicPoint;
         #endregion
 
         #region Properties
+        public int MagicPoint { get => magicPoint; set => magicPoint = value; }
         #endregion
 
         #region Constructors
         public Mage()
         {
+            this.MagicPoint = magicPoint;
+            this.Description = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
         }
 
-        public Mage(string name, string description, bool sex, int level, int hitpoint) : base(name, description, sex, level, hitpoint)
+        public Mage(string name, string description, bool sex, int level, int hitpoint, int money, int magicPoint) : base(name, description, sex, level, hitpoint, money)
         {
         }
         #endregion

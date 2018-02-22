@@ -24,14 +24,27 @@ namespace NanofromageLibrairy.Models
         private Boolean sex;
         private int level;
         private int hitPoint;
+        private int money;
         #endregion
 
         #region Properties
-        public string Name { get => name; set => name = value; }
-        public string Description { get => description; set => description = value; }
-        public bool Sex { get => sex; set => sex = value; }
-        public int Level { get => level; set => level = value; }
-        public int HitPoint { get => hitPoint; set => hitPoint = value; }
+        public String Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        public String Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+
         #endregion
 
         #region Constructors
@@ -39,16 +52,15 @@ namespace NanofromageLibrairy.Models
         {
 
         }
-        public Character(String name, String description, Boolean sex, int level, int hitpoint)
+        public Character(String name, String description, Boolean sex, int level, int hitpoint, int money)
         {
             this.name = name;
             this.description = description;
             this.sex = sex;
             this.level = level;
             this.hitPoint = hitpoint;
+            this.money = money;
         }
-
-
         #endregion
 
         #region StaticFunctions

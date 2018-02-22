@@ -18,14 +18,20 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private int quantityUsable;
         #endregion
 
         #region Properties
+        public int QuantityUsable { get => quantityUsable; set => quantityUsable = value; }
         #endregion
 
         #region Constructors
         public Usable()
         {
+            this.QuantityUsable = quantityUsable;
+        }
+        public Usable (string name, int quantity, double price, string description, int quantityUsable) : base (name, quantity, price, description, quantityUsable)
+        { 
         }
         #endregion
 
