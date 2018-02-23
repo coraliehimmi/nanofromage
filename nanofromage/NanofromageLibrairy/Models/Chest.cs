@@ -24,8 +24,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Chest(string name, string description) : base(name, description)
+        public Chest()
         {
+                
         }
         #endregion
 

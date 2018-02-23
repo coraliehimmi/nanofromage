@@ -18,18 +18,39 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private TimeSpan duration;
         #endregion
 
         #region Properties
+
+        public TimeSpan Duration
+        {
+            get { return duration; }
+            set { duration = value; }
+        }
+
         #endregion
 
         #region Constructors
+        public Fight()
+        {
+                
+        }
         #endregion
 
         #region StaticFunctions
         #endregion
 
         #region Functions
+        public void Attak()
+        {
+
+        }
+
+        public void ObtainAWinner()
+        {
+
+        }
         #endregion
 
         #region Events

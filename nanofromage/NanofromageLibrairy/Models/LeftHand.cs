@@ -24,8 +24,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public LeftHand(string name, string description) : base(name, description)
+        public LeftHand()
         {
+
         }
         #endregion
 

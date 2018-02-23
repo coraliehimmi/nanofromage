@@ -18,12 +18,24 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private String name;
+        private TimeSpan duration;
+        private int reward;
         #endregion
 
         #region Properties
+        public string Name { get => name; set => name = value; }
+        public TimeSpan Duration { get => duration; set => duration = value; }
+        public int Reward { get => reward; set => reward = value; }
         #endregion
 
         #region Constructors
+        public Adventure(string name, TimeSpan duration, int reward)
+        {
+            this.name = name;
+            this.duration = duration;
+            this.reward = reward;
+        }
         #endregion
 
         #region StaticFunctions

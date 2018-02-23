@@ -24,9 +24,6 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public RightHand(string name, string description) : base(name, description)
-        {
-        }
         #endregion
 
         #region StaticFunctions

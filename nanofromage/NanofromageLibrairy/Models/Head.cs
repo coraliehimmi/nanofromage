@@ -24,6 +24,10 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
+        public Head()
+        {
+
+        }
         #endregion
 
         #region StaticFunctions
@@ -34,8 +38,5 @@ namespace NanofromageLibrairy.Models
 
         #region Events
         #endregion
-        public Head(string name, string description) : base(name, description)
-        {
-        }
     }
 }
