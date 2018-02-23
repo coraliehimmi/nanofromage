@@ -24,6 +24,10 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
+        public Equipment()
+        {
+                
+        }
         #endregion
 
         #region StaticFunctions

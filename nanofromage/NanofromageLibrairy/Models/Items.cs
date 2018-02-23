@@ -22,7 +22,6 @@ namespace NanofromageLibrairy.Models
         private int quantity;
         private double price;
         private String description;
-        private int quantityUsable;
         #endregion
 
         #region Properties
@@ -35,15 +34,14 @@ namespace NanofromageLibrairy.Models
         #region Constructors
         public Items(string name, int quantity, double price, string description)
         {
-            this.name = name;
-            this.quantity = quantity;
-            this.price = price;
-            this.description = description;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.Price = price;
+            this.Description = description;
         }
 
-        public Items(string name, int quantity, double price, string description, int quantityUsable) : this(name, quantity, price, description)
+        public Items()
         {
-            this.quantityUsable = quantityUsable;
         }
         #endregion
 

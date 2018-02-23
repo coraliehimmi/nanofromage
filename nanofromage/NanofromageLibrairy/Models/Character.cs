@@ -44,6 +44,11 @@ namespace NanofromageLibrairy.Models
             set { description = value; }
         }
 
+        public bool Sex { get; private set; }
+        public int Level { get => level; set => level = value; }
+        public int Money { get => money; set => money = value; }
+        public int HitPoint { get => hitPoint; set => hitPoint = value; }
+
 
         #endregion
 
@@ -52,13 +57,13 @@ namespace NanofromageLibrairy.Models
         {
 
         }
-        public Character(String name, String description, Boolean sex, int level, int hitpoint, int money)
+        public Character(String name, String description, Boolean sex, int level, int hitPoint, int money)
         {
             this.name = name;
             this.description = description;
             this.sex = sex;
             this.level = level;
-            this.hitPoint = hitpoint;
+            this.hitPoint = hitPoint;
             this.money = money;
         }
         #endregion
