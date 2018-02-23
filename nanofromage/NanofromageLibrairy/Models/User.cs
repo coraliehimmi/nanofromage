@@ -43,6 +43,10 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Functions
+        public void Connexion()
+        {
+
+        }
         #endregion
 
         #region Events
