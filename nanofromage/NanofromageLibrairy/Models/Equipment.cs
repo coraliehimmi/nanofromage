@@ -23,7 +23,7 @@ namespace NanofromageLibrairy.Models
         #region Properties
         #endregion
 
-        #region Constructors       
+        #region Constructors
         #endregion
 
         #region StaticFunctions

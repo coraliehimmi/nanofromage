@@ -34,8 +34,5 @@ namespace NanofromageLibrairy.Models
 
         #region Events
         #endregion
-        public Head(string name, string description) : base(name, description)
-        {
-        }
     }
 }
