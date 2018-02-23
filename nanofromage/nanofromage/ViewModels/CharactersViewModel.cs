@@ -19,6 +19,7 @@ namespace nanofromage.ViewModels
         private void Events()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
+            //this.page.comboBox
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
