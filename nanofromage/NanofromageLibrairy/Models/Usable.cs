@@ -26,7 +26,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Usable (string name, int quantity, double price, string description, int quantityUsable) : base(name, quantity, price, description, quantityUsable)
+        public Usable (string name, int quantity, double price, string description, int quantityUsable) : base(name, quantity, price, description)
         {
             this.QuantityUsable = quantityUsable;
         }

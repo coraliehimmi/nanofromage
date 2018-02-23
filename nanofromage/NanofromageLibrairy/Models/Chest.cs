@@ -34,6 +34,10 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Functions
+        public void EquipItSelf()
+        {
+
+        }
         #endregion
 
         #region Events

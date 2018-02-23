@@ -24,12 +24,20 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
+        public RightHand()
+        {
+                
+        }
         #endregion
 
         #region StaticFunctions
         #endregion
 
         #region Functions
+        public void EquipItSelf()
+        {
+
+        }
         #endregion
 
         #region Events

@@ -32,16 +32,17 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Items(string name, int quantity, double price, string description)
-        {
-            this.Name = name;
-            this.Quantity = quantity;
-            this.Price = price;
-            this.Description = description;
-        }
-
         public Items()
         {
+                
+        }
+
+        public Items(string name, int quantity, double price, string description)
+        {
+            this.name = name;
+            this.quantity = quantity;
+            this.price = price;
+            this.description = description;
         }
         #endregion
 
