@@ -31,6 +31,5 @@
         <Button Name="bouton7" Content="Button" Grid.Row="5" Grid.Column="5" Click="bouton7_Click" Background="DimGray"/>
         <Button Name="bouton8" Content="Button" Grid.Row="5" Grid.Column="2" Click="bouton8_Click" Background="DimGray"/>
         <local:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="2" Grid.Row="2" Background="Aquamarine"/>
-
     </Grid>
 </UserControl>

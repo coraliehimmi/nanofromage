@@ -15,6 +15,10 @@ namespace nanofromage.ViewModels
             this.page = page;
             Events();
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3b155eed77202a6f75b7d0c744af05a64f564032
         private void Events()
         {
             this.page.XAMLMenuUserControl.home.Click += Home_Click;
@@ -22,9 +26,26 @@ namespace nanofromage.ViewModels
             this.page.XAMLMenuUserControl.logout.Click += Logout_Click;
 
         }
+<<<<<<< HEAD
+
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
+        }
+
+        private void Fight_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Fight();
+        }
+
+        private void Home_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
+=======
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
+>>>>>>> 3b155eed77202a6f75b7d0c744af05a64f564032
         }
 
         private void Fight_Click(object sender, RoutedEventArgs e)
