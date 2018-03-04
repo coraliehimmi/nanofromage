@@ -21,7 +21,7 @@ namespace nanofromage.Views
     /// <summary>
     /// Logique d'interaction pour Characters.xaml
     /// </summary>
-    public partial class Characters : Page, INotifyPropertyChanged
+    public sealed partial class Characters : Page, INotifyPropertyChanged
     {
 
         #region StaticVariables
@@ -41,10 +41,10 @@ namespace nanofromage.Views
 
         public Mage CurrentMage
         {
-            get { return currentMage; }
+            get { return this.currentMage; }
             set {
-                currentMage = value;
-                OnPropertyChanged("currentMage");
+                this.currentMage = value;
+                OnPropertyChanged("CurrentMage");
             }
         }
 
@@ -53,8 +53,8 @@ namespace nanofromage.Views
         #region Constructors
         public Characters()
         {
-            InitializeComponent();
-            new CharactersViewModel(this);
+            this.InitializeComponent();
+            this.DataContext = this;
 
         }
 

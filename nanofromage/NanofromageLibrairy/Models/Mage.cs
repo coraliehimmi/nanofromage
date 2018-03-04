@@ -29,7 +29,7 @@ namespace NanofromageLibrairy.Models
         public Mage()
         {
             this.MagicPoint = magicPoint;
-            this.Description = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
+            base.Description = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
         }
 
         public Mage(string name, string description, bool sex, int level, int hitpoint, int money, int magicPoint) : base(name, description, sex, level, hitpoint, money)

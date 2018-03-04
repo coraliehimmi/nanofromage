@@ -32,7 +32,7 @@ namespace NanofromageLibrairy.Models
         {
             this.Power = power;
             this.Rage = rage;
-            this.Description = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
+            base.Description = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
         }
 
         public Warrior(string name, string description, bool sex, int level, int hitpoint, int money, int puissance, int rage) : base(name, description, sex, level, hitpoint, money)

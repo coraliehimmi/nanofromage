@@ -33,8 +33,9 @@ namespace NanofromageLibrairy.Models
         }*/
         public Hunter(string name, string description, bool sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
         {
-            this.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
+            base.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
             this.Name = "Hunter";
+            this.Precision = precision;
         }
         #endregion
 
