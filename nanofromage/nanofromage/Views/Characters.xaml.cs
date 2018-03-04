@@ -1,6 +1,8 @@
 ﻿using nanofromage.ViewModels;
+using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +21,67 @@ namespace nanofromage.Views
     /// <summary>
     /// Logique d'interaction pour Characters.xaml
     /// </summary>
-    public partial class Characters : Page
+    public partial class Characters : Page, INotifyPropertyChanged
     {
+
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        #endregion
+
+        #region Attributs
+        private Mage currentMage;
+        #endregion
+
+        #region Properties
+
+        public Mage CurrentMage
+        {
+            get { return currentMage; }
+            set {
+                currentMage = value;
+                OnPropertyChanged("currentMage");
+            }
+        }
+
+        #endregion
+
+        #region Constructors
         public Characters()
         {
             InitializeComponent();
             new CharactersViewModel(this);
-            
+
         }
+
+        public Characters(Mage currentMage)
+        {
+            CurrentMage = currentMage;
+        }
+        #endregion
+
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        #endregion
+
     }
 }
