@@ -33,7 +33,9 @@
         <Label Name="infos" Content="Info" Grid.Column="3" Grid.Row="0" Background="Beige"/>
         <Label Name="inventaire" Content="Inventaire" Grid.Column="2" Grid.RowSpan="4" Background="Lavender"/>
         <Label Name="inventaireBis" Content="Inventaire" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1" Background="Lavender"/>
-        <Label Name="affichage" Content="Espace d'affichage" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Background="OrangeRed"/>
+        <Image Visibility="Visible" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Source="/Image/3.jpg"/>
+
+        <Label Name="affichage" Content="Espace d'affichage" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4"/>
     </Grid>
 
 </Page>

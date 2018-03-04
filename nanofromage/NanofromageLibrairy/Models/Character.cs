@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Character : ModelBase
+    public abstract class Character : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -53,10 +53,14 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Character()
+        /*public Character()
         {
 
-        }
+        }*/
+        //class
+        private Hunter hunter;
+        abstract public void Classes(string classe, string description);
+
         public Character(String name, String description, Boolean sex, int level, int hitPoint, int money)
         {
             this.name = name;

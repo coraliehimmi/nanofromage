@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Mage : Character
+    public abstract class Mage : Character
     {
         #region StaticVariables
         #endregion
@@ -26,14 +26,15 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Mage()
+        public override void Classes(string name, string description)
         {
-            this.MagicPoint = magicPoint;
             this.Description = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
+            this.Name = "Mage";
         }
 
         public Mage(string name, string description, bool sex, int level, int hitpoint, int money, int magicPoint) : base(name, description, sex, level, hitpoint, money)
         {
+            this.MagicPoint = magicPoint;
         }
         #endregion
 

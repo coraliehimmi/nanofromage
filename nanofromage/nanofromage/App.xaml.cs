@@ -23,7 +23,7 @@ namespace nanofromage
             MainWindow.Show();
 
             Database<Character> Db = new Database<Character>();
-            Db.Insert(new Character());
+            //Db.Insert(new Character());
    
         }
     }
