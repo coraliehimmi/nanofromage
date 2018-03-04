@@ -36,6 +36,7 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
+
         public Fight page { get; private set; }
     }
 }

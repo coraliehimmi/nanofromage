@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Hunter : Character
+    public abstract class Hunter : Character
     {
         #region StaticVariables
         #endregion
@@ -19,6 +20,15 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private int precision;
+
+        private String description;
+
+        public String Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
         #endregion
 
         #region Properties
@@ -31,11 +41,17 @@ namespace NanofromageLibrairy.Models
             this.Precision = precision;
             this.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
         }*/
-        public Hunter(string name, string description, bool sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
+
+        public override void Classes(string name, string description)
         {
             base.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
             this.Name = "Hunter";
             this.Precision = precision;
+        }
+
+        public Hunter(string name, string description, bool sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
+        {
+           
         }
         #endregion
 
@@ -46,6 +62,16 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string description)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(description));
+            }
+        }
         #endregion
 
     }

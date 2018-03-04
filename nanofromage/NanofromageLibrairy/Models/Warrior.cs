@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Warrior : Character
+    public abstract class Warrior : Character
     {
         #region StaticVariables
         #endregion
@@ -28,15 +28,16 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Warrior()
+        public override void Classes(string name, string description)
         {
-            this.Power = power;
-            this.Rage = rage;
-            base.Description = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
+            this.Description = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
+            this.Name = "Warrior";
         }
 
         public Warrior(string name, string description, bool sex, int level, int hitpoint, int money, int puissance, int rage) : base(name, description, sex, level, hitpoint, money)
         {
+            this.Power = power;
+            this.Rage = rage;
         }
         #endregion
 

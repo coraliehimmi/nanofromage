@@ -38,10 +38,10 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Constructors
-        public CharacterUserControl()
+        /*public CharacterUserControl()
         {
             InitializeComponent();
-        }
+        }*/
         #endregion
 
         #region StaticFunctions
