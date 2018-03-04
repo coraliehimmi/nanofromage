@@ -15,7 +15,6 @@ namespace nanofromage.ViewModels
             this.page = page;
             Events();
         }
-
         private void Events()
         {
             this.page.XAMLMenuUserControl.home.Click += Home_Click;
@@ -23,7 +22,6 @@ namespace nanofromage.ViewModels
             this.page.XAMLMenuUserControl.logout.Click += Logout_Click;
 
         }
-
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();

@@ -35,7 +35,6 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
         <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Image/1.jpg"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
         <TextBox x:Name="description" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"  Background="Beige" FontSize="20" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BorderThickness="3" BorderBrush="Black" Text="{Binding CurrentHunter.Description, Mode=TwoWay}"/>
