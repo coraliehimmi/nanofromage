@@ -32,9 +32,8 @@ namespace nanofromage.Views
         }
     }*/
 
-    public sealed partial class Characters : Page, INotifyPropertyChanged
+    public partial class Characters : Page, INotifyPropertyChanged
     {
-
         #region StaticVariables
         #endregion
 
@@ -45,18 +44,18 @@ namespace nanofromage.Views
         #endregion
 
         #region Attributs
-        private Mage currentMage;
+        private Character currentCharacter;
         #endregion
 
         #region Properties
 
-        public Mage CurrentMage
+        public Character CurrentCharacter
         {
-            get { return this.currentMage; }
+            get { return this.currentCharacter; }
             set
             {
-                this.currentMage = value;
-                OnPropertyChanged("CurrentMage");
+                this.currentCharacter = value;
+                OnPropertyChanged("CurrentCharacter");
             }
         }
 
@@ -67,12 +66,8 @@ namespace nanofromage.Views
         {
             this.InitializeComponent();
             new CharactersViewModel(this);
+            DataContext = this;
 
-        }
-
-        public Characters(Mage currentMage)
-        {
-            CurrentMage = currentMage;
         }
         #endregion
 

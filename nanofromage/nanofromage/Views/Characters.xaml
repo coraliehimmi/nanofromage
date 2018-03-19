@@ -37,11 +37,11 @@
         </Grid.RowDefinitions>
         <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Image/1.jpg"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
-        <TextBox x:Name="description" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"  Background="Beige" FontSize="20" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BorderThickness="3" BorderBrush="Black" Text="{Binding CurrentHunter.Description, Mode=TwoWay}"/>
+        <TextBlock x:Name="XAMLdescription" TextWrapping="Wrap" Background="Beige" FontSize="20" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" Text="{Binding CurrentCharacter.Description, Mode=TwoWay}"/>
         <ComboBox x:Name="comboBox" FontSize="20" Grid.Column="3" Grid.Row="6" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige">
-            <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">ComboBox Item #2</ComboBoxItem>
-            <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            <ComboBoxItem Name="Mage">Mage</ComboBoxItem>
+            <ComboBoxItem Name="Warrior" IsSelected="True">Warrior</ComboBoxItem>
+            <ComboBoxItem Name="Hunter">Hunter</ComboBoxItem>
         </ComboBox>
         <uc:NameUserControl x:Name="XAMLNameUserControl" Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" Grid.Column="2" Grid.Row="12" Grid.ColumnSpan="2"/>
