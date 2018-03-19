@@ -2,6 +2,7 @@
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,18 @@ namespace Database.MySql
                 : connectionString)
         {
         }
+        public Database(DbConnection existingConnection, bool contextOwnsConnection)
+      : base(existingConnection, contextOwnsConnection)
+        {
+
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Character>();
-            modelBuilder.Entity<User>();
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Character>();
+            modelBuilder.Entity<Mage>();
+            modelBuilder.Entity<User>();   
         }
         public DbSet<T> DbSetT { get; set; }
 

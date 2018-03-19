@@ -21,6 +21,17 @@ namespace nanofromage.Views
     /// <summary>
     /// Logique d'interaction pour Characters.xaml
     /// </summary>
+    /// 
+
+    /*public partial class Characters : Page
+    {
+        public Characters()
+        {
+            InitializeComponent();
+            new CharactersViewModel(this);
+        }
+    }*/
+
     public sealed partial class Characters : Page, INotifyPropertyChanged
     {
 
@@ -42,7 +53,8 @@ namespace nanofromage.Views
         public Mage CurrentMage
         {
             get { return this.currentMage; }
-            set {
+            set
+            {
                 this.currentMage = value;
                 OnPropertyChanged("CurrentMage");
             }
@@ -54,7 +66,7 @@ namespace nanofromage.Views
         public Characters()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            new CharactersViewModel(this);
 
         }
 
@@ -82,6 +94,5 @@ namespace nanofromage.Views
             }
         }
         #endregion
-
     }
 }
