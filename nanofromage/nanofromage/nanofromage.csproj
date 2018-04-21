@@ -79,6 +79,9 @@
     <Compile Include="UserControls\ConfirmUserControl.xaml.cs">
       <DependentUpon>ConfirmUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LoginUserControl.xaml.cs">
+      <DependentUpon>LoginUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Inscription.xaml.cs">
+      <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
     </Compile>
@@ -127,6 +133,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="UserControls\ConfirmUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoginUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
