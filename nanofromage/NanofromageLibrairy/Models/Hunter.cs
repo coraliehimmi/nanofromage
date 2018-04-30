@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public abstract class Hunter : Character
+    public class Hunter : Character
     {
         #region StaticVariables
         #endregion
@@ -20,7 +20,6 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private int precision;
-
         #endregion
 
         #region Properties
@@ -34,14 +33,14 @@ namespace NanofromageLibrairy.Models
             this.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
         }*/
 
-        public override void Classes(string name, string description)
+        public Hunter()
+        {
+        }
+        //contructeur vide par défaut
+
+        public Hunter(String name, String description, Boolean sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
         {
             base.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
-            this.Name = "Hunter";
-        }
-
-        public Hunter(string name, string description, bool sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
-        {
             this.Precision = precision;
         }
         #endregion
@@ -53,16 +52,6 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string description)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(description));
-            }
-        }
         #endregion
 
     }

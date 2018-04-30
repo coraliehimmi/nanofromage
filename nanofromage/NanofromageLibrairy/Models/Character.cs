@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public abstract class Character : ModelBase
+    public class Character : ModelBase, ActionsCharacter
     {
         #region StaticVariables
         #endregion
@@ -15,7 +15,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Variables
-
+        private List<Mage> listMages;
+        private List<Hunter> listHunters;
+        private List<Warrior> listWarriors;
         #endregion
 
         #region Attributs
@@ -25,6 +27,7 @@ namespace NanofromageLibrairy.Models
         private int level;
         private int hitPoint;
         private int money;
+        
         #endregion
 
         #region Properties
@@ -38,28 +41,23 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public String Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
-
-        public bool Sex { get; private set; }
+        public string Description { set => description = value; }
+        public bool Sex { get => sex; set => sex = value; }
         public int Level { get => level; set => level = value; }
         public int Money { get => money; set => money = value; }
         public int HitPoint { get => hitPoint; set => hitPoint = value; }
-
-
+        public List<Mage> ListMages { get => listMages; set => listMages = value; }
+        public List<Hunter> ListHunters { get => listHunters; set => listHunters = value; }
+        public List<Warrior> ListWarriors { get => listWarriors; set => listWarriors = value; }
+        
         #endregion
 
         #region Constructors
-        /*public Character()
+        public Character()
         {
 
-        }*/
-        //class
-        private Hunter hunter;
-        abstract public void Classes(string classe, string description);
+        }
+        // contructeur vide par défaut
 
         public Character(String name, String description, Boolean sex, int level, int hitPoint, int money)
         {
@@ -69,6 +67,16 @@ namespace NanofromageLibrairy.Models
             this.level = level;
             this.hitPoint = hitPoint;
             this.money = money;
+        }
+
+        public new void Attaque()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void AttaqueSpe()
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

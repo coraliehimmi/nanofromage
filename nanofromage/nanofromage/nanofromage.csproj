@@ -84,8 +84,13 @@
     <Compile Include="UserControls\ConfirmUserControl.xaml.cs">
       <DependentUpon>ConfirmUserControl.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="UserControls\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
+=======
+    <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
+      <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
+>>>>>>> df473ef6c4c4fb9734585c2fd519f3c74bfd6d85
     </Compile>
     <Compile Include="UserControls\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
@@ -146,7 +151,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="UserControls\LoginUserControl.xaml">
+=======
+    <Page Include="UserControls\InscriptionUserControl.xaml">
+>>>>>>> df473ef6c4c4fb9734585c2fd519f3c74bfd6d85
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

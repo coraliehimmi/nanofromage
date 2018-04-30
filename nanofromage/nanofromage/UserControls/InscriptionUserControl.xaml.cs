@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour ConfirmUserControl.xaml
+    /// Logique d'interaction pour InscriptionUserControl.xaml
     /// </summary>
     public partial class InscriptionUserControl : UserControl
     {

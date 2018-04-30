@@ -16,4 +16,8 @@
         </Grid.RowDefinitions>
         <Button x:Name="inscription" Content="Inscription" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="26"/>
     </Grid>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> df473ef6c4c4fb9734585c2fd519f3c74bfd6d85
 </UserControl>

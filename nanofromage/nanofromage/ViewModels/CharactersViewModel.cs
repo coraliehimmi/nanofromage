@@ -22,7 +22,7 @@ namespace nanofromage.ViewModels
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
             //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-            this.page.XAMLNameUserControl.male.Checked += Male_Checked;
+            //this.page.XAMLNameUserControl.male.Checked += Male_Checked;
 
             //this.page.XAMLCharacterUserControl.female.Che
             /*BitmapImage b = new BitmapImage();
@@ -43,11 +43,11 @@ namespace nanofromage.ViewModels
             }
         }
 
-        private void Male_Checked(object sender, RoutedEventArgs e)
-        {
+        //private void Male_Checked(object sender, RoutedEventArgs e)
+        //{
             
             //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-        }
+        //}
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
