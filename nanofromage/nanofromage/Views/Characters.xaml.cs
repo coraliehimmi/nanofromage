@@ -55,6 +55,7 @@ namespace nanofromage.Views
         {
             this.InitializeComponent();
             this.DataContext = this;
+            new CharactersViewModel(this);
 
         }
 

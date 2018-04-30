@@ -30,6 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -38,6 +40,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Action.cs" />
@@ -52,6 +55,7 @@
     <Compile Include="Models\LeftHand.cs" />
     <Compile Include="Models\Mage.cs" />
     <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\PasswordHelper.cs" />
     <Compile Include="Models\RightHand.cs" />
     <Compile Include="Models\Usable.cs" />
     <Compile Include="Models\User.cs" />

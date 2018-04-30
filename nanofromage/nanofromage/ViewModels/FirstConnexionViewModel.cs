@@ -19,12 +19,19 @@ namespace nanofromage.ViewModels
         private void Events()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
+            this.page.XAMLInscriptionUserControl.inscription.Click += Inscription_Click;
         }
 
         private void Confirm_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
         }
+
+        private void Inscription_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
+        }
+
 
         public FirstConnexion page { get; private set; }
     }

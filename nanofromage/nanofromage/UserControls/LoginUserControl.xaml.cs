@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NanofromageLibrairy.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,16 +20,65 @@ namespace nanofromage.UserControls
     /// <summary>
     /// Logique d'interaction pour LoginUserControl.xaml
     /// </summary>
-    public partial class LoginUserControl : UserControl
+    public partial class LoginUserControl : UserControl, INotifyPropertyChanged
     {
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        private User currentUser;
+        #endregion
+
+        #region Attributs
+        #endregion
+
+        #region Properties
+        public User CurrentUser
+        {
+            get { return this.currentUser; }
+            set
+            {
+                this.currentUser = value;
+                base.OnPropertyChanged("CurrentUser");
+            }
+        }
+        #endregion
+
+        #region Constructors
         public LoginUserControl()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            this.DataContext = this;
         }
+        #endregion
 
-        private void XAMLCharacterUserControl_Loaded(object sender, RoutedEventArgs e)
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        #endregion
+        
+        /*private void XAMLCharacterUserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
-        }
+        }*/
+
+       
     }
 }

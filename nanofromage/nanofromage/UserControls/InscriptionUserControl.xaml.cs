@@ -1,5 +1,4 @@
-﻿using nanofromage.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nanofromage.Views
+namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour Inscription.xaml
+    /// Logique d'interaction pour ConfirmUserControl.xaml
     /// </summary>
-    public partial class Inscription : Page
+    public partial class InscriptionUserControl : UserControl
     {
-        public Inscription()
+        public InscriptionUserControl()
         {
             InitializeComponent();
-            new InscriptionViewModel(this);
         }
     }
 }

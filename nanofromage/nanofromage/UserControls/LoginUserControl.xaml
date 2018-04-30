@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:uc="clr-namespace:nanofromage.UserControls"
+             xmlns:local="clr-namespace:NanofromageLibrairy.Models;assembly=NanofromageLibrairy"
              mc:Ignorable="d" 
              d:DesignHeight="180" d:DesignWidth="480">
     
@@ -18,11 +19,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Name="name" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+        <TextBox Name="name" Text="{Binding CurrentUser.login, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
         <Label Content="Login :" HorizontalAlignment="Center" FontSize="23" Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="0" VerticalContentAlignment="Center"/>
-        <PasswordBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <PasswordBox Name="psw" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
         <Label Content="Password :" HorizontalAlignment="Center" FontSize="23" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" VerticalContentAlignment="Center"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="0" Grid.Row="2" Grid.RowSpan="5" Loaded="XAMLCharacterUserControl_Loaded"/>
     </Grid>
     
     

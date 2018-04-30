@@ -9,7 +9,7 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="Characters">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
