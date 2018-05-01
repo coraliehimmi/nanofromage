@@ -12,6 +12,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constants
+        public const string DESCRIPTION = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
         #endregion
 
         #region Variables
@@ -26,15 +27,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Mage()
+        public Mage() : base(DESCRIPTION)
         {
             
-        }
-
-        public Mage(String name, String description, Boolean sex, int level, int hitpoint, int money, int magicPoint) : base(name, description, sex, level, hitpoint, money)
-        {
-            this.MagicPoint = magicPoint;
-            base.Description = "à force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.";
         }
         #endregion
 

@@ -1,7 +1,6 @@
-﻿using nanofromage.ViewModels;
-using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,71 +15,74 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WebService;
-using System.Timers;
-using System.Windows.Threading;
 
-namespace nanofromage.Views
+namespace WebService
 {
     /// <summary>
-    /// Logique d'interaction pour Fight.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class Fight : Page, INotifyPropertyChanged
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        
-
-        public Fight()
+        private List<Donjon> item;
+        public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
             CallWebService();
-            new FightViewModel(this);
         }
 
-     
-            
+        /*private async void CallWebService2()
+        {
+            Webservice ws = new Webservice(BaseAdress);
+            SetUpView2(await ws.HttpClientCaller(SubAdress));
+        }*/
+
         private async void CallWebService()
         {
-
-            
             Webservice ws = new Webservice("https://getbridgeapp.co/api/nanofromage");
+
             //List<User> users = new List<User>();
             //foreach (var usersItem in await ws.HttpClientCaller<List<User>>(User.PATH, users))
             //{
 
             //}
-            Donjon donjon = new Donjon();
-            //List<Donjon> donjon = new List<Donjon>();
-            donjon = await ws.HttpClientCaller<Donjon>(Donjon.BY_DONJON + "1", donjon);
+            //item = new List<Donjon>();
+            //Console.WriteLine("1" + item);
+            Donjon user = new Donjon();
+            user = await ws.HttpClientCaller<Donjon>(Donjon.BY_DONJON + 1, user);
+            //Console.WriteLine("2" + item);
+            //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
 
-            /*foreach (var donjonItem in await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH, donjon))
+            //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
+
+            //user.Todos = await ws.HttpClientCaller<List<Todo>>(Todo.BY_USER + user.id, user.Todos);
+
+            //user.Albums = await ws.HttpClientCaller<List<Album>>(Album.BY_USER + user.id, user.Albums);
+
+            /*foreach (var item in user.Albums)
             {
-                SetUpView<List<Donjon>>(donjon);
+                item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
             }*/
 
-                //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
-
-                //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
-
-                //user.Todos = await ws.HttpClientCaller<List<Todo>>(Todo.BY_USER + user.id, user.Todos);
-
-                //user.Albums = await ws.HttpClientCaller<List<Album>>(Album.BY_USER + user.id, user.Albums);
-
-                /*foreach (var item in user.Albums)
-                {
-                    item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
-                }*/
-
-            SetUpView<Donjon>(donjon);
+            SetUpView<Donjon>(user);
         }
 
         private void SetUpView<T>(T item)
         {
             String output = JsonConvert.SerializeObject(item);
             JObject jObject = JsonConvert.DeserializeObject(output) as JObject;
-            Console.WriteLine(jObject);
             this.MainGrid.Children.Add(BuildElement(jObject));
         }
-        
+
+        private void SetUpView2(JObject jObject)
+        {
+            var element = BuildElement(jObject);
+            Grid.SetRow(element, 2);
+            Grid.SetColumn(element, 0);
+            Grid.SetColumnSpan(element, 2);
+            this.MainGrid.Children.Add(element);
+        }
+
         private ScrollViewer BuildElement(JObject jObject)
         {
             ScrollViewer scrollViewer = new ScrollViewer();
@@ -88,11 +90,12 @@ namespace nanofromage.Views
 
             if (jObject.Count > 0)
             {
-                /*content.ColumnDefinitions.Add(new ColumnDefinition
+                content.ColumnDefinitions.Add(new ColumnDefinition
                 {
                     Width = GridLength.Auto
                 });
-                content.ColumnDefinitions.Add(new ColumnDefinition());*/
+                content.ColumnDefinitions.Add(new ColumnDefinition());
+
                 int currentRow = 0;
                 foreach (var x in jObject)
                 {
@@ -106,7 +109,7 @@ namespace nanofromage.Views
                         Label lbl = new Label();
                         lbl.Content = name;
                         Grid.SetRow(lbl, currentRow);
-                        Grid.SetColumn(lbl, 3);
+                        Grid.SetColumn(lbl, 0);
                         content.Children.Add(lbl);
 
                         if (value.Type == JTokenType.Array)
@@ -125,7 +128,7 @@ namespace nanofromage.Views
                             subScrollViewer.Content = subGrid;
 
                             Grid.SetRow(subScrollViewer, currentRow);
-                            Grid.SetColumn(subScrollViewer, 3);
+                            Grid.SetColumn(subScrollViewer, 1);
                             content.Children.Add(subScrollViewer);
                         }
                         else if (value.Type == JTokenType.Object)
@@ -155,8 +158,7 @@ namespace nanofromage.Views
                             txtBox.IsReadOnly = true;
                             txtBox.Text = value.ToString();
                             Grid.SetRow(txtBox, currentRow);
-                            Grid.SetColumn(txtBox, 5);
-                            Console.WriteLine(txtBox);
+                            Grid.SetColumn(txtBox, 1);
                             content.Children.Add(txtBox);
                         }
                     }

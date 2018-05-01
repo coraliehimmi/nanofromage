@@ -14,8 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Grid.Column="0" Grid.RowSpan="6" x:Name="character">
-            <Image.Source>/Image/1.jpg</Image.Source>
-        </Image>
+        <Image Grid.Column="0" Grid.RowSpan="6" x:Name="character" Source="/Ressources/1.jpg"/>
+
     </Grid>
 </UserControl>

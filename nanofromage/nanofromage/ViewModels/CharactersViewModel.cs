@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace nanofromage.ViewModels
@@ -42,12 +43,7 @@ namespace nanofromage.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
-        //private void Male_Checked(object sender, RoutedEventArgs e)
-        //{
-            
-            //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-        //}
+        
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {

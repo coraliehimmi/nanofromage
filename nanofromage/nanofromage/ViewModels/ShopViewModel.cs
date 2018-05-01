@@ -8,9 +8,13 @@ using System.Windows;
 
 namespace nanofromage.ViewModels
 {
-    public class HomeViewModel
+    public class ShopViewModel
     {
-        public HomeViewModel(Home page)
+        /// <summary>
+        /// Main function, call the view and events of this page
+        /// </summary>
+        /// <param name="page"></param>
+        public ShopViewModel(Shop page)
         {
             this.page = page;
             Events();
@@ -54,15 +58,7 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            int level = 0;
-            if (level > 1)
-            {
-                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
-            }
-            else
-            {
-                MessageBox.Show("Vous devez être niveau 2");
-            }
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
         }
 
         /// <summary>
@@ -85,7 +81,6 @@ namespace nanofromage.ViewModels
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
 
-        public Home page { get; private set; }
-
+        public Shop page { get; private set; }
     }
 }

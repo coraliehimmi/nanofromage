@@ -41,7 +41,12 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public string Description { set => description = value; }
+        public string Description
+        {
+            set => description = value;
+            get => description;
+        }
+
         public bool Sex { get => sex; set => sex = value; }
         public int Level { get => level; set => level = value; }
         public int Money { get => money; set => money = value; }
@@ -58,15 +63,9 @@ namespace NanofromageLibrairy.Models
 
         }
         // contructeur vide par défaut
-
-        public Character(String name, String description, Boolean sex, int level, int hitPoint, int money)
+        public Character(string description)
         {
-            this.name = name;
             this.description = description;
-            this.sex = sex;
-            this.level = level;
-            this.hitPoint = hitPoint;
-            this.money = money;
         }
 
         public new void Attaque()
