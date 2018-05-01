@@ -30,7 +30,7 @@ namespace Database.MySql
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Character>();
-            modelBuilder.Entity<Mage>();
+            modelBuilder.Entity<Clan>();
             modelBuilder.Entity<User>();   
         }
         public DbSet<T> DbSetT { get; set; }

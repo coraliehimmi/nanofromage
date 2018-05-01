@@ -1,4 +1,5 @@
 ﻿using nanofromage.Views;
+using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,14 +11,40 @@ using System.Windows.Media.Imaging;
 
 namespace nanofromage.ViewModels
 {
-    public class CharactersViewModel
+    public class CharactersViewModel : INotifyPropertyChanged
     {
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+
+        #endregion
+
+        #region Attributs
+        public Characters page { get; private set; }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
         public CharactersViewModel(Characters page)
         {
             this.page = page;
             Events();
         }
+        #endregion
 
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
         private void Events()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
@@ -45,15 +72,19 @@ namespace nanofromage.ViewModels
 
         //private void Male_Checked(object sender, RoutedEventArgs e)
         //{
-            
-            //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
+
+        //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
         //}
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
+        #endregion
 
-        public Characters page { get; private set; }
+
+
+
+
     }
 }

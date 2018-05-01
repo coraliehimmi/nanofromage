@@ -47,6 +47,7 @@
     <Compile Include="Models\Adventure.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Chest.cs" />
+    <Compile Include="Models\Clan.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Fight.cs" />
     <Compile Include="Models\Head.cs" />

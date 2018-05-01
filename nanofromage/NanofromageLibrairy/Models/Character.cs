@@ -15,18 +15,15 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Variables
-        private List<Mage> listMages;
-        private List<Hunter> listHunters;
-        private List<Warrior> listWarriors;
         #endregion
 
         #region Attributs
         private String name;
-        private String description;
         private Boolean sex;
         private int level;
-        private int hitPoint;
         private int money;
+        private int power;
+        private int rage;
         
         #endregion
 
@@ -40,16 +37,59 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Name");
             }
         }
+        public Boolean Sex
+        {
+            get { return sex; }
+            set
+            {
+                sex = value;
+                OnPropertyChanged("Sex");
+            }
+        }
 
-        public string Description { set => description = value; }
-        public bool Sex { get => sex; set => sex = value; }
-        public int Level { get => level; set => level = value; }
-        public int Money { get => money; set => money = value; }
-        public int HitPoint { get => hitPoint; set => hitPoint = value; }
-        public List<Mage> ListMages { get => listMages; set => listMages = value; }
-        public List<Hunter> ListHunters { get => listHunters; set => listHunters = value; }
-        public List<Warrior> ListWarriors { get => listWarriors; set => listWarriors = value; }
-        
+        public int Level
+        {
+            get { return level; }
+            set
+            {
+                level = value;
+                OnPropertyChanged("Level");
+            }
+        }
+
+        public int Money
+        {
+            get { return money; }
+            set
+            {
+                money = value;
+                OnPropertyChanged("Money");
+            }
+        }
+
+        public int Power
+        {
+            get { return power; }
+            set
+            {
+                power = value;
+                OnPropertyChanged("Power");
+            }
+        }
+        public int Rage
+        {
+            get { return rage; }
+            set
+            {
+                rage = value;
+                OnPropertyChanged("Rage");
+            }
+        }
+
+
+
+
+
         #endregion
 
         #region Constructors
@@ -57,21 +97,22 @@ namespace NanofromageLibrairy.Models
         {
 
         }
-        // contructeur vide par défaut
 
-        public Character(String name, String description, Boolean sex, int level, int hitPoint, int money)
+        public Character(string name, bool sex, int level, int money, int power, int rage)
         {
             this.name = name;
-            this.description = description;
             this.sex = sex;
             this.level = level;
-            this.hitPoint = hitPoint;
             this.money = money;
+            this.power = power;
+            this.rage = rage;
         }
 
-        public new void Attaque()
+        // contructeur vide par défaut
+
+        public void Attaque()
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void AttaqueSpe()
