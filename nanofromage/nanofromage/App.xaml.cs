@@ -29,7 +29,7 @@ namespace nanofromage
             loger = new Loger(new List<Alert> { Alert.CONSOLE }, new List<Mode> { Mode.CONSOLE });
             loger.Log(TAG, this, "Mon test");
 
-            Database<Character> Db = new Database<Character>();
+            /*Database<Character> Db = new Database<Character>();
             Mage mage1 = new Mage();
             mage1.Sex = true;
             mage1.Money = 100;
