@@ -107,12 +107,9 @@
     <Compile Include="ViewModels\FightViewModel.cs" />
     <Compile Include="ViewModels\FirstConnexionViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-<<<<<<< HEAD
     <Compile Include="ViewModels\InscriptionViewModel.cs" />
-=======
     <Compile Include="ViewModels\QuestViewModel.cs" />
     <Compile Include="ViewModels\ShopViewModel.cs" />
->>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
     <Compile Include="Views\Characters.xaml.cs">
       <DependentUpon>Characters.xaml</DependentUpon>
     </Compile>
@@ -129,16 +126,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Views\Inscription.xaml.cs">
       <DependentUpon>Inscription.xaml</DependentUpon>
-=======
     <Compile Include="Views\Quest.xaml.cs">
       <DependentUpon>Quest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Shop.xaml.cs">
       <DependentUpon>Shop.xaml</DependentUpon>
->>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
     </Compile>
     <Compile Include="Views\test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
@@ -199,15 +193,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
     <Page Include="Views\Inscription.xaml">
-=======
     <Page Include="Views\Quest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Shop.xaml">
->>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
