@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\nanofromage.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +46,9 @@
     </Reference>
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.11\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -103,7 +107,12 @@
     <Compile Include="ViewModels\FightViewModel.cs" />
     <Compile Include="ViewModels\FirstConnexionViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModels\InscriptionViewModel.cs" />
+=======
+    <Compile Include="ViewModels\QuestViewModel.cs" />
+    <Compile Include="ViewModels\ShopViewModel.cs" />
+>>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
     <Compile Include="Views\Characters.xaml.cs">
       <DependentUpon>Characters.xaml</DependentUpon>
     </Compile>
@@ -120,8 +129,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Views\Inscription.xaml.cs">
       <DependentUpon>Inscription.xaml</DependentUpon>
+=======
+    <Compile Include="Views\Quest.xaml.cs">
+      <DependentUpon>Quest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shop.xaml.cs">
+      <DependentUpon>Shop.xaml</DependentUpon>
+>>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
     </Compile>
     <Compile Include="Views\test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
@@ -182,7 +199,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="Views\Inscription.xaml">
+=======
+    <Page Include="Views\Quest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shop.xaml">
+>>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,17 +248,33 @@
       <Project>{08403b17-1337-49ee-9d85-0f9db5b26d78}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LoggerUtil\LoggerUtil.csproj">
+      <Project>{8D0D600C-EE91-419C-A17A-72DB33BC931C}</Project>
+      <Name>LoggerUtil</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NanofromageLibrairy\NanofromageLibrairy.csproj">
       <Project>{ccb67b20-4fac-4b4a-bdd6-51c35e97d5c3}</Project>
       <Name>NanofromageLibrairy</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebService\WebService.csproj">
+      <Project>{6c316fde-44af-4eb9-8860-f16a11998e26}</Project>
+      <Name>WebService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Image\1.jpg" />
-    <Resource Include="Image\2.jpg" />
-    <Resource Include="Image\3.jpg" />
-    <Resource Include="Image\4.png" />
+    <Resource Include="Resources\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

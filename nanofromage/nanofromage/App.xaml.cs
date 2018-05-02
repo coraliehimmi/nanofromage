@@ -1,4 +1,5 @@
 ﻿using Database.MySql;
+using LoggerUtil;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
@@ -16,11 +17,18 @@ namespace nanofromage
     /// </summary>
     public partial class App : Application
     {
+        public const string TAG = "App";
+        Loger loger;
+
         public App()
         {
             Window MainWindow = new Window();
-            MainWindow.Content = new FirstConnexion();
+            MainWindow.Content = new Home();
             MainWindow.Show();
+            
+            loger = new Loger(new List<Alert> { Alert.CONSOLE }, new List<Mode> { Mode.CONSOLE });
+            loger.Log(TAG, this, "Mon test");
+
             Database<Character> Db = new Database<Character>();
             Mage mage1 = new Mage();
             mage1.Sex = true;
@@ -37,6 +45,7 @@ namespace nanofromage
            
             Database<Hunter> Dbhunter = new Database<Hunter>();
             Dbhunter.Insert(hunter1);
+
             //Dbmage.Insert(mage1);
             //Dbmage.Insert(mage2);
             //Dbmage.Insert(mage3);

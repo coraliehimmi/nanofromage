@@ -29,13 +29,19 @@
        
         <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="8"/>
         <uc:ButtonsUserControl x:Name="XAMLButtonsUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"/>
-        <Label Name="infosPerso" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="BurlyWood"/>
+        <Label Name="classe" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="classe" Background="BurlyWood"/>
+        <Label Name="money" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="" Background="BurlyWood"/>
+        <Label Name="hitPoint" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="BurlyWood"/>
+        <Label Name="MagicPoint" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Content="Info perso" Background="BurlyWood"/>
+
         <Label Name="infos" Content="Info" Grid.Column="3" Grid.Row="0" Background="Beige"/>
         <Label Name="inventaire" Content="Inventaire" Grid.Column="2" Grid.RowSpan="4" Background="Lavender"/>
         <Label Name="inventaireBis" Content="Inventaire" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1" Background="Lavender"/>
-        <Image Visibility="Visible" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Source="/Image/3.jpg"/>
+        <!--
+        <Image Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Source="pack://application:,,,/Resources/3.jpg"/>
+        -->
+        <Image Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Source="/Resources/3.jpg"/>
 
-        <Label Name="affichage" Content="Espace d'affichage" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4"/>
     </Grid>
 
 </Page>

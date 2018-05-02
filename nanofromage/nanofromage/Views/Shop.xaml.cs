@@ -1,6 +1,4 @@
-﻿using Database.MySql;
-using nanofromage.ViewModels;
-using NanofromageLibrairy.Models;
+﻿using nanofromage.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,20 +13,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WebService;
 
 namespace nanofromage.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Home.xaml
+    /// Logique d'interaction pour Shop.xaml
     /// </summary>
-    public partial class Home : Page
+    public partial class Shop : Page
     {
-        public Home()
+        public Shop()
         {
             InitializeComponent();
-            new HomeViewModel(this);
+            new ShopViewModel(this);
         }
-        Database<Hunter> Dbhunter = new Database<Hunter>();
     }
 }

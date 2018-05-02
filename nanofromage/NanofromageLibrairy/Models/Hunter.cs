@@ -13,6 +13,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constants
+        public const string DESCRIPTION = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
         #endregion
 
         #region Variables
@@ -37,11 +38,8 @@ namespace NanofromageLibrairy.Models
         {
         }
         //contructeur vide par défaut
-
-        public Hunter(String name, String description, Boolean sex, int level, int hitpoint, int money, int precision) : base(name, description, sex, level, hitpoint, money)
+        public Hunter() : base(DESCRIPTION)
         {
-            base.Description = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
-            this.Precision = precision;
         }
         #endregion
 

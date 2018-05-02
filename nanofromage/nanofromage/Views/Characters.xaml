@@ -35,7 +35,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Image/1.jpg"/>
+        <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
         <TextBlock x:Name="XAMLdescription" TextWrapping="Wrap" Background="Beige" FontSize="20" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" Text="{Binding CurrentCharacter.Description, Mode=TwoWay}"/>
         <ComboBox x:Name="comboBox" FontSize="20" Grid.Column="3" Grid.Row="6" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige">

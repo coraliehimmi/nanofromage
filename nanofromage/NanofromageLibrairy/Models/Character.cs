@@ -90,6 +90,23 @@ namespace NanofromageLibrairy.Models
 
 
 
+<<<<<<< HEAD
+=======
+        public string Description
+        {
+            set => description = value;
+            get => description;
+        }
+
+        public bool Sex { get => sex; set => sex = value; }
+        public int Level { get => level; set => level = value; }
+        public int Money { get => money; set => money = value; }
+        public int HitPoint { get => hitPoint; set => hitPoint = value; }
+        public List<Mage> ListMages { get => listMages; set => listMages = value; }
+        public List<Hunter> ListHunters { get => listHunters; set => listHunters = value; }
+        public List<Warrior> ListWarriors { get => listWarriors; set => listWarriors = value; }
+        
+>>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
         #endregion
 
         #region Constructors
@@ -97,6 +114,7 @@ namespace NanofromageLibrairy.Models
         {
 
         }
+<<<<<<< HEAD
 
         public Character(string name, bool sex, int level, int money, int power, int rage)
         {
@@ -106,6 +124,12 @@ namespace NanofromageLibrairy.Models
             this.money = money;
             this.power = power;
             this.rage = rage;
+=======
+        // contructeur vide par défaut
+        public Character(string description)
+        {
+            this.description = description;
+>>>>>>> c73a337624843ace3b2b47be0dc8dec157ed70c0
         }
 
         // contructeur vide par défaut

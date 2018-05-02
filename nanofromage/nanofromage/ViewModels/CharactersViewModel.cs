@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace nanofromage.ViewModels
@@ -81,10 +82,5 @@ namespace nanofromage.ViewModels
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
         #endregion
-
-
-
-
-
     }
 }

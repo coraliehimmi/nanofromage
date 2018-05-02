@@ -12,6 +12,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constants
+        public const string DESCRIPTION = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
         #endregion
 
         #region Variables
@@ -28,16 +29,9 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Constructors
-        public Warrior()
+        public Warrior() : base (DESCRIPTION)
         {
             
-        }
-
-        public Warrior(string name, string description, bool sex, int level, int hitpoint, int money, int puissance, int rage) : base(name, description, sex, level, hitpoint, money)
-        {
-            this.Power = power;
-            this.Rage = rage;
-            base.Description = "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.";
         }
         #endregion
 

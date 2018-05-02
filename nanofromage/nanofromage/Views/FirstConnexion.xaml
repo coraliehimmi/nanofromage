@@ -34,7 +34,6 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
         <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Image/1.jpg"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="0" Grid.Row="2" Grid.RowSpan="5"/>
         <uc:LoginUserControl x:Name="XAMLLoginUserControl" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="3"/>
