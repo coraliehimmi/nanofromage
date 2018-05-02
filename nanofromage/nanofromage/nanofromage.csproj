@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Views\Inscription.xaml.cs">
       <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Quest.xaml.cs">
       <DependentUpon>Quest.xaml</DependentUpon>
     </Compile>
@@ -192,8 +193,11 @@
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+  	</Page>
     <Page Include="Views\Inscription.xaml">
+    	<SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Quest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
