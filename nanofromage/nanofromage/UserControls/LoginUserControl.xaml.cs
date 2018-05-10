@@ -38,12 +38,8 @@ namespace nanofromage.UserControls
         #region Properties
         public User CurrentUser
         {
-            get { return this.currentUser; }
-            set
-            {
-                this.currentUser = value;
-                base.OnPropertyChanged("CurrentUser");
-            }
+            get { return currentUser; }
+            set { currentUser = value; }
         }
         #endregion
 

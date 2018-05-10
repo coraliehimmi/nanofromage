@@ -1,4 +1,5 @@
-﻿using nanofromage.Views;
+﻿using MySql.Data.MySqlClient;
+using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,17 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
+
 namespace nanofromage.ViewModels
 {
     public class CharactersViewModel : INotifyPropertyChanged
     {
+        Clan currentClan = new Clan();
+        MySqlCommand cmd = new MySqlCommand();
+        private String name;
+        private String description;
+        private int nb;
+
         #region StaticVariables
         #endregion
 
@@ -22,6 +30,8 @@ namespace nanofromage.ViewModels
 
         #region Variables
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         #endregion
 
         #region Attributs
@@ -43,24 +53,43 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Functions
+        public String GetName(int nb)
+        {
+            cmd.CommandText = "SELECT name FROM clans WHERE id =" + nb;
+            return name;
+        }
+
+        public String GetDescription(int nb)
+        {
+            cmd.CommandText = "SELECT description FROM clans WHERE id =" + nb;
+            return description;
+        }
         #endregion
 
         #region Events
         private void Events()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
-            //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-            //this.page.XAMLNameUserControl.male.Checked += Male_Checked;
-
-            //this.page.XAMLCharacterUserControl.female.Che
-            /*BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new Uri("pack://aplication:,,,/Image/1.jpg");
-            b.EndInit();*/
+            
+            /*if (this.page.Mage.IsSelected)
+            {
+                currentClan.NameClan = GetName(1);
+                currentClan.Description = GetDescription(1);
+            }
+            else if (this.page.Hunter.IsSelected)
+            {
+                currentClan.NameClan = GetName(2);
+                currentClan.Description = GetDescription(2);
+            }
+            else if (this.page.Warrior.IsSelected)
+            {
+                currentClan.NameClan = GetName(3);
+                currentClan.Description = GetDescription(3);
+            }*/
         }
 
         //public BitmapImage GetMyImage => new BitmapImage(new Uri("/Image/1.png" + UriKind.Absolute));
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         public void OnPropertyChanged(string name)
         {
@@ -82,5 +111,14 @@ namespace nanofromage.ViewModels
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
         #endregion
+
+        //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
+        //this.page.XAMLNameUserControl.male.Checked += Male_Checked;
+
+        //this.page.XAMLCharacterUserControl.female.Che
+        /*BitmapImage b = new BitmapImage();
+        b.BeginInit();
+        b.UriSource = new Uri("pack://aplication:,,,/Image/1.jpg");
+        b.EndInit();*/
     }
 }

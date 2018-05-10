@@ -1,6 +1,7 @@
 ﻿using Database.MySql;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
+using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,6 @@ namespace nanofromage.ViewModels
 {
     public class FirstConnexionViewModel
     {
-        Clan mage = new Clan("Mage", "A force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.", 10, 50, 30);
-        Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 30, 20, 10);
-        Clan hunter = new Clan("Hunter", "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat", 50, 10, 40);
 
         #region StaticVariables
         #endregion
@@ -55,10 +53,6 @@ namespace nanofromage.ViewModels
 
         private void Confirm_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Database<Clan> DbClan = new Database<Clan>();
-            DbClan.Insert(mage);
-            DbClan.Insert(hunter);
-            DbClan.Insert(warrior);
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
         }
 

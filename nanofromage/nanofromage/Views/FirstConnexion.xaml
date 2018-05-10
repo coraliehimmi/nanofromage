@@ -34,7 +34,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Image/1.jpg"/>
+        <Image Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Source="/Resources/1.jpg"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="0" Grid.Row="2" Grid.RowSpan="5"/>
         <uc:LoginUserControl x:Name="XAMLLoginUserControl" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="3"/>
         <Label TextBlock.Foreground="LightPink" Content="Connexion" FontWeight="Bold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2"/>

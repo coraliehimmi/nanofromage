@@ -82,6 +82,9 @@
     <Compile Include="UserControls\CharacterUserControl.xaml.cs">
       <DependentUpon>CharacterUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
+      <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
       <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="UserControls\ComboBoxUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\InscriptionUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -193,9 +200,9 @@
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-  	</Page>
+    </Page>
     <Page Include="Views\Inscription.xaml">
-    	<SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Quest.xaml">

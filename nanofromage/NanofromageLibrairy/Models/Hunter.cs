@@ -12,7 +12,7 @@ namespace NanofromageLibrairy.Models
         #region StaticVariables
         #endregion
 
-        #region Constants
+        /*#region Constants
         public const string DESCRIPTION = "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat";
         #endregion
 
@@ -38,10 +38,10 @@ namespace NanofromageLibrairy.Models
         {
         }
         //contructeur vide par défaut
-        public Hunter() : base(DESCRIPTION)
+        /*public Hunter() : base(DESCRIPTION)
         {
         }
-        #endregion
+        #endregion*/
 
         #region StaticFunctions
         #endregion

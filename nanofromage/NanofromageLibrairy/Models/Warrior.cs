@@ -8,7 +8,7 @@ namespace NanofromageLibrairy.Models
 {
     public class Warrior : Character
     {
-        #region StaticVariables
+        /*#region StaticVariables
         #endregion
 
         #region Constants
@@ -42,7 +42,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Events
-        #endregion
+        #endregion*/
 
     }
 }

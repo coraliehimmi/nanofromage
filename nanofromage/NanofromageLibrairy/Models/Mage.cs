@@ -8,7 +8,7 @@ namespace NanofromageLibrairy.Models
 {
     public class Mage : Character
     {
-        #region StaticVariables
+        /*#region StaticVariables
         #endregion
 
         #region Constants
@@ -40,7 +40,7 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Events
-        #endregion
+        #endregion*/
 
     }
 }

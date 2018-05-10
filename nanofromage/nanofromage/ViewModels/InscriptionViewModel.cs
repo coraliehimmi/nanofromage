@@ -10,24 +10,63 @@ namespace nanofromage.ViewModels
 {
     public class InscriptionViewModel
     {
-        private Inscription page;
+        /// <summary>
+        /// Logique d'interaction pour InscriptionViewModel.xaml
+        /// </summary>
+        #region StaticVariables
+        #endregion
 
-        public Inscription Page { get => page; set => page = value; }
+        #region Constants
+        #endregion
 
+        #region Variables
+        private String name;
+        private String msg;
+        #endregion
+
+        #region Attributs
+
+        #endregion
+
+        #region Properties
+        public Inscription page { get; private set; }
+        public string Name { get => name; set => name = value; }
+        #endregion
+
+        #region Constructors
         public InscriptionViewModel(Inscription page)
         {
             this.page = page;
             Enregistrement();
         }
+        #endregion
 
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
         private void Enregistrement()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
         }
 
+        /*private String SelectName(String CurrentName)
+        {
+            if (CurrentName == name)
+            {
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
+                msg = "Ce nom d'utilisateur est déjà utilisé, merci d'en saisir un nouveau";
+
+            }
+            else
+            return name;
+        }*/
+        #endregion
+
+        #region Events
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            if ()
+            /*if ()
             {
 
             } else if ()
@@ -36,8 +75,16 @@ namespace nanofromage.ViewModels
             } else
             {
 
-            }
+            }*/
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
         }
+        #endregion
+        
+
+        
+
+        
+
+        
     }
 }
