@@ -25,10 +25,13 @@ namespace nanofromage.ViewModels
         #region Variables
         private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         private String result = "";
-        private String message = "";
+        private String message;
+        private String selectName;
+        private String selectPassword;
+        public static String currentName;
+        private String currentPassword;
         private MySqlConnection connection;
-        private String name;
-        private String password;
+        private User admin = new User("admin", "admin");
         #endregion
 
         #region Attributs
@@ -42,6 +45,7 @@ namespace nanofromage.ViewModels
         public FirstConnexionViewModel(FirstConnexion page)
         {
             this.page = page;
+            Init();
             Events();
         }
         #endregion
@@ -50,41 +54,29 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Functions
-        private String SelectLogin(String name) /// recherche si le login saisi par l'urilisateur est présent en BDD
+        private bool OpenConnection()
         {
-            connection = new MySqlConnection(connectionString);
-            connection.Open();
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT login FROM User WHERE login = @login";
-            cmd.Parameters.AddWithValue("@login", name); 
-            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            try
             {
-                while (dataReader.Read())
-                {
-                    result = dataReader["Login"].ToString();
-                }
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                return true;
             }
-            connection.Close();
-            return result;
-        }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("C'est une première ouverture de l'application");
+                return false;
+            }
+        } /// Teste la connection à la base de données
 
-        private String SelectMdp(String name, String mdp) /// recherche si le mdp saisi par l'utilisateur correspond à celui de son login
+        private void Init()
         {
-            connection = new MySqlConnection(connectionString);
-            connection.Open();
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT mdp FROM User WHERE login = @login";
-            cmd.Parameters.AddWithValue("Login", name);
-            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            if (OpenConnection() == false)
             {
-                while (dataReader.Read())
-                {
-                    result = dataReader["Mdp"].ToString();
-                }
+                Database<User> DbUser = new Database<User>();
+                DbUser.Insert(admin);
             }
-            connection.Close();
-            return result;
-        }
+        } /// Fonction qui insère l'utilisateur admin seulement si c'est la première ouverture de l'appli
         #endregion
 
         #region Events
@@ -97,15 +89,27 @@ namespace nanofromage.ViewModels
 
         private void Confirm_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            name = SelectLogin(LoginUserControl.currentUser.Login); /// Prend la valeur du résultat de la requête de sélection
-            password = SelectMdp(LoginUserControl.currentUser.Login, LoginUserControl.currentUser.Password); /// Prend la valeur du résultat de la requête de sélection
-            if (name == LoginUserControl.currentUser.Login && password == LoginUserControl.currentUser.Password)
+            LoginUserControl.currentName = LoginUserControl.currentUser.Login; /// Ici la valeur du CurrentName prend la valeur de la saisie de l'utilisateur
+            currentName = LoginUserControl.currentName; /// pour une visibilité plus claire, je mets cette variable dans une autre varaible pour la réutiliser
+            LoginUserControl.currentPassword = LoginUserControl.currentUser.Password;
+            this.currentPassword = LoginUserControl.currentPassword;
+            selectName = LoginUserControl.SelectName(currentName);
+            selectPassword = LoginUserControl.SelectMdp(currentName, this.currentPassword);
+            if (currentName is null)
+            {
+                message = "Aucun nom d'utilisateur n'a été saisi.";
+                MessageBox.Show(message);
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
+            }
+            else if (currentName == selectName && currentPassword == selectPassword)
             {
                 Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
             }
             else
             {
-                message = "L'utilisateur est inconnu ou le mot de passe est erroné"; /// AFFICHER MESSAGE !!!!
+                message = "L'utilisateur est inconnu ou le mot de passe est erroné.";
+                MessageBox.Show(message);
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
             }
         }
 

@@ -25,6 +25,5 @@
         <TextBlock x:Name="XAMLdescription" TextWrapping="Wrap" Background="Beige" FontSize="20" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
         <ComboBox x:Name="comboBox" FontSize="20" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige" ItemsSource="{Binding nameClan}">
         </ComboBox>
-        <TextBlock x:Name="test" Background="Blue" Grid.ColumnSpan="2" TextBlock.Foreground="Beige"></TextBlock>
     </Grid>
 </UserControl>

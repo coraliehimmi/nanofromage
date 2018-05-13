@@ -61,12 +61,6 @@ namespace nanofromage.UserControls
             this.InitializeComponent();
             this.DataContext = this;
             currentUser = new User();
-            //currentName = currentUser.Login;
-            //currentPassword = currentUser.Password;
-            //textboxName.Text = currentUser.Login;
-            //textboxPsw.Text = currentUser.Password;
-            //currentName = textboxName.Text;
-            //currentPassword = textboxPsw.Text;
         }
         #endregion
 
@@ -133,7 +127,6 @@ namespace nanofromage.UserControls
             currentUser.Password = currentPassword.ToString();
             DbUser.Insert(currentUser);
         }
-
         #endregion
 
         #region Events

@@ -53,13 +53,12 @@ namespace nanofromage.UserControls
         public ComboBoxUserControl()
         {
             InitializeComponent();
-            Save();
+            Init();
             listClan = new List<String>();
             Load();
             comboBox.ItemsSource = listClan; /// en fonction des Clans dispo, on les affiche tous
             Selection(1);
             Events();
-            ///Save();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,16 +95,16 @@ namespace nanofromage.UserControls
             listClan.Add(hunter.NameClan);
         }
 
-        public void Save() /// sauvegarde en BDD des clans mais à revoir car a chaque nouvelle connexion 3 nouveaux clans. Beosin que les champs soient UNIQUES
+        public void Init() /// sauvegarde en BDD des clans mais à revoir car a chaque nouvelle connexion 3 nouveaux clans. Beosin que les champs soient UNIQUES
         {
-            Database<Clan> DbClan = new Database<Clan>();
-            do
+            String test = Selection(1);
+            if (Selection(1) != "Mage")
             {
+                Database<Clan> DbClan = new Database<Clan>();
                 DbClan.Insert(mage);
                 DbClan.Insert(hunter);
                 DbClan.Insert(warrior);
-            } while ((Selection(1) != "Mage"));
-            
+            }
         }
 
         public String Selection(int valeur)  /// requete de selection à remettre au propre plus tard
@@ -114,14 +113,14 @@ namespace nanofromage.UserControls
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT NameClan FROM clans WHERE Id = @Id";
-            cmd.Parameters.AddWithValue("@Id", 1);
+            cmd.Parameters.AddWithValue("Id", valeur);
             ///cmd.ExecuteScalar();
             using (MySqlDataReader dataReader = cmd.ExecuteReader())
             {
                 while (dataReader.Read())
                 {
                     result = dataReader["NameClan"].ToString();
-                    test.Text = result;
+                    //test.Text = result;
                 }
             }
             connection.Close();

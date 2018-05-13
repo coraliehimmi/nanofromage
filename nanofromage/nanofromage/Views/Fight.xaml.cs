@@ -35,9 +35,7 @@ namespace nanofromage.Views
             CallWebService();
             new FightViewModel(this);
         }
-
-     
-            
+        
         private async void CallWebService()
         {
 

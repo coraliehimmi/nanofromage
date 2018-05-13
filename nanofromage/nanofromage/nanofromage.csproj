@@ -85,6 +85,9 @@
     <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
       <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ExitUserControl.xaml.cs">
+      <DependentUpon>ExitUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
       <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="UserControls\ComboBoxUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ExitUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

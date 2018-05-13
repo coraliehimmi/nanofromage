@@ -26,7 +26,6 @@ namespace nanofromage.ViewModels
         #region Variables
         private String msg;
         private String selectName;
-        private String selectPswd;
         private String currentName;
         private String currentPassword;
         #endregion
@@ -60,14 +59,24 @@ namespace nanofromage.ViewModels
         #region Events
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            int nb = 6;
             LoginUserControl.currentName = LoginUserControl.currentUser.Login; /// Ici la valeur du CurrentName prend la valeur de la saisie de l'utilisateur
             this.currentName = LoginUserControl.currentName; /// pour une visibilité plus claire, je mets cette variable dans une autre varaible pour la réutiliser
             selectName = LoginUserControl.SelectName(this.currentName); /// je recherche si le nom existe en BDD
             if (selectName != this.currentName)
             {
                 this.currentPassword = LoginUserControl.currentUser.Password;
-                LoginUserControl.SaveNewUser(this.currentName, this.currentPassword);
-                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
+                if (this.currentPassword.Length <= nb)
+                {
+                    msg = "Votre mot de passe doit contenir plus de " + nb + " charactères.";
+                    MessageBox.Show(msg);
+                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
+                }
+                else
+                {
+                    LoginUserControl.SaveNewUser(this.currentName, this.currentPassword);
+                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
+                }
             }
             /// Si le nom d'utilisateur n'exite pas, je récupère la valeur du password, je sauvegarde et j'arrive sur la page des Characters.
             else
@@ -77,7 +86,6 @@ namespace nanofromage.ViewModels
                 Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
             }
             /// Si l'utilisateur existe, message d'erreur, et je réinitialise ma page.
-            /// Ajouter une vérification supplémentaire sur le mot de passe si le temps
         }
 
 
