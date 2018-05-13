@@ -24,7 +24,8 @@ namespace NanofromageLibrairy.Models
         private int money;
         private int power;
         private int rage;
-        
+        private int idClan;
+
         #endregion
 
         #region Properties
@@ -85,6 +86,18 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Rage");
             }
         }
+        
+
+        public int IdClan
+        {
+            get { return idClan; }
+            set
+            {
+                idClan = value;
+                OnPropertyChanged("IdClan");
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -92,7 +105,7 @@ namespace NanofromageLibrairy.Models
         {
             // contructeur vide par défaut
         }
-        public Character(string name, bool sex, int level, int money, int power, int rage)
+        public Character(string name, bool sex, int level, int money, int power, int rage, int idClan)
         {
             this.name = name;
             this.sex = sex;
@@ -100,6 +113,7 @@ namespace NanofromageLibrairy.Models
             this.money = money;
             this.power = power;
             this.rage = rage;
+            this.idClan = idClan;
         }
         
         public void Attaque()

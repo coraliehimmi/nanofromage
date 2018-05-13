@@ -19,9 +19,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Name="name" Text="{Binding CurrentUser.login, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+        <TextBox Name="textboxName" Text="{Binding CurrentUser.Login, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
         <Label Content="Login :" HorizontalAlignment="Center" FontSize="23" Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="0" VerticalContentAlignment="Center"/>
-        <PasswordBox Name="psw" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBox Name="textboxPsw" Text="{Binding CurrentUser.Password, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
         <Label Content="Password :" HorizontalAlignment="Center" FontSize="23" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

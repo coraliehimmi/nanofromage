@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MySql\Ajouts.cs" />
     <Compile Include="MySql\Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

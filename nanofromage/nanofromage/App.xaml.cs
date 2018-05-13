@@ -1,11 +1,13 @@
 ﻿using Database.MySql;
 using LoggerUtil;
+using MySql.Data.Entity;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,7 +21,6 @@ namespace nanofromage
     {
         public const string TAG = "App";
         Loger loger;
-
         public App()
         {
             Window MainWindow = new Window();
@@ -28,6 +29,8 @@ namespace nanofromage
             
             loger = new Loger(new List<Alert> { Alert.CONSOLE }, new List<Mode> { Mode.CONSOLE });
             loger.Log(TAG, this, "Mon test");
+
+            DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
 
             /*Database<Character> Db = new Database<Character>();
             Mage mage1 = new Mage();

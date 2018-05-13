@@ -1,8 +1,10 @@
 ﻿using Database.MySql;
+using MySql.Data.MySqlClient;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +36,9 @@ namespace nanofromage.UserControls
         public Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 30, 20, 10);
         public Clan hunter = new Clan("Hunter", "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat", 50, 10, 40);
         public List<String> listClan;
+        private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         private String selectedClan;
+        private String result;
         #endregion
 
         #region Attributs
@@ -49,10 +53,13 @@ namespace nanofromage.UserControls
         public ComboBoxUserControl()
         {
             InitializeComponent();
+            Save();
             listClan = new List<String>();
             Load();
             comboBox.ItemsSource = listClan; /// en fonction des Clans dispo, on les affiche tous
+            Selection(1);
             Events();
+            ///Save();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -89,12 +96,36 @@ namespace nanofromage.UserControls
             listClan.Add(hunter.NameClan);
         }
 
-        public void Save() /// sauvegarde en BDD des clans mais à revoir car manque des choses
+        public void Save() /// sauvegarde en BDD des clans mais à revoir car a chaque nouvelle connexion 3 nouveaux clans. Beosin que les champs soient UNIQUES
         {
             Database<Clan> DbClan = new Database<Clan>();
-            DbClan.Insert(mage);
-            DbClan.Insert(hunter);
-            DbClan.Insert(warrior);
+            do
+            {
+                DbClan.Insert(mage);
+                DbClan.Insert(hunter);
+                DbClan.Insert(warrior);
+            } while ((Selection(1) != "Mage"));
+            
+        }
+
+        public String Selection(int valeur)  /// requete de selection à remettre au propre plus tard
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT NameClan FROM clans WHERE Id = @Id";
+            cmd.Parameters.AddWithValue("@Id", 1);
+            ///cmd.ExecuteScalar();
+            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            {
+                while (dataReader.Read())
+                {
+                    result = dataReader["NameClan"].ToString();
+                    test.Text = result;
+                }
+            }
+            connection.Close();
+            return result;
         }
         #endregion
 

@@ -113,7 +113,6 @@ namespace Database.MySql
             var res = await this.SaveChangesAsync();
             return res;
         }
-
         
     }
 }
