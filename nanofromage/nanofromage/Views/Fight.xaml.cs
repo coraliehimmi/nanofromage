@@ -48,29 +48,28 @@ namespace nanofromage.Views
             //{
 
             //}
-            Donjon donjon = new Donjon();
-            //List<Donjon> donjon = new List<Donjon>();
-            donjon = await ws.HttpClientCaller<Donjon>(Donjon.BY_DONJON + "1", donjon);
-
-            /*foreach (var donjonItem in await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH, donjon))
+            //Donjon donjon = new Donjon();
+            List<Donjon> donjon = new List<Donjon>();
+            donjon = await ws.HttpClientCaller <List<Donjon>>(Donjon.PATH, donjon);
+            foreach (var donjonItem in await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH, donjon))
             {
                 SetUpView<List<Donjon>>(donjon);
+            }
+
+            //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
+
+            //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
+
+            //user.Todos = await ws.HttpClientCaller<List<Todo>>(Todo.BY_USER + user.id, user.Todos);
+
+            //user.Albums = await ws.HttpClientCaller<List<Album>>(Album.BY_USER + user.id, user.Albums);
+
+            /*foreach (var item in user.Albums)
+            {
+                item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
             }*/
 
-                //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
-
-                //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
-
-                //user.Todos = await ws.HttpClientCaller<List<Todo>>(Todo.BY_USER + user.id, user.Todos);
-
-                //user.Albums = await ws.HttpClientCaller<List<Album>>(Album.BY_USER + user.id, user.Albums);
-
-                /*foreach (var item in user.Albums)
-                {
-                    item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
-                }*/
-
-            SetUpView<Donjon>(donjon);
+            //SetUpView<Donjon>(donjon);
         }
 
         private void SetUpView<T>(T item)
