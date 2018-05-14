@@ -103,6 +103,9 @@
     <Compile Include="UserControls\NameUserControl.xaml.cs">
       <DependentUpon>NameUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SexUserControl.xaml.cs">
+      <DependentUpon>SexUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\StatUserControl.xaml.cs">
       <DependentUpon>StatUserControl.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\NameUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SexUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

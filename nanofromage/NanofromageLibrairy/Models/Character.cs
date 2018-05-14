@@ -20,10 +20,10 @@ namespace NanofromageLibrairy.Models
         #region Attributs
         private String name;
         private Boolean sex;
-        private int level;
-        private int money;
-        private int power;
-        private int rage;
+        private int level; /// 1
+        private int money; /// 0
+        private int power; /// 5
+        private int rage; /// 0
         private int idClan;
 
         #endregion

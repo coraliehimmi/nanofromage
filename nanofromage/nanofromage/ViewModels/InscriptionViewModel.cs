@@ -63,12 +63,18 @@ namespace nanofromage.ViewModels
             LoginUserControl.currentName = LoginUserControl.currentUser.Login; /// Ici la valeur du CurrentName prend la valeur de la saisie de l'utilisateur
             this.currentName = LoginUserControl.currentName; /// pour une visibilité plus claire, je mets cette variable dans une autre varaible pour la réutiliser
             selectName = LoginUserControl.SelectName(this.currentName); /// je recherche si le nom existe en BDD
-            if (selectName != this.currentName)
+            if ((this.currentName is null) || (currentName.Length <= nb))
+            {
+                msg = "Votre Login doit contenir au moins " + nb + " caractères.";
+                MessageBox.Show(msg);
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
+            }
+            else if (selectName != this.currentName)
             {
                 this.currentPassword = LoginUserControl.currentUser.Password;
                 if (this.currentPassword.Length <= nb)
                 {
-                    msg = "Votre mot de passe doit contenir plus de " + nb + " charactères.";
+                    msg = "Votre mot de passe doit contenir plus de " + nb + " caractères.";
                     MessageBox.Show(msg);
                     Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Inscription();
                 }

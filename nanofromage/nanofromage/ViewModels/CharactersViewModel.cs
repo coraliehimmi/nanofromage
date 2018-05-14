@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using nanofromage.UserControls;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
@@ -16,12 +17,6 @@ namespace nanofromage.ViewModels
 {
     public class CharactersViewModel : INotifyPropertyChanged
     {
-        Clan currentClan = new Clan();
-        MySqlCommand cmd = new MySqlCommand();
-        private String name;
-        private String description;
-        private int nb;
-
         #region StaticVariables
         #endregion
 
@@ -29,22 +24,37 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Variables
-
+        private Char test;
+        private String result;
+        private int rslt;
+        private String currentNameClan;
+        private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         public event PropertyChangedEventHandler PropertyChanged;
-        
         #endregion
 
         #region Attributs
+        public static Character currentCharacter;
         public Characters page { get; private set; }
         #endregion
 
         #region Properties
+        public Character CurrentCharacter
+        {
+            get { return currentCharacter; }
+            set
+            {
+                currentCharacter = value;
+                OnPropertyChanged("CurrentCharacter");
+            }
+        }
+
         #endregion
 
         #region Constructors
         public CharactersViewModel(Characters page)
         {
             this.page = page;
+            currentNameClan = FirstConnexionViewModel.currentName;
             Events();
         }
         #endregion
@@ -53,7 +63,7 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Functions
-        public String GetName(int nb)
+        /*public String GetName(int nb)
         {
             cmd.CommandText = "SELECT name FROM clans WHERE id =" + nb;
             return name;
@@ -63,6 +73,36 @@ namespace nanofromage.ViewModels
         {
             cmd.CommandText = "SELECT description FROM clans WHERE id =" + nb;
             return description;
+        }*/
+        private void SaveCharacter()
+        {
+            currentCharacter = new Character();
+            test = SexUserControl.SexChoice();
+            currentCharacter.IdClan = RecupIdClan(currentNameClan);
+            currentCharacter.Name = NameUserControl.nameUC;
+            currentCharacter.Level = 1;
+            currentCharacter.Money = 0;
+            currentCharacter.Power = 5;
+            currentCharacter.Rage = 0;
+        }
+        private int RecupIdClan(String valeur)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT NameClan FROM clans WHERE NameClan = @NameClan";
+            cmd.Parameters.AddWithValue("NameClan", valeur);
+            ///cmd.ExecuteScalar();
+            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            {
+                while (dataReader.Read())
+                {
+                    rslt = int.Parse(dataReader["NameClan"].ToString());
+                    //test.Text = result;
+                }
+            }
+            connection.Close();
+            return rslt;
         }
         #endregion
 
@@ -70,22 +110,6 @@ namespace nanofromage.ViewModels
         private void Events()
         {
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
-            
-            /*if (this.page.Mage.IsSelected)
-            {
-                currentClan.NameClan = GetName(1);
-                currentClan.Description = GetDescription(1);
-            }
-            else if (this.page.Hunter.IsSelected)
-            {
-                currentClan.NameClan = GetName(2);
-                currentClan.Description = GetDescription(2);
-            }
-            else if (this.page.Warrior.IsSelected)
-            {
-                currentClan.NameClan = GetName(3);
-                currentClan.Description = GetDescription(3);
-            }*/
         }
 
         //public BitmapImage GetMyImage => new BitmapImage(new Uri("/Image/1.png" + UriKind.Absolute));
@@ -99,15 +123,12 @@ namespace nanofromage.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
-        //private void Male_Checked(object sender, RoutedEventArgs e)
-        //{
-
         //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
         //}
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            SaveCharacter();
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
         #endregion

@@ -24,16 +24,7 @@ namespace nanofromage.Views
     /// </summary>
     /// 
 
-    /*public partial class Characters : Page
-    {
-        public Characters()
-        {
-            InitializeComponent();
-            new CharactersViewModel(this);
-        }
-    }*/
-
-    public partial class Characters : Page, INotifyPropertyChanged
+    public partial class Characters : Page
     {
         #region StaticVariables
         #endregion
@@ -42,39 +33,19 @@ namespace nanofromage.Views
         #endregion
 
         #region Variables
-        private String result;
-        private int rslt;
-        private String currentNameClan;
-        private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         #endregion
 
         #region Attributs
-        private Character currentCharacter;
         #endregion
 
         #region Properties
-
-        public Character CurrentCharacter
-        {
-            get { return this.currentCharacter; }
-            set
-            {
-                this.currentCharacter = value;
-                OnPropertyChanged("CurrentCharacter");
-            }
-        }
-
         #endregion
 
         #region Constructors
         public Characters()
         {
-            this.InitializeComponent();
-            this.DataContext = this;
+            InitializeComponent();
             new CharactersViewModel(this);
-            currentNameClan = FirstConnexionViewModel.currentName;
-            /*new CharactersViewModel(this);
-            DataContext = this;*/
         }
         #endregion
 
@@ -82,43 +53,10 @@ namespace nanofromage.Views
         #endregion
 
         #region Functions
-        private void SaveCharacter() /// A faire dans CharactereViewModel
-        {
-            currentCharacter.IdClan = RecupIdClan(currentNameClan);
-            currentCharacter.Name = 
-        }
-        private int RecupIdClan(String valeur) /// A faire dans CharactereViewModel
-        {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT NameClan FROM clans WHERE NameClan = @NameClan";
-            cmd.Parameters.AddWithValue("NameClan", valeur);
-            ///cmd.ExecuteScalar();
-            using (MySqlDataReader dataReader = cmd.ExecuteReader())
-            {
-                while (dataReader.Read())
-                {
-                    rslt = int.Parse(dataReader["NameClan"].ToString());
-                    test.Text = result;
-                }
-            }
-            connection.Close();
-            return rslt;
-        }
+        
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
         #endregion
     }
 }

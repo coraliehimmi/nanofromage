@@ -1,5 +1,4 @@
-﻿using NanofromageLibrairy.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,9 +17,9 @@ using System.Windows.Shapes;
 namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour NameUserControl.xaml
+    /// Logique d'interaction pour SexUserControl.xaml
     /// </summary>
-    public partial class NameUserControl : UserControl, INotifyPropertyChanged
+    public partial class SexUserControl : UserControl, INotifyPropertyChanged
     {
 
         #region StaticVariables
@@ -30,41 +29,37 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
+        public static Char result;
+        public static Char sexe;
+        private RadioButton rdb = new RadioButton();
         #endregion
 
         #region Attributs
-        public static String nameUC;
+        public static Char test;
         //private Character currentCharacter;
         #endregion
 
         #region Properties
 
-        public String NameUC
+        public Char Test
         {
-            get { return nameUC; }
+            get { return test; }
             set
             {
-                nameUC = value;
-                OnPropertyChanged("NameUC");
+                test = value;
+                OnPropertyChanged("Test");
             }
         }
-
-        /*public Character CurrentCharacter
-        {
-            get { return currentCharacter; }
-            set
-            {
-                currentCharacter = value;
-                OnPropertyChanged("CurrentCharacter");
-            }
-        }*/
         #endregion
 
         #region Constructors
-        public NameUserControl()
+        public SexUserControl()
         {
             InitializeComponent();
             DataContext = this;
+            Events();
+            test = SexChoice();
+            ///Events();
         }
         #endregion
 
@@ -75,6 +70,33 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Events
+        private void Events()
+        {
+            rdb.CheckedChanged += new System.EventHandler(RadioButtonCheckedChanged);
+            this.maleUC.changed
+        }
+
+        public static Char SexChoice()
+        {
+            try
+            {
+                if (femaleUC.IsChecked == true)
+                {
+                    result = 'F';
+                }
+                else if (maleUC.IsChecked == true)
+                {
+                    result = 'M';
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return result;
+        }
+       
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string name)

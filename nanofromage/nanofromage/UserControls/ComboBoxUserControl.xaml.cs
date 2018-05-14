@@ -34,7 +34,7 @@ namespace nanofromage.UserControls
         #region Variables
         public Clan mage = new Clan("Mage", "A force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.", 10, 50, 30);
         public Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 30, 20, 10);
-        public Clan hunter = new Clan("Hunter", "il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat", 50, 10, 40);
+        public Clan hunter = new Clan("Hunter", "Il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat.", 50, 10, 40);
         public List<String> listClan;
         private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         private String selectedClan;
