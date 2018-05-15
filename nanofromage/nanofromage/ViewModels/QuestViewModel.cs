@@ -1,4 +1,5 @@
-﻿using nanofromage.Views;
+﻿using LoggerUtil;
+using nanofromage.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,7 +82,7 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Quest();
         }
-
+        
         /// <summary>
         /// Shop redirection function
         /// </summary>
@@ -89,7 +90,19 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
+            Loger loger;
+            int level = 0;
+            if(level > 1)
+            {
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
+            }
+            else
+            {
+                loger = new Loger(new List<Alert> { Alert.MESSAGE_BOX }, new List<Mode> { Mode.NONE });
+                loger.Log("Vous devez être niveau 2");
+            }
+            
+
         }
 
         /// <summary>
