@@ -29,27 +29,14 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
-        public static Char result;
-        public static Char sexe;
-        private RadioButton rdb = new RadioButton();
+        public static String result;
+        public static String sexe;
         #endregion
 
         #region Attributs
-        public static Char test;
-        //private Character currentCharacter;
         #endregion
 
         #region Properties
-
-        public Char Test
-        {
-            get { return test; }
-            set
-            {
-                test = value;
-                OnPropertyChanged("Test");
-            }
-        }
         #endregion
 
         #region Constructors
@@ -58,7 +45,6 @@ namespace nanofromage.UserControls
             InitializeComponent();
             DataContext = this;
             Events();
-            test = SexChoice();
             ///Events();
         }
         #endregion
@@ -72,28 +58,41 @@ namespace nanofromage.UserControls
         #region Events
         private void Events()
         {
-            rdb.CheckedChanged += new System.EventHandler(RadioButtonCheckedChanged);
-            this.maleUC.changed
+            maleUC.Checked += MaleUC_Checked;
+            femaleUC.Checked += FemaleUC_Checked;
         }
 
-        public static Char SexChoice()
+        private void FemaleUC_Checked(object sender, RoutedEventArgs e)
+        {
+            femaleUC.IsChecked = true;
+            maleUC.IsChecked = false;
+            SexChoice();
+        }
+
+        private void MaleUC_Checked(object sender, RoutedEventArgs e)
+        {
+            maleUC.IsChecked = true;
+            femaleUC.IsChecked = false;
+            SexChoice();
+        }
+
+        private void SexChoice()
         {
             try
             {
                 if (femaleUC.IsChecked == true)
                 {
-                    result = 'F';
+                    sexe = "F";
                 }
                 else if (maleUC.IsChecked == true)
                 {
-                    result = 'M';
+                    sexe = "M";
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            return result;
         }
        
         

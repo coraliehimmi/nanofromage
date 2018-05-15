@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Database.MySql;
+using MySql.Data.MySqlClient;
 using nanofromage.UserControls;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
@@ -25,10 +26,14 @@ namespace nanofromage.ViewModels
 
         #region Variables
         private Char test;
+        private String champ;
+        private String table;
         private String result;
+        private String msg;
+        private MySqlConnection connection;
         private int rslt;
         private String currentNameClan;
-        private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
+        ///private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
@@ -54,7 +59,6 @@ namespace nanofromage.ViewModels
         public CharactersViewModel(Characters page)
         {
             this.page = page;
-            currentNameClan = FirstConnexionViewModel.currentName;
             Events();
         }
         #endregion
@@ -63,46 +67,87 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Functions
-        /*public String GetName(int nb)
-        {
-            cmd.CommandText = "SELECT name FROM clans WHERE id =" + nb;
-            return name;
-        }
-
-        public String GetDescription(int nb)
-        {
-            cmd.CommandText = "SELECT description FROM clans WHERE id =" + nb;
-            return description;
-        }*/
         private void SaveCharacter()
         {
             currentCharacter = new Character();
-            test = SexUserControl.SexChoice();
-            currentCharacter.IdClan = RecupIdClan(currentNameClan);
+            currentNameClan = ComboBoxUserControl.selectedClan;
+            currentCharacter.Sex = SexUserControl.sexe;
+            SetParameters("NameClan", "clans");
+            currentCharacter.IdClan = RecupId(currentNameClan);
             currentCharacter.Name = NameUserControl.nameUC;
             currentCharacter.Level = 1;
             currentCharacter.Money = 0;
             currentCharacter.Power = 5;
             currentCharacter.Rage = 0;
         }
-        private int RecupIdClan(String valeur)
+
+        private void SaveInBdd()
         {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT NameClan FROM clans WHERE NameClan = @NameClan";
-            cmd.Parameters.AddWithValue("NameClan", valeur);
-            ///cmd.ExecuteScalar();
-            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            try
             {
-                while (dataReader.Read())
+                Database<Character> DbCharacter = new Database<Character>();
+                DbCharacter.Insert(currentCharacter);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void SetParameters(String myWhereClause, String myTable)
+        {
+            champ = myWhereClause;
+            table = myTable;
+        }
+
+        private int RecupId(String valeur)
+        {
+            try
+            {
+                connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT Id FROM " + table + " WHERE " + champ + " = @" + champ;
+                ///cmd.CommandText = "SELECT " + champ1 + " FROM " + table + " WHERE " + champ2 + " = @" + champ2;
+                cmd.Parameters.AddWithValue(champ, valeur);
+                ///cmd.ExecuteScalar();
+                using (MySqlDataReader dataReader = cmd.ExecuteReader())
                 {
-                    rslt = int.Parse(dataReader["NameClan"].ToString());
-                    //test.Text = result;
+                    while (dataReader.Read())
+                    {
+                        rslt = int.Parse(dataReader["Id"].ToString());
+                        //test.Text = result;
+                    }
                 }
             }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
             connection.Close();
             return rslt;
+        }
+
+        private void UpdateUser()
+        {
+            try
+            {
+                int id;
+                MySqlConnection connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE users SET IdCharacter = @IdCharacter WHERE Login = @Login";
+                SetParameters("Login", "users");
+                id = RecupId(currentCharacter.Name);
+                cmd.Parameters.AddWithValue("IdCharacter", id);
+                cmd.Parameters.AddWithValue("Login", FirstConnexionViewModel.currentName);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
@@ -112,8 +157,23 @@ namespace nanofromage.ViewModels
             this.page.XAMLConfirmUserControl.confirm.Click += Confirm_Click;
         }
 
-        //public BitmapImage GetMyImage => new BitmapImage(new Uri("/Image/1.png" + UriKind.Absolute));
-        
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            SaveCharacter();
+            if (currentCharacter.Name is null || currentCharacter.Sex is null || currentCharacter.IdClan == 0)
+            {
+                msg = "Vous devez compléter toutes les informations";
+                MessageBox.Show(msg);
+            }
+            /// Si un champ n'est pas complété on ne peut pas continuer.
+            else
+            {
+                SaveInBdd();
+                UpdateUser();
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
+            }
+            /// Sinon, on valide la sauvegarde en BDD et on arrive sur la page d'accueil.
+        }
 
         public void OnPropertyChanged(string name)
         {
@@ -123,23 +183,6 @@ namespace nanofromage.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-        //}
-
-        private void Confirm_Click(object sender, RoutedEventArgs e)
-        {
-            SaveCharacter();
-            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
-        }
         #endregion
-
-        //this.page.XAMLCharacterUserControl.character.Source = new BitmapImage(new Uri("pack://aplication:,,,/Image/1.jpg"));
-        //this.page.XAMLNameUserControl.male.Checked += Male_Checked;
-
-        //this.page.XAMLCharacterUserControl.female.Che
-        /*BitmapImage b = new BitmapImage();
-        b.BeginInit();
-        b.UriSource = new Uri("pack://aplication:,,,/Image/1.jpg");
-        b.EndInit();*/
     }
 }

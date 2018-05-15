@@ -17,6 +17,7 @@ namespace nanofromage.ViewModels
     {
 
         #region StaticVariables
+        public static String currentName;
         #endregion
 
         #region Constants
@@ -24,11 +25,11 @@ namespace nanofromage.ViewModels
 
         #region Variables
         private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
-        private String result = "";
+        private int idCharacter;
         private String message;
         private String selectName;
         private String selectPassword;
-        public static String currentName;
+        
         private String currentPassword;
         private MySqlConnection connection;
         private User admin = new User("admin", "admin");
@@ -87,6 +88,33 @@ namespace nanofromage.ViewModels
             ///this.page.XAMLLoginUserControl.name
         }
 
+        private void SelectIdChar()
+        {
+            try
+            {
+                connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT IdCharacter FROM users WHERE Login = @Login ";
+                cmd.Parameters.AddWithValue("Login", currentName);
+                using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        idCharacter = int.Parse(dataReader["IdCharacter"].ToString());
+                        //test.Text = result;
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            connection.Close();
+
+        }
+
         private void Confirm_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             LoginUserControl.currentName = LoginUserControl.currentUser.Login; /// Ici la valeur du CurrentName prend la valeur de la saisie de l'utilisateur
@@ -95,6 +123,7 @@ namespace nanofromage.ViewModels
             this.currentPassword = LoginUserControl.currentPassword;
             selectName = LoginUserControl.SelectName(currentName);
             selectPassword = LoginUserControl.SelectMdp(currentName, this.currentPassword);
+
             if (currentName is null)
             {
                 message = "Aucun nom d'utilisateur n'a été saisi.";
@@ -103,7 +132,17 @@ namespace nanofromage.ViewModels
             }
             else if (currentName == selectName && currentPassword == selectPassword)
             {
-                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
+                SelectIdChar();
+                if (idCharacter == 0)
+                {
+                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
+                }
+                /// Ici l'utilkisateur n'a jamais créé de personnage
+                else
+                {
+                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
+                }
+                /// Si l'utilisateur a déjà créé un personnage il arrivera directement sur la page d'accueil
             }
             else
             {

@@ -28,7 +28,5 @@
                 <TextBlock Text="Fille" HorizontalAlignment="Center"/>
             </WrapPanel>
         </RadioButton>
-        <TextBlock x:Name="TestSexUC" Text="{Binding Test}" FontSize="24" Grid.Row="1" Background="Aqua" Grid.ColumnSpan="2"/>
-        
     </Grid>
 </UserControl>

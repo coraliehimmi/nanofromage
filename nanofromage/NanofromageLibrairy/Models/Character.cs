@@ -19,7 +19,7 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private String name;
-        private Boolean sex;
+        private String sex; /// M ou F
         private int level; /// 1
         private int money; /// 0
         private int power; /// 5
@@ -38,7 +38,7 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Name");
             }
         }
-        public Boolean Sex
+        public String Sex
         {
             get { return sex; }
             set
@@ -105,7 +105,7 @@ namespace NanofromageLibrairy.Models
         {
             // contructeur vide par défaut
         }
-        public Character(string name, bool sex, int level, int money, int power, int rage, int idClan)
+        public Character(string name, string sex, int level, int money, int power, int rage, int idClan)
         {
             this.name = name;
             this.sex = sex;

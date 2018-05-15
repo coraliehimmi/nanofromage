@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace NanofromageLibrairy.Models
 
     {
         #region StaticVariables
+        public static MySqlConnection connection;
         #endregion
 
         #region Constants
+        public static String CONNECTIONSTRING = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         #endregion
 
         #region Variables

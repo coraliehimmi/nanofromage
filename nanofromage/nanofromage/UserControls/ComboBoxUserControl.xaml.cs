@@ -26,6 +26,7 @@ namespace nanofromage.UserControls
     public partial class ComboBoxUserControl : UserControl, INotifyPropertyChanged
     {
         #region StaticVariables
+        public static String selectedClan;
         #endregion
 
         #region Constants
@@ -37,7 +38,6 @@ namespace nanofromage.UserControls
         public Clan hunter = new Clan("Hunter", "Il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat.", 50, 10, 40);
         public List<String> listClan;
         private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
-        private String selectedClan;
         private String result;
         #endregion
 
