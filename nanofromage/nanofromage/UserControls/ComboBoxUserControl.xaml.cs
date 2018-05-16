@@ -27,15 +27,16 @@ namespace nanofromage.UserControls
     {
         #region StaticVariables
         public static String selectedClan;
+        public static Clan currentClan;
         #endregion
 
         #region Constants
         #endregion
 
         #region Variables
-        public Clan mage = new Clan("Mage", "A force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.", 10, 50, 30);
-        public Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 30, 20, 10);
-        public Clan hunter = new Clan("Hunter", "Il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat.", 50, 10, 40);
+        public Clan mage = new Clan("Mage", "A force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.", 0, 10);
+        public Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 10, 0);
+        public Clan hunter = new Clan("Hunter", "Il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat.", 5, 5);
         public List<String> listClan;
         private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         private String result;
@@ -64,17 +65,21 @@ namespace nanofromage.UserControls
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedClan = (String)comboBox.SelectedItem;
+            currentClan = new Clan();
             if (selectedClan == "Mage")
             {
                 XAMLdescription.Text = mage.Description;
+                currentClan = mage;
             }
             else if (selectedClan == "Warrior")
             {
                 XAMLdescription.Text = warrior.Description;
+                currentClan = warrior;
             }
             else if (selectedClan == "Hunter")
             {
                 XAMLdescription.Text = hunter.Description;
+                currentClan = hunter;
             }
             else
                 XAMLdescription.Text = "c'est raté...!";

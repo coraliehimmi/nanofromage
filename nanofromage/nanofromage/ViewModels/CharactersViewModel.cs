@@ -77,8 +77,10 @@ namespace nanofromage.ViewModels
             currentCharacter.Name = NameUserControl.nameUC;
             currentCharacter.Level = 1;
             currentCharacter.Money = 0;
-            currentCharacter.Power = 5;
-            currentCharacter.Rage = 0;
+            currentCharacter.PtLife = 15;
+            currentCharacter.Xp = 0;
+            currentCharacter.HitPoint = ComboBoxUserControl.currentClan.HitPoint;
+            currentCharacter.MagicPoint = ComboBoxUserControl.currentClan.MagicPoint;
         }
 
         private void SaveInBdd()
@@ -87,6 +89,10 @@ namespace nanofromage.ViewModels
             {
                 Database<Character> DbCharacter = new Database<Character>();
                 DbCharacter.Insert(currentCharacter);
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.Message);
             }
             catch (Exception e)
             {
@@ -138,7 +144,7 @@ namespace nanofromage.ViewModels
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "UPDATE users SET IdCharacter = @IdCharacter WHERE Login = @Login";
-                SetParameters("Login", "users");
+                SetParameters("Name","characters");
                 id = RecupId(currentCharacter.Name);
                 cmd.Parameters.AddWithValue("IdCharacter", id);
                 cmd.Parameters.AddWithValue("Login", FirstConnexionViewModel.currentName);
@@ -168,8 +174,15 @@ namespace nanofromage.ViewModels
             /// Si un champ n'est pas complété on ne peut pas continuer.
             else
             {
-                SaveInBdd();
-                UpdateUser();
+                try
+                {
+                    SaveInBdd();
+                    UpdateUser();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
                 Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
             }
             /// Sinon, on valide la sauvegarde en BDD et on arrive sur la page d'accueil.

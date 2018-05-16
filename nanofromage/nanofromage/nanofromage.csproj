@@ -88,6 +88,12 @@
     <Compile Include="UserControls\ExitUserControl.xaml.cs">
       <DependentUpon>ExitUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InfoLevelUserControl.xaml.cs">
+      <DependentUpon>InfoLevelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InfosPersoUserControl.xaml.cs">
+      <DependentUpon>InfosPersoUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
       <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ExitUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InfoLevelUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InfosPersoUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,6 +293,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\male.png" />
+    <Resource Include="Resources\femelle.png" />
     <Resource Include="Resources\1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

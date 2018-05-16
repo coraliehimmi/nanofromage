@@ -13,6 +13,6 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="ExitUC" BorderBrush="Black" BorderThickness="3" Content="EXIT" ButtonBase.Click="Button_Click"/>
+        <Button x:Name="ExitUC" BorderBrush="Black" BorderThickness="1" Content="EXIT" ButtonBase.Click="Button_Click"/>
     </Grid>
 </UserControl>

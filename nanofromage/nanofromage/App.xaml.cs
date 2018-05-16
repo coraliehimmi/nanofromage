@@ -27,7 +27,8 @@ namespace nanofromage
         public App()
         {
             Window MainWindow = new Window();
-            MainWindow.Content = new FirstConnexion();
+            ///MainWindow.Content = new FirstConnexion();
+            MainWindow.Content = new Home();
             MainWindow.Show();
             
             loger = new Loger(new List<Alert> { Alert.CONSOLE }, new List<Mode> { Mode.CONSOLE });

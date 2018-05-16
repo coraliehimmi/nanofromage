@@ -21,7 +21,7 @@ namespace NanofromageLibrairy.Models
         private String nameClan;
         private String description;
         private int hitPoint;
-        private int precisionPoint;
+        ///private int precisionPoint;
         private int magicPoint;
         #endregion
 
@@ -56,7 +56,7 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public int PrecisionPoint
+        /*public int PrecisionPoint
         {
             get { return precisionPoint; }
             set
@@ -64,7 +64,7 @@ namespace NanofromageLibrairy.Models
                 precisionPoint = value;
                 OnPropertyChanged("PrecisionPoint");
             }
-        }
+        }*/
 
         public int MagicPoint
         {
@@ -72,7 +72,7 @@ namespace NanofromageLibrairy.Models
             set
             {
                 magicPoint = value;
-                OnPropertyChanged("PrecisionPoint");
+                OnPropertyChanged("MagicPoint");
             }
         }
         #endregion
@@ -82,12 +82,12 @@ namespace NanofromageLibrairy.Models
         {
         }
 
-        public Clan(string nameClan, string description, int hitPoint, int precisionPoint, int magicPoint)
+        public Clan(string nameClan, string description, int hitPoint, int magicPoint)
         {
             this.nameClan = nameClan;
             this.description = description;
             this.hitPoint = hitPoint;
-            this.precisionPoint = precisionPoint;
+            ///this.precisionPoint = precisionPoint;
             this.magicPoint = magicPoint;
         }
         //contructeur vide par défaut

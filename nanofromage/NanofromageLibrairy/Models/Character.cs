@@ -22,10 +22,11 @@ namespace NanofromageLibrairy.Models
         private String sex; /// M ou F
         private int level; /// 1
         private int money; /// 0
-        private int power; /// 5
-        private int rage; /// 0
+        private int ptLife;
+        private int xp;
         private int idClan;
-
+        private int hitPoint;
+        private int magicPoint;
         #endregion
 
         #region Properties
@@ -68,26 +69,6 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                OnPropertyChanged("Power");
-            }
-        }
-        public int Rage
-        {
-            get { return rage; }
-            set
-            {
-                rage = value;
-                OnPropertyChanged("Rage");
-            }
-        }
-        
-
         public int IdClan
         {
             get { return idClan; }
@@ -98,6 +79,47 @@ namespace NanofromageLibrairy.Models
             }
         }
 
+        public int PtLife
+        {
+            get { return ptLife; }
+            set
+            {
+                ptLife = value;
+                OnPropertyChanged("PtLife");
+            }
+        }
+        
+        public int Xp
+        {
+            get { return xp; }
+            set
+            {
+                xp = value;
+                OnPropertyChanged("Xp");
+            }
+        }
+
+        
+
+        public int HitPoint
+        {
+            get { return hitPoint; }
+            set
+            {
+                hitPoint = value;
+                OnPropertyChanged("HitPoint");
+            }
+        }
+        
+        public int MagicPoint
+        {
+            get { return magicPoint; }
+            set
+            {
+                magicPoint = value;
+                OnPropertyChanged("MagicPoint");
+            }
+        }
         #endregion
 
         #region Constructors
@@ -105,15 +127,19 @@ namespace NanofromageLibrairy.Models
         {
             // contructeur vide par défaut
         }
-        public Character(string name, string sex, int level, int money, int power, int rage, int idClan)
+        public Character(string name, string sex, int level, int money, int ptLife, int xp, int idClan, int hitPoint, int magicPoint)
         {
             this.name = name;
             this.sex = sex;
             this.level = level;
             this.money = money;
-            this.power = power;
-            this.rage = rage;
+            this.ptLife = ptLife;
+            this.xp = xp;
             this.idClan = idClan;
+            this.hitPoint = hitPoint;
+            this.magicPoint = magicPoint;
+            ///base.PrecisionPoint = PrecisionPoint;
+
         }
         
         public void Attaque()

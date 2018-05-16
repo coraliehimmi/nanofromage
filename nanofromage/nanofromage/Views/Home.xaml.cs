@@ -29,6 +29,5 @@ namespace nanofromage.Views
             InitializeComponent();
             new HomeViewModel(this);
         }
-        Database<Hunter> Dbhunter = new Database<Hunter>();
     }
 }
