@@ -19,6 +19,7 @@ namespace nanofromage.ViewModels
     public class CharactersViewModel : INotifyPropertyChanged
     {
         #region StaticVariables
+        public static int idChar;
         #endregion
 
         #region Constants
@@ -32,6 +33,7 @@ namespace nanofromage.ViewModels
         private String msg;
         private MySqlConnection connection;
         private int rslt;
+        private String selectName;
         private String currentNameClan;
         ///private String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         public event PropertyChangedEventHandler PropertyChanged;
@@ -81,6 +83,7 @@ namespace nanofromage.ViewModels
             currentCharacter.Xp = 0;
             currentCharacter.HitPoint = ComboBoxUserControl.currentClan.HitPoint;
             currentCharacter.MagicPoint = ComboBoxUserControl.currentClan.MagicPoint;
+            currentCharacter.PtAttack = currentCharacter.HitPoint + currentCharacter.MagicPoint;
         }
 
         private void SaveInBdd()
@@ -135,18 +138,46 @@ namespace nanofromage.ViewModels
             return rslt;
         }
 
+
+        private String RecupName(String valeur)
+        {
+            try
+            {
+                connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT Name FROM characters WHERE Name = @Name";
+                ///cmd.CommandText = "SELECT " + champ1 + " FROM " + table + " WHERE " + champ2 + " = @" + champ2;
+                cmd.Parameters.AddWithValue("Name", valeur);
+                ///cmd.ExecuteScalar();
+                using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        selectName = dataReader["Name"].ToString();                        //test.Text = result;
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            connection.Close();
+            return selectName;
+        }
+
         private void UpdateUser()
         {
             try
             {
-                int id;
                 MySqlConnection connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "UPDATE users SET IdCharacter = @IdCharacter WHERE Login = @Login";
                 SetParameters("Name","characters");
-                id = RecupId(currentCharacter.Name);
-                cmd.Parameters.AddWithValue("IdCharacter", id);
+                idChar = RecupId(currentCharacter.Name);
+                cmd.Parameters.AddWithValue("IdCharacter", idChar);
                 cmd.Parameters.AddWithValue("Login", FirstConnexionViewModel.currentName);
                 cmd.ExecuteNonQuery();
             }
@@ -172,6 +203,12 @@ namespace nanofromage.ViewModels
                 MessageBox.Show(msg);
             }
             /// Si un champ n'est pas complété on ne peut pas continuer.
+            /// 
+            else if (currentCharacter.Name == RecupName(currentCharacter.Name))
+            {
+                msg = "Ce nom est déjà utilisé, merci de choisir un autre nom svp";
+                MessageBox.Show(msg);
+            }
             else
             {
                 try

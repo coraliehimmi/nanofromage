@@ -81,7 +81,9 @@ namespace nanofromage.ViewModels
                 else
                 {
                     LoginUserControl.SaveNewUser(this.currentName, this.currentPassword);
-                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Characters();
+                    msg = "Votre compte a bien été créé, merci de vous authentifier.";
+                    MessageBox.Show(msg);
+                    Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
                 }
             }
             /// Si le nom d'utilisateur n'exite pas, je récupère la valeur du password, je sauvegarde et j'arrive sur la page des Characters.

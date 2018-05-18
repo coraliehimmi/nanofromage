@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Items : ModelBase
-        
+    public class Enemy : ModelBase
     {
-        /// <summary>
-        /// Inventaires de tous les objets existants
-        /// </summary>
         #region StaticVariables
         #endregion
 
@@ -21,12 +16,13 @@ namespace NanofromageLibrairy.Models
 
         #region Variables
         #endregion
-
+        
         #region Attributs
         private String name;
-        private double price;
-        private String description;
-        private List<Categories> myList;
+        private int ptAttack;
+        private int ptLife;
+        private int xp;
+        private int money;
         #endregion
 
         #region Properties
@@ -40,49 +36,60 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public double Price
+        public int PtAttack
         {
-            get { return price; }
+            get { return ptAttack; }
             set
             {
-                price = value;
-                OnPropertyChanged("Price");
+                ptAttack = value;
+                OnPropertyChanged("PtAttack");
             }
         }
 
-        public String Description
+        public int PtLife
         {
-            get { return description; }
+            get { return ptLife; }
             set
             {
-                description = value;
-                OnPropertyChanged("Description");
+                ptLife = value;
+                OnPropertyChanged("PtLife");
             }
         }
-        public List<Categories> MyList
+        
+        public int Xp
         {
-            get { return myList; }
+            get { return xp; }
             set
             {
-                myList = value;
-                OnPropertyChanged("MyList");
+                xp = value;
+                OnPropertyChanged("Xp");
             }
         }
 
-
+        public int Money
+        {
+            get { return money; }
+            set
+            {
+                money = value;
+                OnPropertyChanged("Money");
+            }
+        }
         #endregion
 
         #region Constructors
-        public Items()
+        public Enemy()
         {
-                
-        }
 
-        public Items(string name, double price, string description)
+        }
+        public Enemy(String name, int ptAttack, int ptLife, int xp, int money)
         {
             this.name = name;
-            this.price = price;
-            this.description = description;
+            this.ptAttack = ptAttack;
+            this.ptLife = ptLife;
+            this.xp = xp;
+            this.money = money;
+
         }
         #endregion
 

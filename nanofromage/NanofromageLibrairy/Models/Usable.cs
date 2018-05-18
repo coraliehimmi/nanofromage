@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Usable : Items
+    public class Usable : ModelBase
     {
         #region StaticVariables
         #endregion

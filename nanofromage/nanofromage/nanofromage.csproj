@@ -79,9 +79,6 @@
     <Compile Include="UserControls\ButtonsUserControl.xaml.cs">
       <DependentUpon>ButtonsUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CharacterUserControl.xaml.cs">
-      <DependentUpon>CharacterUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
       <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
     </Compile>
@@ -99,6 +96,9 @@
     </Compile>
     <Compile Include="UserControls\ConfirmUserControl.xaml.cs">
       <DependentUpon>ConfirmUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InventaireUserControl.xaml.cs">
+      <DependentUpon>InventaireUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
@@ -161,10 +161,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CharacterUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="UserControls\ComboBoxUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +182,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\ConfirmUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InventaireUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,6 +293,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\persohomme.jpg" />
+    <Resource Include="Resources\persofemme.png" />
     <Resource Include="Resources\male.png" />
     <Resource Include="Resources\femelle.png" />
     <Resource Include="Resources\1.jpg">

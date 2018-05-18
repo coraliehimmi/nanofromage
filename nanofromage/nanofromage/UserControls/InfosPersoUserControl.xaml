@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:nanofromage.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
-    <Grid Background="HotPink">
+    <Grid Background="YellowGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -23,14 +23,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="nameCharacter" Content="{Binding CurrentCharacter.Name}" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold"/>
-        <Image x:Name="imgsex" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Label x:Name="lblpv" Content="Mes points de vie :" Grid.Row="2" FontSize="18" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-        <Label x:Name="lblhitpoint" Content="Mes points d'attaque :" Grid.Row="4" FontSize="18" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-        <Label x:Name="lblmagicpoint" Content="Mes points de magie :" Grid.Row="6" FontSize="18" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-        <Label x:Name="pv" Content="{Binding CurrentCharacter.PtLife}" FontSize="30" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label x:Name="hitpt" Content="PA"  FontSize="30" Grid.Row="4" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="magiept" Content="{Binding CurrentCharacter.MagicPoint}" FontSize="30" Grid.Row="6" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-
+        <Label x:Name="nameCharacter" Content="{Binding CurrentCharacter.Name}" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="25" FontWeight="Bold"/>
+        <Image x:Name="imgsex" Grid.Column="3" Grid.RowSpan="2"/>
+        <Label x:Name="lblpv" Content="Mes points de vie :" Grid.Row="2" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblhitpoint" Content="Mes points d'attaque :" Grid.Row="4" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblmagicpoint" Content="Mes points de magie :" Grid.Row="6" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="pv" Content="{Binding CurrentCharacter.PtLife}" FontSize="25" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="hitpt" Content="{Binding CurrentCharacter.PtAttack}"  FontSize="25" Grid.Row="4" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="magiept" Content="{Binding CurrentCharacter.MagicPoint}" FontSize="25" Grid.Row="6" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

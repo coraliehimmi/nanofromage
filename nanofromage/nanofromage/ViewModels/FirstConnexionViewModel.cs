@@ -18,6 +18,8 @@ namespace nanofromage.ViewModels
 
         #region StaticVariables
         public static String currentName;
+        public static Enemy enemy1;
+        public static Enemy enemy2;
         #endregion
 
         #region Constants
@@ -72,10 +74,15 @@ namespace nanofromage.ViewModels
 
         private void Init()
         {
+            enemy1 = new Enemy("Enemy1", 5, 10, 10, 10);
+            enemy2 = new Enemy("Enemy2", 5, 10, 10, 10);
             if (OpenConnection() == false)
             {
                 Database<User> DbUser = new Database<User>();
                 DbUser.Insert(admin);
+                Database<Enemy> DbEnemy = new Database<Enemy>();
+                DbEnemy.Insert(enemy1);
+                DbEnemy.Insert(enemy2);
             }
         } /// Fonction qui insère l'utilisateur admin seulement si c'est la première ouverture de l'appli
         #endregion

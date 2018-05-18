@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace NanofromageLibrairy.Models
 {
@@ -23,6 +24,7 @@ namespace NanofromageLibrairy.Models
         private int level; /// 1
         private int money; /// 0
         private int ptLife;
+        private int ptAttack;
         private int xp;
         private int idClan;
         private int hitPoint;
@@ -88,7 +90,18 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("PtLife");
             }
         }
-        
+
+        public int PtAttack
+        {
+            get { return ptAttack; }
+            set
+            {
+                ptAttack = value;
+                OnPropertyChanged("PtAttack");
+            }
+        }
+
+
         public int Xp
         {
             get { return xp; }
@@ -98,9 +111,7 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Xp");
             }
         }
-
         
-
         public int HitPoint
         {
             get { return hitPoint; }
@@ -127,13 +138,14 @@ namespace NanofromageLibrairy.Models
         {
             // contructeur vide par défaut
         }
-        public Character(string name, string sex, int level, int money, int ptLife, int xp, int idClan, int hitPoint, int magicPoint)
+        public Character(string name, string sex, int level, int money, int ptLife, int ptAttack, int xp, int idClan, int hitPoint, int magicPoint)
         {
             this.name = name;
             this.sex = sex;
             this.level = level;
             this.money = money;
             this.ptLife = ptLife;
+            this.ptAttack = ptAttack;
             this.xp = xp;
             this.idClan = idClan;
             this.hitPoint = hitPoint;

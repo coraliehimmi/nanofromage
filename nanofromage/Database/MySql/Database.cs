@@ -32,7 +32,13 @@ namespace Database.MySql
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Character>();
             modelBuilder.Entity<Clan>();
-            modelBuilder.Entity<User>();   
+            modelBuilder.Entity<User>();
+            modelBuilder.Entity<Enemy>();
+            modelBuilder.Entity<Items>();
+            modelBuilder.Entity<Categories>();
+            modelBuilder.Entity<Usable>();
+            modelBuilder.Entity<Equipment>();
+                        
         }
         public DbSet<T> DbSetT { get; set; }
 
@@ -79,6 +85,11 @@ namespace Database.MySql
         public async Task<T> Get(Int32 id)
         {
             return await this.DbSetT.FindAsync(id) as T;
+        }
+
+        public async Task<T> GetName(String name)
+        {
+            return await this.DbSetT.FindAsync(name) as T;
         }
 
         public async Task<IEnumerable<T>> Get()

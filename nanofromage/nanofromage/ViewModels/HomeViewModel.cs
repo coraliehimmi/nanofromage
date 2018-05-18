@@ -1,13 +1,17 @@
 ﻿using Database.MySql;
 using LoggerUtil;
+using MySql.Data.MySqlClient;
+using nanofromage.UserControls;
 using nanofromage.Views;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace nanofromage.ViewModels
 {
@@ -20,6 +24,11 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Variables
+        private int idChar;
+        private int result;
+        private int id;
+        private MySqlConnection connection;
+        private String msg;
         #endregion
 
         #region Attributs
@@ -35,6 +44,7 @@ namespace nanofromage.ViewModels
         {
             this.page = page;
             Init();
+            SaveInBdd();
             Events();
         }
         #endregion
@@ -47,15 +57,67 @@ namespace nanofromage.ViewModels
         {
             Character charTest = new Character();
             Database<Character> DbChar = new Database<Character>();
-            charTest = DbChar.Get(1);
-            charTest.Level = 1;
+            idChar = RecupId(FirstConnexionViewModel.currentName);
+            charTest = DbChar.Get(idChar).Result;
+           if (charTest.Sex == "M")
+            {
+                this.page.XAMLInfosPersoUC.imgsex.Source  = new BitmapImage(new Uri("/Resources/male.png", UriKind.Relative));
+                this.page.XAMLButtonsUserControl.myperso.Source = new BitmapImage(new Uri("/Resources/persohomme.jpg", UriKind.Relative));
+            }
+           else if (charTest.Sex == "F")
+            {
+                this.page.XAMLInfosPersoUC.imgsex.Source = new BitmapImage(new Uri("/Resources/femelle.png", UriKind.Relative));
+                this.page.XAMLButtonsUserControl.myperso.Source = new BitmapImage(new Uri("/Resources/persofemme.png", UriKind.Relative));
+            }
+            /*charTest.Level = 1;
             charTest.Money = 10;
             charTest.Xp = 10;
             charTest.Name = "Coralie";
             charTest.PtLife = 15;
-            charTest.MagicPoint = 10;
+            charTest.MagicPoint = 10;*/
             this.page.XAMLInfosPersoUC.CurrentCharacter = charTest;
             this.page.XAMLInfoLevelUC.CurrentCharacter = charTest;
+        }
+        /// <summary>
+        /// Casque en fer / 6 / Casque en fer brut
+        /// Tunique d'entraînement / 2 / Tunique d'aventurier débutant
+        /// Botte d'entraînement / 1 / Botte pour aventurier débutant
+        /// pantalon d'entraînement / 3 / Pantalon pour aventurier débutant
+        /// Potion de vie / 5 / Permet de récupérer 5 PV
+        /// Potion de mana / 5 / Permet de récupérer 5 PM
+        /// </summary>
+
+            
+
+        private int RecupId(String valeur)
+        {
+            try
+            {
+                String table = "users";
+                String champ = "Login";
+                connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT IdCharacter FROM " + table + " WHERE " + champ + " = @" + champ;
+                ///cmd.CommandText = "SELECT " + champ1 + " FROM " + table + " WHERE " + champ2 + " = @" + champ2;
+                cmd.Parameters.AddWithValue(champ, valeur);
+                ///cmd.ExecuteScalar();
+                using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        result = int.Parse(dataReader["IdCharacter"].ToString());
+                        //test.Text = result;
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            connection.Close();
+            return result;
         }
         #endregion
 
@@ -70,6 +132,29 @@ namespace nanofromage.ViewModels
             this.page.XAMLMenuUserControl.logout.Click += Logout_Click;
             this.page.XAMLMenuUserControl.quest.Click += Quest_Click;
             this.page.XAMLMenuUserControl.shop.Click += Shop_Click;
+            this.page.XAMLInventaireUC.MouseDoubleClick += XAMLInventaireUC_MouseDoubleClick;
+        }
+
+        private void SaveInBdd()
+        {
+            Database<Items> DbItems = new Database<Items>();
+            if (DbItems.Get(1).Result is null)
+            {
+                DbItems.Insert(InventaireUserControl.listItems);
+            }
+            Database<Categories> DbCat = new Database<Categories>();
+            if  (DbCat.Get(1).Result is null)
+            {
+                DbCat.Insert(InventaireUserControl.listCategories);
+            }
+        }
+
+        private void XAMLInventaireUC_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            msg = "ça marche";
+            this.page.ceinture.Content = msg;
+            ////throw new NotImplementedException();
+            //// quand on double clique sur un élément, ça le met à l'endroit prévu à cet effet
         }
 
         /// <summary>

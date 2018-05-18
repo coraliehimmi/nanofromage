@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Equipment : ModelBase
+    public class Categories : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -18,36 +18,40 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
-        private List<Items> myEquipment;
-        private int idCharacter;
+        private String categorieName;
+        private List<Items> myListItem;
         #endregion
 
         #region Properties
-        public List<Items> MyEquipment
+        public String CategorieName
         {
-            get { return myEquipment; }
+            get { return categorieName; }
             set
             {
-                myEquipment = value;
-                OnPropertyChanged("MyEquipment");
+                categorieName = value;
+                OnPropertyChanged("CategorieName");
             }
         }
 
-        public int IdCharacter
+        public List<Items> MyListItem
         {
-            get { return idCharacter; }
+            get { return myListItem; }
             set
             {
-                idCharacter = value;
-                OnPropertyChanged("IdCharacter");
+                myListItem = value;
+                OnPropertyChanged("MyListItem");
             }
         }
         #endregion
 
         #region Constructors
-        public Equipment()
+        public Categories()
         {
 
+        }
+        public Categories(String categorieName)
+        {
+            this.CategorieName = categorieName;
         }
         #endregion
 

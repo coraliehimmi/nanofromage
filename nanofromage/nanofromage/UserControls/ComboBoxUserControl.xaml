@@ -17,7 +17,6 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
