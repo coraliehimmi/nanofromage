@@ -9,7 +9,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Quest">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,9 +28,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="8"/>
-        <Label x:Name="lblTime" Grid.Row="2" Grid.Column="2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Label x:Name="lblName" Grid.Row="1" Grid.Column="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Label Grid.Row="2" Grid.Column="2">Récompences : </Label>
+        <Label x:Name="lblXp" Grid.Row="3" Grid.Column="2" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Label x:Name="lblLoot" Grid.Row="3" Grid.Column="2" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Label x:Name="lblTime" Grid.Row="4" Grid.Column="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
     </Grid>
-
 
 </Page>

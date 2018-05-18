@@ -16,6 +16,19 @@ namespace WebService
         public int level { get; set; }
         public int xp { get; set; }
         public int loot { get; set; }
+        public List<Donjon> Donjons { get; set; }
+    }
+
+    public class Quest
+    {
+        public const String PATH = "/quetes";
+        public const String BY_QUEST = "/quetes/";
+        public int id { get; set; }
+        public string name { get; set; }
+        public object description { get; set; }
+        public int time { get; set; }
+        public int xp { get; set; }
+        public int loot { get; set; }
     }
 
     public class Post

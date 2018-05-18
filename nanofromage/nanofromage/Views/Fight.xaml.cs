@@ -36,13 +36,9 @@ namespace nanofromage.Views
             new FightViewModel(this);
         }
 
-     
-            
         private async void CallWebService()
         {
-
-            
-            Webservice ws = new Webservice("https://getbridgeapp.co/api/nanofromage");
+            Webservice ws = new Webservice(" https://bridge.buddyweb.fr/api/nanofromage");
             //List<User> users = new List<User>();
             //foreach (var usersItem in await ws.HttpClientCaller<List<User>>(User.PATH, users))
             //{
@@ -50,12 +46,24 @@ namespace nanofromage.Views
             //}
             //Donjon donjon = new Donjon();
             List<Donjon> donjon = new List<Donjon>();
-            donjon = await ws.HttpClientCaller <List<Donjon>>(Donjon.PATH, donjon);
-            foreach (var donjonItem in await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH, donjon))
-            {
-                SetUpView<List<Donjon>>(donjon);
-            }
+            //donjon = await ws.HttpClientCaller<Donjon>(Donjon.BY_DONJON + "1", donjon);
+            donjon = await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH + "/", donjon);
+            Console.WriteLine(donjon);
+            string res = donjon[0].description;
 
+            /*for (int i = 0; i < donjon.Count; i++)
+            {
+
+                donjons = 
+                
+                Console.WriteLine(donjon[i].description);
+            }*/
+            foreach (var item in donjon)
+            {
+                SetUpView<Donjon>(item);
+                //SetUpView<List<Donjon>>(donjon);
+                //item.Donjons = await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH + "/" + item.id, donjon);
+            }
             //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
 
             //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
@@ -69,7 +77,7 @@ namespace nanofromage.Views
                 item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
             }*/
 
-            //SetUpView<Donjon>(donjon);
+           //SetUpView<List<Donjon>>(donjon);
         }
 
         private void SetUpView<T>(T item)

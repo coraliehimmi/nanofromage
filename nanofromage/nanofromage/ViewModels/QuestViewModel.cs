@@ -1,24 +1,163 @@
 ﻿using LoggerUtil;
 using nanofromage.Views;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using WebService;
 
 namespace nanofromage.ViewModels
 {
     public class QuestViewModel
     {
-        public QuestViewModel(Quest page)
+        private int questEnd = 0;
+        public QuestViewModel(Views.Quest page)
         {
             this.page = page;
+            CallWebService();
             Events();
         }
 
-        private int questEnd = 36002;
+        private async void CallWebService()
+        {
+            Webservice ws = new Webservice(" https://bridge.buddyweb.fr/api/nanofromage");
+            //List<User> users = new List<User>();
+            //foreach (var usersItem in await ws.HttpClientCaller<List<User>>(User.PATH, users))
+            //{
+
+            //}
+            WebService.Quest quest = new WebService.Quest();
+            quest = await ws.HttpClientCaller<WebService.Quest>(WebService.Quest.BY_QUEST + "1", quest);
+
+            SetUpView<WebService.Quest>(quest);
+        }
+
+        private void SetUpView<T>(T item)
+        {
+            String output = JsonConvert.SerializeObject(item);
+            Console.WriteLine("output = "+output);
+            
+            JObject jObject = JsonConvert.DeserializeObject(output) as JObject;
+            //Console.WriteLine(jObject);
+            Console.WriteLine("time =" +jObject["time"]);
+            questEnd = Convert.ToInt32(jObject["time"]);
+            this.page.lblName.Content = Convert.ToString(jObject["name"]);
+            this.page.lblXp.Content = "XP :" + Convert.ToInt32(jObject["xp"]);
+            this.page.lblLoot.Content = "Loot :  " + Convert.ToInt32(jObject["loot"]);
+            //this.page.MainGrid.Children.Add(BuildElement(jObject));
+           
+        }
+
+        private ScrollViewer BuildElement(JObject jObject)
+        {
+            ScrollViewer scrollViewer = new ScrollViewer();
+            Grid content = new Grid();
+
+            if (jObject.Count > 0)
+            {
+                /*content.ColumnDefinitions.Add(new ColumnDefinition
+                {
+                    Width = GridLength.Auto
+                });
+                content.ColumnDefinitions.Add(new ColumnDefinition());*/
+                int currentRow = 0;
+                foreach (var x in jObject)
+                {
+                    string name = x.Key;
+                    JToken value = x.Value;
+
+                    if (value != null)
+                    {
+                        content.RowDefinitions.Add(new RowDefinition());
+
+                        Label lbl = new Label();
+                        lbl.Content = name;
+                        Grid.SetRow(lbl, currentRow);
+                        Grid.SetColumn(lbl, 3);
+                        content.Children.Add(lbl);
+
+                        if (value.Type == JTokenType.Array)
+                        {
+                            ScrollViewer subScrollViewer = new ScrollViewer();
+                            subScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+
+                            StackPanel subGrid = new StackPanel();
+                            subGrid.Orientation = Orientation.Horizontal;
+
+                            foreach (var item in value)
+                            {
+                                subGrid.Children.Add(BuildElement(item.Value<JObject>()));
+                            }
+
+                            subScrollViewer.Content = subGrid;
+
+                            Grid.SetRow(subScrollViewer, currentRow);
+                            Grid.SetColumn(subScrollViewer, 3);
+                            content.Children.Add(subScrollViewer);
+                        }
+                        else if (value.Type == JTokenType.Object)
+                        {
+                            ScrollViewer subGrid = BuildElement(value.Value<JObject>());
+                            Grid.SetRow(subGrid, currentRow);
+                            Grid.SetColumn(subGrid, 1);
+                            content.Children.Add(subGrid);
+                        }
+                        else if (value.ToString().EndsWith(".png") || value.ToString().EndsWith(".jpg"))
+                        {
+                            Image image = new Image();
+                            image.MaxHeight = 120;
+                            image.MaxWidth = 120;
+                            BitmapImage bmi = new BitmapImage(new Uri(value.ToString()));
+                            image.Source = bmi;
+                            Grid.SetRow(image, currentRow);
+                            Grid.SetColumn(image, 1);
+                            content.Children.Add(image);
+                        }
+                        else
+                        {
+                            TextBox txtBox = new TextBox();
+                            Thickness border = new Thickness(0);
+                            txtBox.BorderThickness = border;
+                            txtBox.TextWrapping = TextWrapping.Wrap;
+                            txtBox.IsReadOnly = true;
+                            txtBox.Text = value.ToString();
+                            Grid.SetRow(txtBox, currentRow);
+                            Grid.SetColumn(txtBox, 5);
+                            Console.WriteLine(txtBox);
+                            content.Children.Add(txtBox);
+                        }
+                    }
+
+                    currentRow++;
+                }
+            }
+
+            scrollViewer.Content = content;
+            return scrollViewer;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+
+
+        
         private DispatcherTimer timer;
         /// <summary>
         /// Initialize the timer for the countdown
@@ -51,6 +190,8 @@ namespace nanofromage.ViewModels
             }
         }
 
+
+
         /// <summary>
         /// Manage all the event of the page
         /// </summary>
@@ -80,7 +221,7 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Quest_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Quest();
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Views.Quest();
         }
         
         /// <summary>
@@ -125,7 +266,7 @@ namespace nanofromage.ViewModels
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
 
-        public Quest page { get; private set; }
+        public Views.Quest page { get; private set; }
     }
 
     
