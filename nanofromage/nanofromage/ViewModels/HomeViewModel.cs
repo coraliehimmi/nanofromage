@@ -203,7 +203,7 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Fight_Click(object sender, RoutedEventArgs e)
         {
-            ///Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Fight();
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Views.Fight();
         }
 
         /// <summary>
