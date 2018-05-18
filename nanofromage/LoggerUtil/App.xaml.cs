@@ -23,9 +23,11 @@ namespace LoggerUtil
 
         public App()
         {
+            Window MainWindow = new Window();
+
             loger = new Loger(new List<Alert> { Alert.CONSOLE }, new List<Mode> { Mode.CONSOLE });
             loger.Log(TAG,this,"Mon test");
-
+            
             Notifier notifier = new Notifier(cfg =>
             {
                 cfg.PositionProvider = new WindowPositionProvider(
