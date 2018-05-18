@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,38 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
-        private String login;
         private String password;
+        private String login;
+        private int idCharacter;
         #endregion
 
         #region Properties
+        public String Login
+        {
+            get { return login; }
+            set
+            {
+                login = value;
+                OnPropertyChanged("Login");
+            }
+        }
+
+        public String Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
+        }
+
+        public int IdCharacter
+        {
+            get { return idCharacter; }
+            set { idCharacter = value; }
+        }
+
         #endregion
 
         #region Constructors
@@ -31,22 +59,21 @@ namespace NanofromageLibrairy.Models
         }
         public User(String login, String password)
         {
-            this.Login = login;
-            this.Password = password;
+            this.login = login;
+            this.password = password;
         }
-
-        public string Login { get => login; set => login = value; }
-        public string Password { get => password; set => password = value; }
+        public User(String login, String password, int idCharacter)
+        {
+            this.login = login;
+            this.password = password;
+            this.idCharacter = idCharacter;
+        }
         #endregion
 
         #region StaticFunctions
         #endregion
 
         #region Functions
-        public void Connexion()
-        {
-
-        }
         #endregion
 
         #region Events

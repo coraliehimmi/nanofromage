@@ -9,11 +9,14 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="Characters">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -35,15 +38,14 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Visibility="Visible" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>
-        <TextBlock x:Name="XAMLdescription" TextWrapping="Wrap" Background="Beige" FontSize="20" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" Text="{Binding CurrentCharacter.Description, Mode=TwoWay}"/>
-        <ComboBox x:Name="comboBox1" FontSize="20" Grid.Column="3" Grid.Row="6" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Beige">
-            <ComboBoxItem Name="Mage">Mage</ComboBoxItem>
-            <ComboBoxItem Name="Warrior" IsSelected="True">Warrior</ComboBoxItem>
-            <ComboBoxItem Name="Hunter">Hunter</ComboBoxItem>
-        </ComboBox>
-        <uc:NameUserControl x:Name="XAMLNameUserControl" Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
-        <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" Grid.Column="2" Grid.Row="12" Grid.ColumnSpan="2"/>
+        <Label TextBlock.Foreground="LightPink" Content="Choisi ton personnage : " FontWeight="Bold" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
+        <Image Visibility="Visible" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="5" Source="/Resources/1.jpg"/>
+        <!--- <uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5"/>!-->
+        <uc:NameUserControl x:Name="XAMLNameUserControl" Grid.Column="2" Grid.Row="5" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+        <uc:SexUserControl x:Name="XAMLSexUserControl" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="4" Grid.RowSpan="2"/>
+        <uc:ComboBoxUserControl x:Name="XAMLComboBoxUserControl" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="6" Grid.RowSpan="5"/>
+        <uc:ConfirmUserControl x:Name="XAMLConfirmUserControl" FontSize="15" Grid.Column="6" Grid.Row="13" Grid.ColumnSpan="1"/>
+        <Label x:Name="yourname" Content="Choisi ton nom :" Grid.Column="2" Grid.Row="4" FontSize="20" Grid.ColumnSpan="2"/>
+        <uc:ExitUserControl Grid.Row="13" Grid.Column="2"/>
     </Grid>
 </Page>

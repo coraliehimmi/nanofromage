@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace NanofromageLibrairy.Models
 {
@@ -15,19 +16,19 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Variables
-        private List<Mage> listMages;
-        private List<Hunter> listHunters;
-        private List<Warrior> listWarriors;
         #endregion
 
         #region Attributs
         private String name;
-        private String description;
-        private Boolean sex;
-        private int level;
+        private String sex; /// M ou F
+        private int level; /// 1
+        private int money; /// 0
+        private int ptLife;
+        private int ptAttack;
+        private int xp;
+        private int idClan;
         private int hitPoint;
-        private int money;
-        
+        private int magicPoint;
         #endregion
 
         #region Properties
@@ -40,37 +41,122 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Name");
             }
         }
-
-        public string Description
+        public String Sex
         {
-            set => description = value;
-            get => description;
+            get { return sex; }
+            set
+            {
+                sex = value;
+                OnPropertyChanged("Sex");
+            }
         }
 
-        public bool Sex { get => sex; set => sex = value; }
-        public int Level { get => level; set => level = value; }
-        public int Money { get => money; set => money = value; }
-        public int HitPoint { get => hitPoint; set => hitPoint = value; }
-        public List<Mage> ListMages { get => listMages; set => listMages = value; }
-        public List<Hunter> ListHunters { get => listHunters; set => listHunters = value; }
-        public List<Warrior> ListWarriors { get => listWarriors; set => listWarriors = value; }
+        public int Level
+        {
+            get { return level; }
+            set
+            {
+                level = value;
+                OnPropertyChanged("Level");
+            }
+        }
+
+        public int Money
+        {
+            get { return money; }
+            set
+            {
+                money = value;
+                OnPropertyChanged("Money");
+            }
+        }
+
+        public int IdClan
+        {
+            get { return idClan; }
+            set
+            {
+                idClan = value;
+                OnPropertyChanged("IdClan");
+            }
+        }
+
+        public int PtLife
+        {
+            get { return ptLife; }
+            set
+            {
+                ptLife = value;
+                OnPropertyChanged("PtLife");
+            }
+        }
+
+        public int PtAttack
+        {
+            get { return ptAttack; }
+            set
+            {
+                ptAttack = value;
+                OnPropertyChanged("PtAttack");
+            }
+        }
+
+
+        public int Xp
+        {
+            get { return xp; }
+            set
+            {
+                xp = value;
+                OnPropertyChanged("Xp");
+            }
+        }
         
+        public int HitPoint
+        {
+            get { return hitPoint; }
+            set
+            {
+                hitPoint = value;
+                OnPropertyChanged("HitPoint");
+            }
+        }
+        
+        public int MagicPoint
+        {
+            get { return magicPoint; }
+            set
+            {
+                magicPoint = value;
+                OnPropertyChanged("MagicPoint");
+            }
+        }
         #endregion
 
         #region Constructors
         public Character()
         {
+            // contructeur vide par défaut
+        }
+        public Character(string name, string sex, int level, int money, int ptLife, int ptAttack, int xp, int idClan, int hitPoint, int magicPoint)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.level = level;
+            this.money = money;
+            this.ptLife = ptLife;
+            this.ptAttack = ptAttack;
+            this.xp = xp;
+            this.idClan = idClan;
+            this.hitPoint = hitPoint;
+            this.magicPoint = magicPoint;
+            ///base.PrecisionPoint = PrecisionPoint;
 
         }
-        // contructeur vide par défaut
-        public Character(string description)
+        
+        public void Attaque()
         {
-            this.description = description;
-        }
-
-        public new void Attaque()
-        {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void AttaqueSpe()

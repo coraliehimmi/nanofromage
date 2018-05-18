@@ -13,6 +13,23 @@ namespace nanofromage.ViewModels
 {
     public class FightViewModel
     {
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        #endregion
+
+        #region Attributs
+        #endregion
+
+        #region Properties
+        public Fight page { get; private set; }
+        #endregion
+
+        #region Constructors
         /// <summary>
         /// Main function, call the view and events of this page
         /// </summary>
@@ -22,7 +39,15 @@ namespace nanofromage.ViewModels
             this.page = page;
             Events();
         }
+        #endregion
 
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
         /// <summary>
         /// Manage all the event of the page
         /// </summary>
@@ -93,7 +118,6 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
-
-        public Fight page { get; private set; }
+        #endregion
     }
 }

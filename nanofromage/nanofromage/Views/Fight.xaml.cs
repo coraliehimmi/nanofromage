@@ -64,19 +64,7 @@ namespace nanofromage.Views
                 //SetUpView<List<Donjon>>(donjon);
                 //item.Donjons = await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH + "/" + item.id, donjon);
             }
-            //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);
-
-            //user.Comments = await ws.HttpClientCaller<List<Comment>>(Comment.BY_USER + user.id, user.Comments);
-
-            //user.Todos = await ws.HttpClientCaller<List<Todo>>(Todo.BY_USER + user.id, user.Todos);
-
-            //user.Albums = await ws.HttpClientCaller<List<Album>>(Album.BY_USER + user.id, user.Albums);
-
-            /*foreach (var item in user.Albums)
-            {
-                item.Photos = await ws.HttpClientCaller<List<Photo>>(Photo.BY_ALBUM + item.id, item.Photos);
-            }*/
-
+            
            //SetUpView<List<Donjon>>(donjon);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,14 @@ namespace Database.MySql
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Character>();
-            modelBuilder.Entity<Mage>();
-            modelBuilder.Entity<User>();   
+            modelBuilder.Entity<Clan>();
+            modelBuilder.Entity<User>();
+            modelBuilder.Entity<Enemy>();
+            modelBuilder.Entity<Items>();
+            modelBuilder.Entity<Categories>();
+            modelBuilder.Entity<Usable>();
+            modelBuilder.Entity<Equipment>();
+                        
         }
         public DbSet<T> DbSetT { get; set; }
 
@@ -80,6 +87,11 @@ namespace Database.MySql
             return await this.DbSetT.FindAsync(id) as T;
         }
 
+        public async Task<T> GetName(String name)
+        {
+            return await this.DbSetT.FindAsync(name) as T;
+        }
+
         public async Task<IEnumerable<T>> Get()
         {
             DbSet<T> temp = default(DbSet<T>);
@@ -112,5 +124,6 @@ namespace Database.MySql
             var res = await this.SaveChangesAsync();
             return res;
         }
+        
     }
 }

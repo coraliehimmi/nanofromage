@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Usable : Items
+    public class Usable : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -18,17 +18,37 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
-        private int quantityUsable;
+        private List<Items> myUsables;
+        private int idCharacter;
         #endregion
 
         #region Properties
-        public int QuantityUsable { get => quantityUsable; set => quantityUsable = value; }
+        public List<Items> MyUsables
+        {
+            get { return myUsables; }
+            set
+            {
+                myUsables = value;
+                OnPropertyChanged("MyUsables");
+            }
+        }
+        
+        public int IdCharacter
+        {
+            get { return idCharacter; }
+            set
+            {
+                idCharacter = value;
+                OnPropertyChanged("IdCharacter");
+            }
+        }
+
         #endregion
 
         #region Constructors
-        public Usable (string name, int quantity, double price, string description, int quantityUsable) : base(name, quantity, price, description)
+        public Usable()
         {
-            this.QuantityUsable = quantityUsable;
+
         }
         #endregion
 

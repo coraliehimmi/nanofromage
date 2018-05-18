@@ -16,5 +16,4 @@
         </Grid.RowDefinitions>
         <Button x:Name="inscription" Content="Inscription" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="26"/>
     </Grid>
-    
 </UserControl>

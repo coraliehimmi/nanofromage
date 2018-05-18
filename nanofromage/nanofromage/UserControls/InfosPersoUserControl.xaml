@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="nanofromage.UserControls.InfosPersoUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:nanofromage.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="400">
+    <Grid Background="YellowGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="nameCharacter" Content="{Binding CurrentCharacter.Name}" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="25" FontWeight="Bold"/>
+        <Image x:Name="imgsex" Grid.Column="3" Grid.RowSpan="2"/>
+        <Label x:Name="lblpv" Content="Mes points de vie :" Grid.Row="2" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblhitpoint" Content="Mes points d'attaque :" Grid.Row="4" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblmagicpoint" Content="Mes points de magie :" Grid.Row="6" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label x:Name="pv" Content="{Binding CurrentCharacter.PtLife}" FontSize="25" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="hitpt" Content="{Binding CurrentCharacter.PtAttack}"  FontSize="25" Grid.Row="4" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="magiept" Content="{Binding CurrentCharacter.MagicPoint}" FontSize="25" Grid.Row="6" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    </Grid>
+</UserControl>

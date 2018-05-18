@@ -53,6 +53,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,20 +79,38 @@
     <Compile Include="UserControls\ButtonsUserControl.xaml.cs">
       <DependentUpon>ButtonsUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CharacterUserControl.xaml.cs">
-      <DependentUpon>CharacterUserControl.xaml</DependentUpon>
+    <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
+      <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ExitUserControl.xaml.cs">
+      <DependentUpon>ExitUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InfoLevelUserControl.xaml.cs">
+      <DependentUpon>InfoLevelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InfosPersoUserControl.xaml.cs">
+      <DependentUpon>InfosPersoUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
+      <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ConfirmUserControl.xaml.cs">
       <DependentUpon>ConfirmUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\InscriptionUserControl.xaml.cs">
-      <DependentUpon>InscriptionUserControl.xaml</DependentUpon>
+    <Compile Include="UserControls\InventaireUserControl.xaml.cs">
+      <DependentUpon>InventaireUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoginUserControl.xaml.cs">
+      <DependentUpon>LoginUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\NameUserControl.xaml.cs">
       <DependentUpon>NameUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SexUserControl.xaml.cs">
+      <DependentUpon>SexUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StatUserControl.xaml.cs">
       <DependentUpon>StatUserControl.xaml</DependentUpon>
@@ -102,6 +122,7 @@
     <Compile Include="ViewModels\FightViewModel.cs" />
     <Compile Include="ViewModels\FirstConnexionViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\InscriptionViewModel.cs" />
     <Compile Include="ViewModels\QuestViewModel.cs" />
     <Compile Include="ViewModels\ShopViewModel.cs" />
     <Compile Include="Views\Characters.xaml.cs">
@@ -120,6 +141,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Inscription.xaml.cs">
+      <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Quest.xaml.cs">
       <DependentUpon>Quest.xaml</DependentUpon>
     </Compile>
@@ -137,15 +161,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CharacterUserControl.xaml">
+    <Page Include="UserControls\ComboBoxUserControl.xaml">
       <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ExitUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InfoLevelUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InfosPersoUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InscriptionUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\ConfirmUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\InscriptionUserControl.xaml">
+    <Page Include="UserControls\InventaireUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoginUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\NameUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SexUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,6 +293,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\persohomme.jpg" />
+    <Resource Include="Resources\persofemme.png" />
+    <Resource Include="Resources\male.png" />
+    <Resource Include="Resources\femelle.png" />
     <Resource Include="Resources\1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

@@ -13,10 +13,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Name="blbName" Text="{Binding CurrentCharacter.Name, Mode=TwoWay}" Grid.Row="0" FontSize="20" Grid.ColumnSpan="2" Grid.Column="0" TextWrapping="WrapWithOverflow" />
-        <RadioButton x:Name="male" Content="Garçons" FontSize="24" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" />
-        <RadioButton x:Name="female" Content="Fille" FontSize="24" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" />
+        <TextBox Name="blbName" Background="Beige" Text="{Binding NameUC, Mode=TwoWay}" Grid.Row="0" FontSize="20" Grid.ColumnSpan="2" Grid.Column="0" TextWrapping="WrapWithOverflow" />
     </Grid>
 </UserControl>

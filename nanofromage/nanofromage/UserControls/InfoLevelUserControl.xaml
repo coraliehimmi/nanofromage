@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="nanofromage.UserControls.InfoLevelUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:nanofromage.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400">
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition/>
+            <RowDefinition Height="28"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="infos" Content="Mes infos actuelles :" Grid.ColumnSpan="6" FontSize="20"/>
+        
+        <Label x:Name="lblor" FontSize="10" Grid.Row="1" Content="Mon or :"/>
+        <Label x:Name="lblxp" FontSize="10" Content="Mes XP" Grid.Row="1" Grid.Column="3"/>
+        
+        <Label x:Name="lblnxtlevel" FontSize="10" Content="XP à atteindre :" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <Label x:Name="lbllevel" FontSize="10" Content="Mon niveau :" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3"/>
+        
+        <Label x:Name="or" Content="{Binding CurrentCharacter.Money}"  Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="xp" Content="{Binding CurrentCharacter.Xp}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        
+        <Label x:Name="nxtlevel" Content="XP" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+        <Label x:Name="level" Content="{Binding CurrentCharacter.Level}" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+    </Grid>
+</UserControl>

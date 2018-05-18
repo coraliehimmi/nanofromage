@@ -33,11 +33,23 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Attributs
-        private Character currentCharacter;
+        public static String nameUC;
+        //private Character currentCharacter;
         #endregion
 
         #region Properties
-        public Character CurrentCharacter
+
+        public String NameUC
+        {
+            get { return nameUC; }
+            set
+            {
+                nameUC = value;
+                OnPropertyChanged("NameUC");
+            }
+        }
+
+        /*public Character CurrentCharacter
         {
             get { return currentCharacter; }
             set
@@ -45,7 +57,7 @@ namespace nanofromage.UserControls
                 currentCharacter = value;
                 OnPropertyChanged("CurrentCharacter");
             }
-        }
+        }*/
         #endregion
 
         #region Constructors
@@ -53,16 +65,6 @@ namespace nanofromage.UserControls
         {
             InitializeComponent();
             DataContext = this;
-        }
-        
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
         #endregion
 

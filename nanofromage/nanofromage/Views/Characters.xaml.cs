@@ -1,4 +1,5 @@
-﻿using nanofromage.ViewModels;
+﻿using MySql.Data.MySqlClient;
+using nanofromage.ViewModels;
 using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
@@ -23,16 +24,7 @@ namespace nanofromage.Views
     /// </summary>
     /// 
 
-    /*public partial class Characters : Page
-    {
-        public Characters()
-        {
-            InitializeComponent();
-            new CharactersViewModel(this);
-        }
-    }*/
-
-    public partial class Characters : Page, INotifyPropertyChanged
+    public partial class Characters : Page
     {
         #region StaticVariables
         #endregion
@@ -44,30 +36,16 @@ namespace nanofromage.Views
         #endregion
 
         #region Attributs
-        private Character currentCharacter;
         #endregion
 
         #region Properties
-
-        public Character CurrentCharacter
-        {
-            get { return this.currentCharacter; }
-            set
-            {
-                this.currentCharacter = value;
-                OnPropertyChanged("CurrentCharacter");
-            }
-        }
-
         #endregion
 
         #region Constructors
         public Characters()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             new CharactersViewModel(this);
-            DataContext = this;
-
         }
         #endregion
 
@@ -75,19 +53,10 @@ namespace nanofromage.Views
         #endregion
 
         #region Functions
+        
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
         #endregion
     }
 }

@@ -37,7 +37,6 @@
         <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8"/>
         <!--<uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Background="Salmon"/>
         <uc:StatUserControl x:Name="XAMLStatUserControl" Grid.Column="3" Grid.Row="4" Background="GreenYellow"/>
-
         <Label Name="combat" Content="Action Combat" Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" FontSize="36" Background="DarkRed"/>
         <Label Content="Fantastic" Grid.Column="2" FontSize="36" Grid.Row="0" Grid.RowSpan="2" Background="AliceBlue"/>
         <uc:CharacterUserControl x:Name="XAMLCharacterUserControl2" Grid.Column="4" Grid.Row="0" Grid.RowSpan="4" Background="Salmon"/>

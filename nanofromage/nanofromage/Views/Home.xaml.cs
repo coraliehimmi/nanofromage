@@ -1,4 +1,5 @@
 ﻿using Database.MySql;
+using nanofromage.UserControls;
 using nanofromage.ViewModels;
 using NanofromageLibrairy.Models;
 using System;
@@ -29,6 +30,5 @@ namespace nanofromage.Views
             InitializeComponent();
             new HomeViewModel(this);
         }
-        Database<Hunter> Dbhunter = new Database<Hunter>();
     }
 }

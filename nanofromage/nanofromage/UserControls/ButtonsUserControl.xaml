@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:nanofromage.UserControls"
+      xmlns:uc="clr-namespace:nanofromage.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300">
 
@@ -22,14 +22,14 @@
             <RowDefinition Height="5"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="bouton1" Content="Button" Grid.Row="0" Grid.Column="0" Click="bouton1_Click"  Background="DimGray"/>
-        <Button Name="bouton2" Content="Button" Grid.Row="2" Grid.Column="0" Click="bouton2_Click"  Background="DimGray"/>
-        <Button Name="bouton3" Content="Button" Grid.Row="5" Grid.Column="0" Click="bouton3_Click" Background="DimGray"/>
-        <Button Name="bouton4" Content="Button" Grid.Row="0" Grid.Column="2" Click="bouton4_Click" Background="DimGray"/>
-        <Button Name="bouton5" Content="Button" Grid.Row="0" Grid.Column="5" Click="bouton5_Click" Background="DimGray"/>
-        <Button Name="bouton6" Content="Button" Grid.Row="2" Grid.Column="5" Click="bouton6_Click" Background="DimGray"/>
-        <Button Name="bouton7" Content="Button" Grid.Row="5" Grid.Column="5" Click="bouton7_Click" Background="DimGray"/>
-        <Button Name="bouton8" Content="Button" Grid.Row="5" Grid.Column="2" Click="bouton8_Click" Background="DimGray"/>
-        <local:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="2" Grid.Row="2" />
+        <Button x:Name="bouton1" Grid.Row="0" Grid.Column="0" Click="bouton1_Click"  Background="DimGray"/>
+        <Button x:Name="bouton2" Content="Main droite" Grid.Row="2" Grid.Column="0" Click="bouton2_Click"  Background="DimGray"/>
+        <Button x:Name="bouton3" Content="Main gauche" Grid.Row="5" Grid.Column="0" Click="bouton3_Click" Background="DimGray"/>
+        <Button x:Name="bouton4" Content="sfwhghfgj" Grid.Row="0" Grid.Column="2" Click="bouton4_Click" Background="DimGray"/>
+        <Button x:Name="bouton5" Content="Tunique" Grid.Row="0" Grid.Column="5" Click="bouton5_Click" Background="DimGray"/>
+        <Button x:Name="bouton6" Content="Chaussures" Grid.Row="2" Grid.Column="5" Click="bouton6_Click" Background="DimGray"/>
+        <Button x:Name="bouton7" Content="Arme" Grid.Row="5" Grid.Column="5" Click="bouton7_Click" Background="DimGray"/>
+        <Button x:Name="bouton" Grid.Row="5" Grid.Column="2" Click="bouton8_Click" Background="DimGray"/>
+        <Image x:Name="myperso" Grid.Column="2" Grid.Row="2"/>
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,11 @@ using System.Threading.Tasks;
 namespace NanofromageLibrairy.Models
 {
     public class Items : ModelBase
+        
     {
+        /// <summary>
+        /// Inventaires de tous les objets existants
+        /// </summary>
         #region StaticVariables
         #endregion
 
@@ -19,16 +24,52 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private String name;
-        private int quantity;
         private double price;
         private String description;
+        private List<Categories> myList;
         #endregion
 
         #region Properties
-        public string Name { get => name; set => name = value; }
-        public int Quantity { get => quantity; set => quantity = value; }
-        public double Price { get => price; set => price = value; }
-        public string Description { get => description; set => description = value; }
+        public String Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        public double Price
+        {
+            get { return price; }
+            set
+            {
+                price = value;
+                OnPropertyChanged("Price");
+            }
+        }
+
+        public String Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+                OnPropertyChanged("Description");
+            }
+        }
+        public List<Categories> MyList
+        {
+            get { return myList; }
+            set
+            {
+                myList = value;
+                OnPropertyChanged("MyList");
+            }
+        }
+
+
         #endregion
 
         #region Constructors
@@ -37,10 +78,9 @@ namespace NanofromageLibrairy.Models
                 
         }
 
-        public Items(string name, int quantity, double price, string description)
+        public Items(string name, double price, string description)
         {
             this.name = name;
-            this.quantity = quantity;
             this.price = price;
             this.description = description;
         }
