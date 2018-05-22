@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using ToastNotifications;
 using ToastNotifications.Lifetime;
+using ToastNotifications.Messages;
 using ToastNotifications.Position;
 
 namespace LoggerUtil
@@ -24,10 +25,13 @@ namespace LoggerUtil
         #endregion
 
         #region Variables
+        private Notifier notifier;
+        private int offsetX = 0;
+        private int offsetY = 150;
         #endregion
 
         #region Attributs
-            private List<Alert> alert;
+        private List<Alert> alert;
             private List<Mode> mode;
         #endregion
 
@@ -46,6 +50,11 @@ namespace LoggerUtil
         #endregion
 
         #region Constructors
+            /// <summary>
+            /// Constructor
+            /// </summary>
+            /// <param name="alert"></param>
+            /// <param name="mode"></param>
             public Loger(List<Alert> alert, List<Mode> mode)
             {
                 this.alert = alert;
@@ -57,11 +66,22 @@ namespace LoggerUtil
         #endregion
 
         #region Functions
+
+            /// <summary>
+            /// Log structure
+            /// </summary>
+            /// <param name="tag"></param>
+            /// <param name="currentClass"></param>
+            /// <param name="content"></param>
             public void Log(String tag, Object currentClass, String content)
             {
                 Log(tag + SEPARATOR + currentClass + SEPARATOR + content);
             }
 
+            /// <summary>
+            /// Alert and mode display function
+            /// </summary>
+            /// <param name="content"></param>
             public void Log(string content)
             {
                 foreach (var item in Alert)
@@ -109,17 +129,30 @@ namespace LoggerUtil
                 }
 
             }
-
+            
+            /// <summary>
+            /// Write log in a temporary file
+            /// </summary>
             private void LogInTempFolder()
             {
 
             }
 
+            /// <summary>
+            /// Pop up structure
+            /// </summary>
+            /// <param name="logType"></param>
+            /// <param name="content"></param>
             private void LogMessageBox(LogType logType, String content)
             {
                 System.Windows.MessageBox.Show(ALERT + SEPARATOR + content);
             }
-
+            
+            /// <summary>
+            /// Log in console structure switch mode and alert
+            /// </summary>
+            /// <param name="logType"></param>
+            /// <param name="content"></param>
             private void LogInConsole(LogType logType, String content)
             {
 
@@ -136,32 +169,111 @@ namespace LoggerUtil
                 }
 
             }
-
-            private void LogToast()
+            
+            /// <summary>
+            /// Make the toast success display
+            /// </summary>
+            public void LogToast()
             {
-
-                Notifier notifier = new Notifier(cfg =>
+                notifier = new Notifier(cfg =>
                 {
                     cfg.PositionProvider = new WindowPositionProvider(
                         parentWindow: Application.Current.MainWindow,
-                        corner: Corner.TopRight,
-                        offsetX: 10,
-                        offsetY: 10);
+                        corner: Corner.BottomCenter,
+                        offsetX: offsetX,
+                        offsetY: offsetY);
 
                     cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
-                        notificationLifetime: TimeSpan.FromSeconds(3),
+                        notificationLifetime: TimeSpan.FromSeconds(5),
                         maximumNotificationCount: MaximumNotificationCount.FromCount(5));
 
                     cfg.Dispatcher = Application.Current.Dispatcher;
+                    cfg.DisplayOptions.TopMost = false;
+                    cfg.DisplayOptions.Width = 250;
                 });
-
             }
 
+            /// <summary>
+            /// Make the toast error display
+            /// </summary>
+            public void LogToastError()
+            {
+                notifier = new Notifier(cfg =>
+                {
+                    cfg.PositionProvider = new WindowPositionProvider(
+                        parentWindow: Application.Current.MainWindow,
+                        corner: Corner.BottomCenter,
+                        offsetX: offsetX,
+                        offsetY: offsetY - 60);
+
+                    cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                        notificationLifetime: TimeSpan.FromSeconds(5),
+                        maximumNotificationCount: MaximumNotificationCount.FromCount(5));
+
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                    cfg.DisplayOptions.TopMost = false;
+                    cfg.DisplayOptions.Width = 250;
+                });
+            }
+
+            /// <summary>
+            /// Dispose the toast
+            /// </summary>
+            public void OnUnloaded()
+            {
+                notifier.Dispose();
+            }
+
+            /// <summary>
+            /// Display an information toast
+            /// </summary>
+            /// <param name="message"></param>
+            public void ShowInformation(string message)
+            {
+                LogToast();
+                notifier.ShowInformation(message);
+            }
+
+            /// <summary>
+            /// Display a success toast
+            /// </summary>
+            /// <param name="message"></param>
+            public void ShowSuccess(string message)
+            {
+                LogToast();
+                notifier.ShowSuccess(message);
+            }
+
+            /// <summary>
+            /// Clear specific toast message
+            /// </summary>
+            /// <param name="msg"></param>
+            internal void ClearMessages(string msg)
+            {
+                LogToast();
+                notifier.ClearMessages(msg);
+            }
+            
+            /// <summary>
+            /// Display an error toast
+            /// </summary>
+            /// <param name="message"></param>
+            public void ShowError(string message)
+            {
+                LogToastError();
+                notifier.ShowError(message);
+            }
+
+            /// <summary>
+            /// Write log in a folder
+            /// </summary>
+            /// <param name="folder"></param>
+            /// <param name="content"></param>
             private void LogInFolder(String folder, String content)
             {
                 System.IO.StreamWriter sw = System.IO.File.AppendText(FOLDER);
             }
-        #endregion
+            #endregion
 
         #region Events
         #endregion

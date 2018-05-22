@@ -15,6 +15,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using WebService;
+using ToastNotifications.Messages;
 
 namespace nanofromage.ViewModels
 {
@@ -87,13 +88,6 @@ namespace nanofromage.ViewModels
             donjon = await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH + "/", donjon);
             Console.WriteLine(donjon);
             string res = donjon[0].description;
-            /*for (int i = 0; i < donjon.Count; i++)
-            {
-
-                donjons = 
-                
-                Console.WriteLine(donjon[i].description);
-            }*/
             foreach (var item in donjon)
             {
                 SetUpView<Donjon>(item);
@@ -111,7 +105,6 @@ namespace nanofromage.ViewModels
             JObject jObject = JsonConvert.DeserializeObject(output) as JObject;
             Console.WriteLine(jObject);
             this.page.dongonName.Content = Convert.ToString(jObject["name"]);
-            //this.MainGrid.Children.Add(BuildElement(jObject));
         }
 
         /// <summary>
@@ -129,15 +122,12 @@ namespace nanofromage.ViewModels
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "SELECT IdCharacter FROM " + table + " WHERE " + champ + " = @" + champ;
-                ///cmd.CommandText = "SELECT " + champ1 + " FROM " + table + " WHERE " + champ2 + " = @" + champ2;
                 cmd.Parameters.AddWithValue(champ, valeur);
-                ///cmd.ExecuteScalar();
                 using (MySqlDataReader dataReader = cmd.ExecuteReader())
                 {
                     while (dataReader.Read())
                     {
                         result = int.Parse(dataReader["IdCharacter"].ToString());
-                        //test.Text = result;
                     }
                 }
             }
@@ -150,6 +140,12 @@ namespace nanofromage.ViewModels
             return result;
         }
 
+
+        /// <summary>
+        /// Get the ennemy id
+        /// </summary>
+        /// <param name="valeur"></param>
+        /// <returns></returns>
         private int RecupEnnemy(int valeur)
         {
             try
@@ -166,7 +162,6 @@ namespace nanofromage.ViewModels
                     while (dataReader.Read())
                     {
                         result = int.Parse(dataReader["Id"].ToString());
-                        //test.Text = result;
                     }
                 }
             }
@@ -185,8 +180,6 @@ namespace nanofromage.ViewModels
         private void Init()
         {
             int monEnnemy = new Random().Next(1,3);
-            //Random tirage = new Random();
-            //int monEnnemy = tirage.Next(1, 3);
             Console.WriteLine(monEnnemy);
             Database<Enemy> DbEnemy = new Database<Enemy>();
             Database<Character> DbChar = new Database<Character>();
@@ -237,7 +230,8 @@ namespace nanofromage.ViewModels
             }
             else
             {
-                notifier = new Loger(new List<Alert> { Alert.TOAST }, new List<Mode> { Mode.NONE });
+                loger = new Loger(new List<Alert> { Alert.TOAST }, new List<Mode> { Mode.NONE });
+                loger.ShowSuccess("Vous infligez " + charTest.PtAttack + " dégats à l'aversaire");
                 this.page.XAMLStatUserControlEnnemy.myLife.Content = "PV : " + ennemy.PtLife;
                 EnnemyAttaque();
             }
@@ -260,6 +254,8 @@ namespace nanofromage.ViewModels
             }
             else
             {
+                loger = new Loger(new List<Alert> { Alert.TOAST }, new List<Mode> { Mode.NONE });
+                loger.ShowError("Vous avez perdus " + ennemy.PtAttack + " PV");
                 this.page.XAMLStatUserControl.myLife.Content = "PV : " + charTest.PtLife;
             }
         }
@@ -273,7 +269,6 @@ namespace nanofromage.ViewModels
         {
             String champ = myWhereClause;
             String table = myTable;
-
         }
 
         /// <summary>
@@ -317,6 +312,11 @@ namespace nanofromage.ViewModels
             this.page.attaque.Click += Attaque_Click;
         }
 
+        /// <summary>
+        /// Action put in the attack button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Attaque_Click(object sender, RoutedEventArgs e)
         {
             if(charTest.PtLife != 0 && ennemy.PtLife != 0)
@@ -339,6 +339,7 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
         }
+
         /// <summary>
         /// Quest redirection funtion
         /// </summary>

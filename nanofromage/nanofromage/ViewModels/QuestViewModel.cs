@@ -28,17 +28,18 @@ namespace nanofromage.ViewModels
         #endregion
 
         #region Variables
+        private int result;
+        private int exp;
+        private int monney;
+        private int idChar;
         private int questEnd;
         #endregion
 
         #region Attributs
         private DispatcherTimer timer;
-        private int result;
-        private int exp;
-        private int monney;
-        private int idChar;
         Character charTest = new Character();
         Database<Character> DbChar = new Database<Character>();
+        Loger loger;
         #endregion
 
         #region Properties
@@ -69,11 +70,6 @@ namespace nanofromage.ViewModels
         private async void CallWebService()
         {
             Webservice ws = new Webservice(" https://bridge.buddyweb.fr/api/nanofromage");
-            //List<User> users = new List<User>();
-            //foreach (var usersItem in await ws.HttpClientCaller<List<User>>(User.PATH, users))
-            //{
-
-            //}
             WebService.Quest quest = new WebService.Quest();
             quest = await ws.HttpClientCaller<WebService.Quest>(WebService.Quest.BY_QUEST + "1", quest);
 
@@ -91,7 +87,6 @@ namespace nanofromage.ViewModels
             Console.WriteLine("output = " + output);
 
             JObject jObject = JsonConvert.DeserializeObject(output) as JObject;
-            //Console.WriteLine(jObject);
             Console.WriteLine("time =" + jObject["time"]);
             questEnd = Convert.ToInt32(jObject["time"]);
             exp = Convert.ToInt32(jObject["xp"]);
@@ -99,7 +94,6 @@ namespace nanofromage.ViewModels
             this.page.lblName.Content = Convert.ToString(jObject["name"]);
             this.page.lblXp.Content = "XP : " + exp;
             this.page.lblLoot.Content = "Loot :  " + monney;
-            //this.page.MainGrid.Children.Add(BuildElement(jObject));
             
         }
 
@@ -252,7 +246,6 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            Loger loger;
             if (charTest.Level > 1)
             {
                 Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
