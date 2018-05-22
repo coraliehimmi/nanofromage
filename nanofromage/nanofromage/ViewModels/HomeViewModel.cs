@@ -48,6 +48,8 @@ namespace nanofromage.ViewModels
         private String potion1;
         private String potion2;
         private Items currentItem;
+        private String idCharacter = "IdCharacter";
+        private String currentId = "Id";
         //public static NanofromageLibrairy.Models.Character currentCharacter;
         Character currentCharacter = new Character();
         //private Character currentCharacter;
@@ -87,7 +89,7 @@ namespace nanofromage.ViewModels
             champ = "Login";
             //currentCharacter = new Character();
             Database<Character> DbChar = new Database<Character>();
-            idChar = RecupId(FirstConnexionViewModel.currentName, table, champ);
+            idChar = RecupId(idCharacter,FirstConnexionViewModel.currentName, table, champ);
             currentCharacter = DbChar.Get(idChar).Result;
 
             if (currentCharacter.Sex == "M")
@@ -116,26 +118,26 @@ namespace nanofromage.ViewModels
             item8 = " ";
             potion1 = " ";
             potion2 = " ";
-    }
+        }
 
         /// <summary>
         /// Fonction qui récupère l'Id de n'importe quelle table et pour n'importe quel champ, ils entrent en paramètre
         /// de la fonction avec la valeur qu'on recherche.
         /// </summary>
-        private int RecupId(String valeur, String table, String champ)
+        private int RecupId(String info, String valeur, String table, String champ)
         {
             try
             {
                 connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT IdCharacter FROM " + table +" WHERE " + champ + " = @" + champ;
+                cmd.CommandText = "SELECT " + info + " FROM " + table +" WHERE " + champ + " = @" + champ;
                 cmd.Parameters.AddWithValue(champ, valeur);
                 using (MySqlDataReader dataReader = cmd.ExecuteReader())
                 {
                     while (dataReader.Read())
                     {
-                        result = int.Parse(dataReader["IdCharacter"].ToString());
+                        result = int.Parse(dataReader[info].ToString());
                     }
                 }
             }
@@ -445,7 +447,7 @@ namespace nanofromage.ViewModels
                 {
                     Database<Items> DbItems = new Database<Items>();
                     currentItem = new Items();
-                    currentItem = DbItems.Get(RecupId(item, table, champ)).Result;
+                    currentItem = DbItems.Get(RecupId(currentId, item, table, champ)).Result;
                     currentItems.Add(currentItem);
                     /// on récupère l'id correspondant à l'item en bdd
                     /// suivant l'id, on récupère l'objet et on ajoute l'objet obtenu
@@ -472,7 +474,7 @@ namespace nanofromage.ViewModels
                 {
                     Database<Items> DbItems = new Database<Items>();
                     currentItem = new Items();
-                    currentItem = DbItems.Get(RecupId(item, table, champ)).Result;
+                    currentItem = DbItems.Get(RecupId(currentId, item, table, champ)).Result;
                     currentItems.Add(currentItem);
                 }
                 currentUsable = new Usable(currentItems, currentCharacter);
