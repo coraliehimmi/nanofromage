@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-        </Grid.ColumnDefinitions>                                                                                                                                     
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -21,15 +21,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
         <Menu Name="menu" Background="SaddleBrown" Grid.RowSpan="7"/>
-        
-        
         <Button Content="Home" x:Name="home"></Button>
         <Button Content="Fight" x:Name="fight" Grid.Row="1"></Button>
         <Button Content="Quest" x:Name="quest" Grid.Row="2"></Button>
         <Button Content="Shop" x:Name="shop" Grid.Row="3"></Button>
         <Button Content="Logout" x:Name="logout" Grid.Row="4"></Button>
-        <uc:ExitUserControl Grid.Row="5"/>
     </Grid>
 </UserControl>

@@ -20,9 +20,35 @@ namespace nanofromage.UserControls
     /// </summary>
     public partial class Menu : UserControl
     {
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        #endregion
+
+        #region Attributs
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
         public Menu()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
+        #endregion
     }
 }

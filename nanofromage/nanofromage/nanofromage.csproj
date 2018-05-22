@@ -76,14 +76,8 @@
     <Compile Include="UserControls\ButtonsGameUserControl.xaml.cs">
       <DependentUpon>ButtonsGameUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ButtonsUserControl.xaml.cs">
-      <DependentUpon>ButtonsUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
       <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ExitUserControl.xaml.cs">
-      <DependentUpon>ExitUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\InfoLevelUserControl.xaml.cs">
       <DependentUpon>InfoLevelUserControl.xaml</DependentUpon>
@@ -160,15 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\ButtonsUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\ComboBoxUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\ExitUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

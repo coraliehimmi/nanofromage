@@ -51,7 +51,8 @@ namespace nanofromage.Views
             donjon = await ws.HttpClientCaller <List<Donjon>>(Donjon.PATH, donjon);
             foreach (var donjonItem in await ws.HttpClientCaller<List<Donjon>>(Donjon.PATH, donjon))
             {
-                SetUpView<List<Donjon>>(donjon);
+                SetUpView<Donjon>(donjonItem);
+                ///SetUpView<List<Donjon>>(donjon);
             }
 
             //user.Posts = await ws.HttpClientCaller<List<Post>>(Post.BY_USER + user.id, user.Posts);

@@ -44,6 +44,7 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
+        public event PropertyChangedEventHandler PropertyChanged;
         private Items item1;
         private Items item2;
         private Items item3;
@@ -100,7 +101,6 @@ namespace nanofromage.UserControls
                 OnPropertyChanged("ListChapeaux");
             }
         }
-
 
         public List<String> ListNameChapeauxUC
         {
@@ -256,57 +256,49 @@ namespace nanofromage.UserControls
             listNameArmures = new List<String>();
             listNamePotions = new List<String>();
 
-
             foreach (var item in listItems)
             {
-                ///testlv.Items.Add(item.Name).ToString();
-
                 switch (item.CategorieName)
                 {
                     case "Chapeaux":
                         listChapeaux.Add(item);
                         listNameChapeauxUC.Add(item.Name);
-                        lblChapeau.Content = item.Name;
+                        /// En fonction de la categorie de l'item on ajoute l'item en
+                        /// question à la bonne catégorie
+                        /// On ajoute le nom de l'item à une liste de la bonne catégorie
+                        /// pour l'affichage de la listview
                         break;
                     case "Gants":
                         listGants.Add(item);
                         listNameGants.Add(item.Name);
-                        lblGant.Content = item.Name;
                         break;
                     case "Lunettes":
                         listLunettes.Add(item);
                         listNameLunettes.Add(item.Name);
-                        lblLunettes.Content = item.Name;
                         break;
                     case "Pantalon":
                         listPantalon.Add(item);
                         listNamePantalon.Add(item.Name);
-                        lblPantalon.Content = item.Name;
                         break;
                     case "Tunique":
                         listTuniques.Add(item);
                         listNameTuniques.Add(item.Name);
-                        lblTunique.Content = item.Name;
                         break;
                     case "Chaussures":
                         listChaussures.Add(item);
                         listNameChaussures.Add(item.Name);
-                        lblChaussures.Content = item.Name;
                         break;
                     case "Arme":
                         listArmes.Add(item);
                         listNameArmes.Add(item.Name);
-                        lblArme.Content = item.Name;
                         break;
                     case "Armure":
                         listarmures.Add(item);
                         listNameArmures.Add(item.Name);
-                        lblArmure.Content = item.Name;
                         break;
                     case "Potion":
                         listPotion.Add(item);
                         listNamePotions.Add(item.Name);
-                        lblPotion.Content = item.Name;
                         break;
                     default:
                         MessageBox.Show("ERROR : Aucune Catégorie n'existe pour cet Item.");
@@ -314,26 +306,39 @@ namespace nanofromage.UserControls
                 }
             }
         }
-
+        /// <summary>
+        /// L'init des catégorie permet d'ajouter le nom de la catégorie
+        /// ainsi que la liste des équipements correspondant à cette catégorie
+        /// et enfin on donne le nom de la catégorie au label au dessus de chaque listview correspondante
+        /// </summary>
         private void InitCatgories()
         {
             categorie1 = new Categories(CHAPEAUX, listChapeaux);
             buttonChapeau.Content = categorie1.CategorieName;
+            lblChapeau.Content = categorie1.CategorieName;
             categorie2 = new Categories(GANTS, listGants);
             buttonGant.Content = categorie2.CategorieName;
+            lblGant.Content = categorie2.CategorieName;
             categorie3 = new Categories(LUNETTES, listLunettes);
             buttonLunettes.Content = categorie3.CategorieName;
+            lblLunettes.Content = categorie3.CategorieName;
             categorie4 = new Categories(PANTALON, listPantalon);
             buttonPantalon.Content = categorie4.CategorieName;
+            lblPantalon.Content = categorie4.CategorieName;
             categorie5 = new Categories(TUNIQUE, listTuniques);
             buttonTunique.Content = categorie5.CategorieName;
+            lblTunique.Content = categorie5.CategorieName;
             categorie6 = new Categories(CHAUSSURES, listChaussures);
             buttonChaussures.Content = categorie6.CategorieName;
+            lblChaussures.Content = categorie6.CategorieName;
             categorie7 = new Categories(ARME, listArmes);
             buttonArme.Content = categorie7.CategorieName;
+            lblArme.Content = categorie7.CategorieName;
             categorie8 = new Categories(ARMURE, listarmures);
             buttonArmure.Content = categorie8.CategorieName;
+            lblArmure.Content = categorie8.CategorieName;
             categorie9 = new Categories(POTION, listPotion);
+            lblPotion.Content = categorie9.CategorieName;
 
             listCategories = new List<Categories>();
             listCategories.Add(categorie1);
@@ -345,13 +350,11 @@ namespace nanofromage.UserControls
             listCategories.Add(categorie7);
             listCategories.Add(categorie8);
             listCategories.Add(categorie9);
-
-            foreach (var item in listCategories)
-            {
-                ///testcat.Items.Add(item.CategorieName).ToString();
-            }
         }
-
+        /// <summary>
+        /// On sauvegarde en base de donnée les catégories et grace aux clé étrangères
+        /// l'insertion se fait toute seule pour les Items
+        /// </summary>
         private void SaveInBdd()
         {
             DbCat = new Database<Categories>();
@@ -360,10 +363,6 @@ namespace nanofromage.UserControls
                 DbCat.Insert(listCategories);
             }
         }
-        ///
-        /// Pas besoin de sauvegarder la liste d'items car elle se sauvegarde automatiquement avec la gestion de
-        /// clé étrangère en BDD
-        /// 
         /*
         private ListView BuildListView()
         {
@@ -406,10 +405,6 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Events
-        #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -418,5 +413,6 @@ namespace nanofromage.UserControls
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+        #endregion
     }
 }

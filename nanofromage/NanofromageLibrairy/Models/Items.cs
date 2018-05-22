@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace NanofromageLibrairy.Models
 {
     public class Items : ModelBase
-        
     {
         /// <summary>
         /// Inventaires de tous les objets existants
@@ -69,25 +68,9 @@ namespace NanofromageLibrairy.Models
             }
         }
 
-        public List<Equipment> MyListEquipments
-        {
-            get { return myListEquipments; }
-            set
-            {
-                myListEquipments = value;
-                OnPropertyChanged("MyListEquipments");
-            }
-        }
+        public List<Equipment> MyListEquipments { get; private set; }
 
-        public List<Usable> MyListUsables
-        {
-            get { return myListUsables; }
-            set
-            {
-                myListUsables = value;
-                OnPropertyChanged("MyListUsables");
-            }
-        }
+        public List<Usable> MyListUsables { get; private set; }
 
         public String CategorieName
         {

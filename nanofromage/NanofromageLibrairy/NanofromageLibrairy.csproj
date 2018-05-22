@@ -55,7 +55,6 @@
     <Compile Include="Models\Enemy.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Fight.cs" />
-    <Compile Include="Models\ActionsCharacter.cs" />
     <Compile Include="Models\Items.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\PasswordHelper.cs" />

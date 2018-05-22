@@ -17,6 +17,7 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour UsableUserControl.xaml
+    /// Permet de gérer la ceinture du personnage
     /// </summary>
     public partial class UsableUserControl : UserControl
     {

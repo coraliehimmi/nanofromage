@@ -11,7 +11,9 @@ namespace Database.MySql
     public class Ajouts
     {
         /// <summary>
-        /// 
+        /// Devrait regrouper toutes les fonction mysql
+        /// mais il en manque beaucoup
+        /// Elles aurtaient du toutes etre faites ici
         /// </summary>
         #region StaticVariables
         public static MySqlConnection connection;

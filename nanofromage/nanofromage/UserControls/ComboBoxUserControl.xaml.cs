@@ -34,6 +34,7 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
+        public event PropertyChangedEventHandler PropertyChanged;
         public Clan mage = new Clan("Mage", "A force d'étudier sans cesse, il parvient à maîtriser la magie et acquiert d'incroyables pouvoirs.", 0, 10);
         public Clan warrior = new Clan("Warrior", "Maître en matière d’armes et d’armures de toutes sortes, il est à la fois courageux et vaillant.", 10, 0);
         public Clan hunter = new Clan("Hunter", "Il peut combattre aussi bien de près que de loin. C’est un tireur hors pair possédant de grandes capacités dans ce domaines. Il peut lancer plusieurs flèches en même temps et peut appeler des animaux en combat.", 5, 5);
@@ -61,7 +62,9 @@ namespace nanofromage.UserControls
             Selection(1);
             Events();
         }
-
+        /// <summary>
+        ///  Affichage de la description en fonction du clan choisi
+        /// </summary>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedClan = (String)comboBox.SelectedItem;
@@ -84,9 +87,6 @@ namespace nanofromage.UserControls
             else
                 XAMLdescription.Text = "c'est raté...!";
         } 
-        /// <summary>
-        ///  Affichage de la description en fonction du clan choisi
-        /// </summary>
         #endregion
 
         #region StaticFunctions
@@ -134,8 +134,6 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private void Events()
         {
             this.comboBox.SelectionChanged += ComboBox_SelectionChanged;

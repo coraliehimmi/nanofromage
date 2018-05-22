@@ -13,11 +13,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.4*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="myUsable" Content="Les équipements de ma ceinture" Grid.ColumnSpan="3"></Label>
+        <Label x:Name="myUsable" Content="Les équipements de ma ceinture" Grid.ColumnSpan="3" FontWeight="ExtraBlack"></Label>
         <Button x:Name="usable1" Content="1er item" Grid.Row="1"></Button>
         <Button x:Name="usable2" Content="2ème item" Grid.Row="1" Grid.Column="1"></Button>
         <Button x:Name="usable3" Content="3ème item" Grid.Row="1" Grid.Column="2"></Button>

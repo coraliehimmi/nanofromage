@@ -21,6 +21,7 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour LoginUserControl.xaml
+    /// pour inscription / connexion
     /// </summary>
     public partial class LoginUserControl : UserControl, INotifyPropertyChanged
     {
@@ -31,6 +32,7 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
+        public event PropertyChangedEventHandler PropertyChanged;
         public static String connectionString = "Server=localhost;Port=3306;Database=nanofromage;Uid=root;Pwd=";
         public static MySqlConnection connection;
         private String msg;
@@ -68,6 +70,11 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Functions
+        /// <summary>
+        /// Requete de selection pour récupérer le nom du joueur en fonction du nom du current user
+        /// </summary>
+        /// <param name="currentName"></param>
+        /// <returns></returns>
         public static String SelectName(String currentName)
         {
             try
@@ -84,7 +91,6 @@ namespace nanofromage.UserControls
                         result = dataReader["Login"].ToString();
                     }
                 }
-
             }
             catch (MySqlException e)
             {
@@ -94,7 +100,8 @@ namespace nanofromage.UserControls
             return result;
         }
 
-        public static String SelectMdp(String currentName, String currentPassword) /// recherche si le mdp saisi par l'utilisateur correspond à celui de son login
+        /// recherche si le mdp saisi par l'utilisateur correspond à celui de son login
+        public static String SelectMdp(String currentName, String currentPassword)
         {
             try
             {
@@ -115,11 +122,15 @@ namespace nanofromage.UserControls
             {
                 MessageBox.Show(e.Message);
             }
-
             connection.Close();
             return result;
         }
 
+        /// <summary>
+        /// Sauvegarde de l'utilisateur
+        /// </summary>
+        /// <param name="currentName"></param>
+        /// <param name="currentPassword"></param>
         public static void SaveNewUser(String currentName, String currentPassword)
         {
             Database<User> DbUser = new Database<User>();
@@ -130,8 +141,6 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-
         protected void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -141,12 +150,5 @@ namespace nanofromage.UserControls
             }
         }
         #endregion
-        
-        /*private void XAMLCharacterUserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }*/
-
-       
     }
 }

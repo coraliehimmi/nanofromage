@@ -23,7 +23,7 @@
             <RowDefinition/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="nameCharacter" Content="{Binding CurrentCharacter.Name}" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="25" FontWeight="Bold"/>
+        <Label x:Name="nameCharacter" Content="{Binding CurrentCharacter.Name}" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold"/>
         <Image x:Name="imgsex" Grid.Column="3" Grid.RowSpan="2"/>
         <Label x:Name="lblpv" Content="Mes points de vie :" Grid.Row="2" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
         <Label x:Name="lblhitpoint" Content="Mes points d'attaque :" Grid.Row="4" FontSize="15" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
