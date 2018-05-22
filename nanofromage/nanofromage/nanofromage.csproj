@@ -115,6 +115,9 @@
     <Compile Include="UserControls\StatUserControl.xaml.cs">
       <DependentUpon>StatUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsableUserControl.xaml.cs">
+      <DependentUpon>UsableUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UsableUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UserUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -293,6 +300,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\potion3.png" />
+    <Resource Include="Resources\potion2.png" />
+    <Resource Include="Resources\potion1.png" />
     <Resource Include="Resources\persohomme.jpg" />
     <Resource Include="Resources\persofemme.png" />
     <Resource Include="Resources\male.png" />

@@ -1,4 +1,5 @@
-﻿using NanofromageLibrairy.Models;
+﻿using Database.MySql;
+using NanofromageLibrairy.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +20,11 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour InventaireUserControl.xaml
+    /// Création des différentes catégories d'items
+    /// Création des listes d'items de chaque catégorie
+    /// Création d'une liste de catégories pour la sauvegarde en BDD
     /// </summary>
-    public partial class InventaireUserControl : UserControl
+    public partial class InventaireUserControl : UserControl, INotifyPropertyChanged
     {
         #region StaticVariables
         public static List<Items> listItems;
@@ -28,6 +32,15 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Constants
+        private String CHAPEAUX = "Chapeaux";
+        private String GANTS = "Gants";
+        private String LUNETTES = "Lunettes";
+        private String PANTALON = "Pantalon";
+        private String TUNIQUE = "Tunique";
+        private String CHAUSSURES = "Chaussures";
+        private String ARME = "Arme";
+        private String ARMURE = "Armure";
+        private String POTION = "Potion";
         #endregion
 
         #region Variables
@@ -52,33 +65,131 @@ namespace nanofromage.UserControls
         private Categories categorie7;
         private Categories categorie8;
         private Categories categorie9;
-        public event PropertyChangedEventHandler PropertyChanged;
-        private DependencyProperty dp;
+        private Database<Categories> DbCat = new Database<Categories>();
+        private List<Items> listChapeaux;
+        private List<Items> listGants;
+        private List<Items> listLunettes;
+        private List<Items> listPantalon;
+        private List<Items> listTuniques;
+        private List<Items> listChaussures;
+        private List<Items> listArmes;
+        private List<Items> listarmures;
+        private List<Items> listPotion;
+        ///private ListView myListView;
         #endregion
 
         #region Attributs
+        private List<String> listNameChapeauxUC;
+        private List<String> listNameGants;
+        private List<String> listNameLunettes;
+        private List<String> listNamePantalon;
+        private List<String> listNameTuniques;
+        private List<String> listNameChaussures;
+        private List<String> listNameArmes;
+        private List<String> listNameArmures;
+        private List<String> listNamePotions;
         #endregion
 
         #region Properties
-        /*public List<Items> ListItems
+        public List<Items> ListChapeaux
         {
-            get { return listItems; }
+            get { return listChapeaux; }
             set
             {
-                listItems = value;
-                OnPropertyChanged("ListItems");
+                listChapeaux = value;
+                OnPropertyChanged("ListChapeaux");
             }
         }
 
-        public List<Categories> ListCategories
+
+        public List<String> ListNameChapeauxUC
         {
-            get { return listCategories; }
+            get { return listNameChapeauxUC; }
             set
             {
-                listCategories = value;
-                OnPropertyChanged("ListCategories");
+                listNameChapeauxUC = value;
+                OnPropertyChanged("ListNameChapeauxUC");
             }
-        }*/
+        }
+        
+        public List<String> ListNameGants
+        {
+            get { return listNameGants; }
+            set
+            {
+                listNameGants = value;
+                OnPropertyChanged("listNameGants");
+            }
+        }
+
+        public List<String> ListNameLunettes
+        {
+            get { return listNameLunettes; }
+            set
+            {
+                listNameLunettes = value;
+                OnPropertyChanged("ListNameLunettes");
+            }
+        }
+
+        public List<String> ListNamePantalon
+        {
+            get { return listNamePantalon; }
+            set
+            {
+                listNamePantalon = value;
+                OnPropertyChanged("ListNamePantalon");
+            }
+        }
+        
+        public List<String> ListNameTuniques
+        {
+            get { return listNameTuniques; }
+            set
+            {
+                listNameTuniques = value;
+                OnPropertyChanged("ListNameTuniques");
+            }
+        }
+
+        public List<String> ListNameChaussures
+        {
+            get { return listNameChaussures; }
+            set {
+                listNameChaussures = value;
+                OnPropertyChanged("ListNameChaussures");
+            }
+        }
+
+        public List<String> ListNameArmes
+        {
+            get { return listNameArmes; }
+            set
+            {
+                listNameArmes = value;
+                OnPropertyChanged("ListNameArmes");
+            }
+        }
+        
+        public List<String> ListNameArmures
+        {
+            get { return listNameArmures; }
+            set
+            {
+                listNameArmures = value;
+                OnPropertyChanged("ListNameArmures");
+            }
+        }
+
+        public List<String> ListNamePotions
+        {
+            get { return listNamePotions; }
+            set
+            {
+                listNamePotions = value;
+                OnPropertyChanged("ListNamePotions");
+            }
+        }
         #endregion
 
         #region Constructors
@@ -86,10 +197,9 @@ namespace nanofromage.UserControls
         {
             InitializeComponent();
             DataContext = this;
-            InitCatgories();
             InitItems();
-            ///InitAffCat();
-            ///InitAffItems();
+            InitCatgories();
+            SaveInBdd();
         }
         #endregion
 
@@ -99,18 +209,18 @@ namespace nanofromage.UserControls
         #region Functions
         private void InitItems()
         {
-            item1 = new Items("Casque en fer", 6, "Casque en fer brut");
-            item2 = new Items("Tunique d'entraînement", 2, "Tunique d'aventurier débutant");
-            item3 = new Items("Botte d'entraînement", 1, "Botte pour aventurier débutant");
-            item4 = new Items("Pantalon d'entraînement", 3, "Pantalon pour aventurier débutant");
-            item5 = new Items("Potion de vie", 5, "Permet de récupérer 5 PV");
-            item6 = new Items("Potion de mana", 5, " Permet de récupérer 5 PM");
-            item7 = new Items("Gants d'armure", 2, "Permet de ne pas se blesser");
-            item8 = new Items("Les yeux de Dieu", 15, "Permet de gagner en attaque");
-            item9 = new Items("Les yeux de Lynx", 4, "Avoir une bonne vision");
-            item10 = new Items("Bouclier de héro", 5 , "Te protège des attaques");
-            item11 = new Items("Le marteau de Thor", 3, "Te rend invincible");
-            item12 = new Items("Les escarpins magiques", 8 , "Ecrase tes adversaires avec");
+            item1 = new Items("Casque en fer", 6, "Casque en fer brut", CHAPEAUX);
+            item2 = new Items("Tunique d'entraînement", 2, "Tunique d'aventurier débutant", TUNIQUE);
+            item3 = new Items("Botte d'entraînement", 1, "Botte pour aventurier débutant", CHAUSSURES);
+            item4 = new Items("Pantalon d'entraînement", 3, "Pantalon pour aventurier débutant", PANTALON);
+            item5 = new Items("Potion de vie", 5, "Permet de récupérer 5 PV", POTION);
+            item6 = new Items("Potion de mana", 5, " Permet de récupérer 5 PM", POTION);
+            item7 = new Items("Gants d'armure", 2, "Permet de ne pas se blesser", GANTS);
+            item8 = new Items("Les yeux de Dieu", 15, "Permet de gagner en attaque", LUNETTES);
+            item9 = new Items("Les yeux de Lynx", 4, "Avoir une bonne vision", LUNETTES);
+            item10 = new Items("Bouclier de héro", 5 , "Te protège des attaques", ARMURE);
+            item11 = new Items("Le marteau de Thor", 3, "Te rend invincible", ARME);
+            item12 = new Items("Les escarpins magiques", 8 , "Ecrase tes adversaires avec", CHAUSSURES);
 
             listItems = new List<Items>();
             listItems.Add(item1);
@@ -126,23 +236,104 @@ namespace nanofromage.UserControls
             listItems.Add(item11);
             listItems.Add(item12);
 
+            listChapeaux = new List<Items>();
+            listGants = new List<Items>();
+            listLunettes = new List<Items>();
+            listPantalon = new List<Items>();
+            listTuniques = new List<Items>();
+            listChaussures = new List<Items>();
+            listArmes = new List<Items>();
+            listarmures = new List<Items>();
+            listPotion = new List<Items>();
+
+            listNameChapeauxUC = new List<String>();
+            listNameGants = new List<String>();
+            listNameLunettes = new List<String>();
+            listNamePantalon = new List<String>();
+            listNameTuniques = new List<String>();
+            listNameChaussures = new List<String>();
+            listNameArmes = new List<String>();
+            listNameArmures = new List<String>();
+            listNamePotions = new List<String>();
+
+
             foreach (var item in listItems)
             {
-                testlv.Items.Add(item.Name).ToString();
+                ///testlv.Items.Add(item.Name).ToString();
+
+                switch (item.CategorieName)
+                {
+                    case "Chapeaux":
+                        listChapeaux.Add(item);
+                        listNameChapeauxUC.Add(item.Name);
+                        lblChapeau.Content = item.Name;
+                        break;
+                    case "Gants":
+                        listGants.Add(item);
+                        listNameGants.Add(item.Name);
+                        lblGant.Content = item.Name;
+                        break;
+                    case "Lunettes":
+                        listLunettes.Add(item);
+                        listNameLunettes.Add(item.Name);
+                        lblLunettes.Content = item.Name;
+                        break;
+                    case "Pantalon":
+                        listPantalon.Add(item);
+                        listNamePantalon.Add(item.Name);
+                        lblPantalon.Content = item.Name;
+                        break;
+                    case "Tunique":
+                        listTuniques.Add(item);
+                        listNameTuniques.Add(item.Name);
+                        lblTunique.Content = item.Name;
+                        break;
+                    case "Chaussures":
+                        listChaussures.Add(item);
+                        listNameChaussures.Add(item.Name);
+                        lblChaussures.Content = item.Name;
+                        break;
+                    case "Arme":
+                        listArmes.Add(item);
+                        listNameArmes.Add(item.Name);
+                        lblArme.Content = item.Name;
+                        break;
+                    case "Armure":
+                        listarmures.Add(item);
+                        listNameArmures.Add(item.Name);
+                        lblArmure.Content = item.Name;
+                        break;
+                    case "Potion":
+                        listPotion.Add(item);
+                        listNamePotions.Add(item.Name);
+                        lblPotion.Content = item.Name;
+                        break;
+                    default:
+                        MessageBox.Show("ERROR : Aucune Catégorie n'existe pour cet Item.");
+                        break;
+                }
             }
         }
 
         private void InitCatgories()
         {
-            categorie1 = new Categories("Chapeaux");   /// 0
-            categorie2 = new Categories("Gants");   /// 1
-            categorie3 = new Categories("Lunettes");   /// 2
-            categorie4 = new Categories("Pantalon");   /// 3
-            categorie5 = new Categories("Tunique");   /// 4
-            categorie6 = new Categories("Chaussures");   /// 5
-            categorie7 = new Categories("Arme");   /// 6
-            categorie8 = new Categories("Armure");   /// 7
-            categorie9 = new Categories("Potion");   /// 8
+            categorie1 = new Categories(CHAPEAUX, listChapeaux);
+            buttonChapeau.Content = categorie1.CategorieName;
+            categorie2 = new Categories(GANTS, listGants);
+            buttonGant.Content = categorie2.CategorieName;
+            categorie3 = new Categories(LUNETTES, listLunettes);
+            buttonLunettes.Content = categorie3.CategorieName;
+            categorie4 = new Categories(PANTALON, listPantalon);
+            buttonPantalon.Content = categorie4.CategorieName;
+            categorie5 = new Categories(TUNIQUE, listTuniques);
+            buttonTunique.Content = categorie5.CategorieName;
+            categorie6 = new Categories(CHAUSSURES, listChaussures);
+            buttonChaussures.Content = categorie6.CategorieName;
+            categorie7 = new Categories(ARME, listArmes);
+            buttonArme.Content = categorie7.CategorieName;
+            categorie8 = new Categories(ARMURE, listarmures);
+            buttonArmure.Content = categorie8.CategorieName;
+            categorie9 = new Categories(POTION, listPotion);
 
             listCategories = new List<Categories>();
             listCategories.Add(categorie1);
@@ -157,31 +348,75 @@ namespace nanofromage.UserControls
 
             foreach (var item in listCategories)
             {
-                testcat.Items.Add(item.CategorieName).ToString();
+                ///testcat.Items.Add(item.CategorieName).ToString();
             }
-            /*listCategories.Add(categorie1);
-            testcat.Items.Add(categorie1.CategorieName).ToString();
-            listCategories.Add(categorie2);
-            testcat.Items.Add(categorie2.CategorieName).ToString();
-            listCategories.Add(categorie3);
-            testcat.Items.Add(categorie3.CategorieName).ToString();
-            listCategories.Add(categorie4);
-            testcat.Items.Add(categorie4.CategorieName).ToString();
-            listCategories.Add(categorie5);
-            testcat.Items.Add(categorie5.CategorieName).ToString();
-            listCategories.Add(categorie6);
-            testcat.Items.Add(categorie6.CategorieName).ToString();
-            listCategories.Add(categorie7);
-            testcat.Items.Add(categorie7.CategorieName).ToString();
-            listCategories.Add(categorie8);
-            testcat.Items.Add(categorie8.CategorieName).ToString();
-            listCategories.Add(categorie9);
-            testcat.Items.Add(categorie9.CategorieName).ToString();*/
         }
+
+        private void SaveInBdd()
+        {
+            DbCat = new Database<Categories>();
+            if (DbCat.Get(1).Result is null)
+            {
+                DbCat.Insert(listCategories);
+            }
+        }
+        ///
+        /// Pas besoin de sauvegarder la liste d'items car elle se sauvegarde automatiquement avec la gestion de
+        /// clé étrangère en BDD
+        /// 
+        /*
+        private ListView BuildListView()
+        {
+            myListView = new ListView();
+            Grid content = new Grid();
+
+            content.RowDefinitions.Add(new RowDefinition());
+            Grid.SetRow(myListView, 1);
+            Grid.SetColumn(myListView, 1);
+            Grid.SetRowSpan(myListView, 5);
+
+            List<List<Items>> newList = new List<List<Items>>();
+            newList.Add(listChapeaux);
+            newList.Add(listGants);
+            newList.Add(listLunettes);
+            newList.Add(listPantalon);
+            newList.Add(listTuniques);
+            newList.Add(listChaussures);
+            newList.Add(listArmes);
+            newList.Add(listarmures);
+            newList.Add(listPotion);
+
+            int i = 0;
+
+            foreach (var item in newList)
+            {
+                ListView myDoubleListView = new ListView();
+                myDoubleListView.ItemsSource = item.ToString();
+                Grid.SetColumn(myDoubleListView, 3);
+                Grid.SetRow(myDoubleListView, i);
+                myListView.Items.Add(myDoubleListView);
+                i++;
+                ///content.Children.Add(myDoubleListView);
+            }
+            myListView.ItemsSource = myListView.ToString();
+            ///myListView.ItemsSource = content.ToString();
+
+            return myListView;
+        }*/
         #endregion
 
         #region Events
         #endregion
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

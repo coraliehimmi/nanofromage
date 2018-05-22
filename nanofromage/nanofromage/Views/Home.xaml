@@ -26,14 +26,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-       
         <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="8"/>
         <uc:ButtonsUserControl x:Name="XAMLButtonsUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"/>
         <uc:InfoLevelUserControl FontSize="10" x:Name="XAMLInfoLevelUC" Grid.Column="3" Grid.RowSpan="2"/>
-        <uc:InventaireUserControl x:Name="XAMLInventaireUC" Grid.Column="2" Grid.RowSpan="3" Background="Lavender"/>
-        <Label Name="ceinture" Grid.Column="3" Grid.RowSpan="2" Grid.Row="2" Background="Lavender" Content="coucoioisyhef"/>
-        <uc:InfosPersoUserControl x:Name="XAMLInfosPersoUC" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4"/>
-        <Image Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" Source="/Resources/3.jpg"/>
+        <uc:InventaireUserControl x:Name="XAMLInventaireUC" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="Lavender"/>
+        <uc:UsableUserControl x:Name="XAMLUsableUC" Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" />
+        <uc:InfosPersoUserControl x:Name="XAMLInfosPersoUC" Grid.Column="1" Grid.Row="5" Grid.RowSpan="3"/>
+        <Image Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="3" Source="/Resources/3.jpg"/>
 
     </Grid>
 

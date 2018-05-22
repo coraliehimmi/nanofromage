@@ -6,20 +6,82 @@
              xmlns:local="clr-namespace:nanofromage.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="AliceBlue" x:Name="grid">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.05*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListView Grid.ColumnSpan="3" x:Name="testlv" ItemsSource="{Binding ListItems.Name}">
+        <Label Grid.Column="5" Grid.ColumnSpan="2" Content="Ma liste d'objets : " Background="White" TextElement.Foreground="DarkRed"/>
+        <Label Grid.Column="7" Grid.ColumnSpan="2" Content="Ma liste de catégories" Background="White" TextElement.Foreground="DarkRed"/>
+        <ScrollViewer x:Name="myScroll" Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lblChapeau" Grid.Column="0"></Label>
+                <Label x:Name="lblGant" Grid.Column="1"></Label>
+                <Label x:Name="lblLunettes" Grid.Column="2"></Label>
+                <Label x:Name="lblPantalon" Grid.Row="2" Grid.Column="0"></Label>
+                <Label x:Name="lblTunique" Grid.Row="2" Grid.Column="1"></Label>
+                <Label x:Name="lblChaussures" Grid.Row="2" Grid.Column="2"></Label>
+                <Label x:Name="lblArme" Grid.Row="4" Grid.Column="0"></Label>
+                <Label x:Name="lblArmure" Grid.Row="4" Grid.Column="1"></Label>
+                <Label x:Name="lblPotion" Grid.Row="4" Grid.Column="2"></Label>
+                <ListView x:Name="listChapeauxUC" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ListNameChapeauxUC}"></ListView>
+                <ListView x:Name="listGantsUC" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ListNameGants}"></ListView>
+                <ListView x:Name="listLunettesUC" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding ListNameLunettes}"></ListView>
+                <ListView x:Name="listPantalonUC" Grid.Row="3" ItemsSource="{Binding ListNamePantalon}"></ListView>
+                <ListView x:Name="listTuniquesUC" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ListNameTuniques}"></ListView>
+                <ListView x:Name="listChaussuresUC" Grid.Row="3" Grid.Column="2" ItemsSource="{Binding ListNameChaussures}"></ListView>
+                <ListView x:Name="listArmesUC" Grid.Row="5" ItemsSource="{Binding ListNameArmes}"></ListView>
+                <ListView x:Name="listarmuresUC" Grid.Row="5" Grid.Column="1" ItemsSource="{Binding ListNameArmures}"></ListView>
+                <ListView x:Name="listPotionUC" Grid.Row="5" Grid.Column="2" ItemsSource="{Binding ListNamePotions}"></ListView>
+            </Grid>
+            
+        </ScrollViewer>
+        <!--
+        <ListView Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="3" x:Name="testcat">
         </ListView>
-        <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="testcat" ItemsSource="{Binding ListCategories.CategorieName}">
+        <ListView x:Name="testlv" ItemsSource="{Binding ListItems.Name}">
         </ListView>
+        <ListView x:Name="testlistview" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="2" Background="Pink">
+        </ListView>
+        -->
+        
+        <Image x:Name="myperso" Grid.Column="2" Grid.Row="3"/>
+        <Button x:Name="buttonChapeau" Grid.Row="1"/>
+        <Button x:Name="buttonGant" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="buttonLunettes" Grid.Row="1" Grid.Column="4"/>
+        <Button x:Name="buttonPantalon" Grid.Row="3"/>
+        <Button x:Name="buttonTunique" Grid.Row="3" Grid.Column="4"/>
+        <Button x:Name="buttonChaussures" Grid.Row="5"/>
+        <Button x:Name="buttonArme" Grid.Row="5" Grid.Column="2"/>
+        <Button x:Name="buttonArmure" Grid.Row="5" Grid.Column="4" TextBlock.TextAlignment="Center"/>
 
     </Grid>
 </UserControl>

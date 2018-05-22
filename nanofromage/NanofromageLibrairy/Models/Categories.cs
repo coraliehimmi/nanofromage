@@ -39,7 +39,7 @@ namespace NanofromageLibrairy.Models
             set
             {
                 myListItem = value;
-                OnPropertyChanged("MyListItem");
+                ///OnPropertyChanged("MyListItem");
             }
         }
         #endregion
@@ -49,9 +49,10 @@ namespace NanofromageLibrairy.Models
         {
 
         }
-        public Categories(String categorieName)
+        public Categories(String categorieName, List<Items> myListItem)
         {
             this.CategorieName = categorieName;
+            this.myListItem = myListItem;
         }
         #endregion
 
