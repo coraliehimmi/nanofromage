@@ -223,7 +223,7 @@ namespace nanofromage.ViewModels
             {
                 this.page.XAMLStatUserControlEnnemy.myLife.Content = "PV : " + ennemy.PtLife;
                 loger = new Loger(new List<Alert> { Alert.MESSAGE_BOX }, new List<Mode> { Mode.NONE });
-                loger.Log("L'ennemi est mort, vous avec gagner "+ ennemy.Xp +" xp et "+ ennemy.Money +" or");
+                loger.Log("L'ennemi est mort, vous avez gagner "+ ennemy.Xp +" xp et "+ ennemy.Money +" or");
                 charTest.Xp = charTest.Xp + ennemy.Xp;
                 charTest.Money = charTest.Money + ennemy.Money;
                 SaveInfo(charTest.Xp, charTest.Money);
@@ -246,6 +246,8 @@ namespace nanofromage.ViewModels
 
             if (charTest.PtLife == 0)
             {
+                loger = new Loger(new List<Alert> { Alert.TOAST }, new List<Mode> { Mode.NONE });
+                loger.OnUnloaded();
                 this.page.XAMLStatUserControl.myLife.Content = "PV : " + charTest.PtLife;
                 loger = new Loger(new List<Alert> { Alert.MESSAGE_BOX }, new List<Mode> { Mode.NONE });
                 loger.Log("Vous avez perdus!");

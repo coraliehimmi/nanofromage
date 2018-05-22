@@ -54,6 +54,5 @@ namespace nanofromage.UserControls
 
         #region Events
         #endregion
-
     }
 }

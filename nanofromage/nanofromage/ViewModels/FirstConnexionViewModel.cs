@@ -74,8 +74,8 @@ namespace nanofromage.ViewModels
 
         private void Init()
         {
-            enemy1 = new Enemy("Enemy1", 5, 10, 10, 10);
-            enemy2 = new Enemy("Enemy2", 5, 10, 10, 10);
+            enemy1 = new Enemy("Enemy1", 5, 30, 10, 10);
+            enemy2 = new Enemy("Enemy2", 5, 30, 10, 10);
             if (OpenConnection() == false)
             {
                 Database<User> DbUser = new Database<User>();

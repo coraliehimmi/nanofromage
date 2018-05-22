@@ -85,15 +85,9 @@
     <Compile Include="UserControls\ComboBoxUserControl.xaml.cs">
       <DependentUpon>ComboBoxUserControl.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="UserControls\ExitUserControl.xaml.cs">
-      <DependentUpon>ExitUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\ImageUserControl.xaml.cs">
       <DependentUpon>ImageUserControl.xaml</DependentUpon>
     </Compile>
-=======
->>>>>>> origin/coco
     <Compile Include="UserControls\InfoLevelUserControl.xaml.cs">
       <DependentUpon>InfoLevelUserControl.xaml</DependentUpon>
     </Compile>
@@ -126,9 +120,6 @@
     </Compile>
     <Compile Include="UserControls\UsableUserControl.xaml.cs">
       <DependentUpon>UsableUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserUserControl.xaml.cs">
-      <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CharactersViewModel.cs" />
     <Compile Include="ViewModels\FightViewModel.cs" />
@@ -173,17 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-    <Page Include="UserControls\ExitUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\ImageUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-=======
->>>>>>> origin/coco
     <Page Include="UserControls\InfoLevelUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -227,10 +211,6 @@
     <Page Include="UserControls\UsableUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\UserUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Characters.xaml">
       <SubType>Designer</SubType>

@@ -48,7 +48,9 @@ namespace nanofromage.ViewModels
         private String potion1;
         private String potion2;
         private Items currentItem;
-        private Character currentCharacter;
+        //public static NanofromageLibrairy.Models.Character currentCharacter;
+        Character currentCharacter = new Character();
+        //private Character currentCharacter;
         #endregion
 
         #region Attributs
@@ -83,10 +85,11 @@ namespace nanofromage.ViewModels
         {
             table = "users";
             champ = "Login";
-            currentCharacter = new Character();
+            //currentCharacter = new Character();
             Database<Character> DbChar = new Database<Character>();
             idChar = RecupId(FirstConnexionViewModel.currentName, table, champ);
             currentCharacter = DbChar.Get(idChar).Result;
+
             if (currentCharacter.Sex == "M")
             {
                 this.page.XAMLInfosPersoUC.imgsex.Source = new BitmapImage(new Uri("/Resources/male.png", UriKind.Relative));
