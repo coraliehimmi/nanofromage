@@ -129,13 +129,13 @@ namespace nanofromage.ViewModels
                 connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT Id FROM " + table +" WHERE " + champ + " = @" + champ;
+                cmd.CommandText = "SELECT IdCharacter FROM " + table +" WHERE " + champ + " = @" + champ;
                 cmd.Parameters.AddWithValue(champ, valeur);
                 using (MySqlDataReader dataReader = cmd.ExecuteReader())
                 {
                     while (dataReader.Read())
                     {
-                        result = int.Parse(dataReader["Id"].ToString());
+                        result = int.Parse(dataReader["IdCharacter"].ToString());
                     }
                 }
             }
