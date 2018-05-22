@@ -19,6 +19,7 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour InfosPersoUserControl.xaml
+    /// Permet l'affichage des données sur le personnage (points d'attaque, de vie)
     /// </summary>
     public partial class InfosPersoUserControl : UserControl, INotifyPropertyChanged
     {
@@ -46,7 +47,6 @@ namespace nanofromage.UserControls
                 OnPropertyChanged("CurrentCharacter");
             }
         }
-
         #endregion
 
         #region Constructors

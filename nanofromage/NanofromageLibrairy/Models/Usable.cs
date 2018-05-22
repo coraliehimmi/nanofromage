@@ -19,36 +19,23 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private List<Items> myUsables;
-        private int idCharacter;
         #endregion
 
         #region Properties
         public List<Items> MyUsables
         {
             get { return myUsables; }
-            set
-            {
-                myUsables = value;
-                OnPropertyChanged("MyUsables");
-            }
         }
-        
-        public int IdCharacter
-        {
-            get { return idCharacter; }
-            set
-            {
-                idCharacter = value;
-                OnPropertyChanged("IdCharacter");
-            }
-        }
-
         #endregion
 
         #region Constructors
         public Usable()
         {
 
+        }
+        public Usable(List<Items> myUsables, Character myChar)
+        {
+            this.myUsables = myUsables;
         }
         #endregion
 

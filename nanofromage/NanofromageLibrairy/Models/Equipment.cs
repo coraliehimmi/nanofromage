@@ -18,29 +18,24 @@ namespace NanofromageLibrairy.Models
         #endregion
 
         #region Attributs
+        private String name;
         private List<Items> myEquipment;
-        private int idCharacter;
         #endregion
 
         #region Properties
-        public List<Items> MyEquipment
+        public String Name
         {
-            get { return myEquipment; }
+            get { return name; }
             set
             {
-                myEquipment = value;
-                OnPropertyChanged("MyEquipment");
+                name = value;
+                OnPropertyChanged("Name");
             }
         }
 
-        public int IdCharacter
+        public List<Items> MyEquipment
         {
-            get { return idCharacter; }
-            set
-            {
-                idCharacter = value;
-                OnPropertyChanged("IdCharacter");
-            }
+            get { return myEquipment; }
         }
         #endregion
 
@@ -48,6 +43,11 @@ namespace NanofromageLibrairy.Models
         public Equipment()
         {
 
+        }
+        public Equipment(String name, List<Items> myEquipment)
+        {
+            this.name = name;
+            this.myEquipment = myEquipment;
         }
         #endregion
 

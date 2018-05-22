@@ -18,6 +18,7 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour SexUserControl.xaml
+    /// Permet de gérer le choix homme / femme du joueur
     /// </summary>
     public partial class SexUserControl : UserControl, INotifyPropertyChanged
     {
@@ -29,6 +30,7 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Variables
+        public event PropertyChangedEventHandler PropertyChanged;
         public static String result;
         public static String sexe;
         #endregion
@@ -45,7 +47,6 @@ namespace nanofromage.UserControls
             InitializeComponent();
             DataContext = this;
             Events();
-            ///Events();
         }
         #endregion
 
@@ -53,29 +54,9 @@ namespace nanofromage.UserControls
         #endregion
 
         #region Functions
-        #endregion
-
-        #region Events
-        private void Events()
-        {
-            maleUC.Checked += MaleUC_Checked;
-            femaleUC.Checked += FemaleUC_Checked;
-        }
-
-        private void FemaleUC_Checked(object sender, RoutedEventArgs e)
-        {
-            femaleUC.IsChecked = true;
-            maleUC.IsChecked = false;
-            SexChoice();
-        }
-
-        private void MaleUC_Checked(object sender, RoutedEventArgs e)
-        {
-            maleUC.IsChecked = true;
-            femaleUC.IsChecked = false;
-            SexChoice();
-        }
-
+        /// <summary>
+        /// Selon le chois on obtient un F pour femelle et M pour male
+        /// </summary>
         private void SexChoice()
         {
             try
@@ -94,10 +75,30 @@ namespace nanofromage.UserControls
                 MessageBox.Show(e.Message);
             }
         }
-       
-        
-        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
 
+        #region Events
+        private void Events()
+        {
+            maleUC.Checked += MaleUC_Checked;
+            femaleUC.Checked += FemaleUC_Checked;
+        }
+
+        private void FemaleUC_Checked(object sender, RoutedEventArgs e)
+        {
+            femaleUC.IsChecked = true;
+            maleUC.IsChecked = false;
+            SexChoice();
+            /// Si on coche femelle, male est automatiquement décoché et vice versa
+        }
+
+        private void MaleUC_Checked(object sender, RoutedEventArgs e)
+        {
+            maleUC.IsChecked = true;
+            femaleUC.IsChecked = false;
+            SexChoice();
+        }
+        
         public void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;

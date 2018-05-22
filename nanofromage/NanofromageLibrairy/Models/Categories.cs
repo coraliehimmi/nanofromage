@@ -8,6 +8,12 @@ namespace NanofromageLibrairy.Models
 {
     public class Categories : ModelBase
     {
+        /// <summary>
+        /// Dans les catégories se trouve une liste d'items car
+        /// pour une catégorie on a plusieurs items qui correspondent
+        /// Donc la clé étrangère est gèrée dans en base de données dans la
+        /// table des items on retrouve l'id de la catégorie
+        /// </summary>
         #region StaticVariables
         #endregion
 
@@ -39,7 +45,7 @@ namespace NanofromageLibrairy.Models
             set
             {
                 myListItem = value;
-                OnPropertyChanged("MyListItem");
+                ///OnPropertyChanged("MyListItem");
             }
         }
         #endregion
@@ -49,9 +55,10 @@ namespace NanofromageLibrairy.Models
         {
 
         }
-        public Categories(String categorieName)
+        public Categories(String categorieName, List<Items> myListItem)
         {
             this.CategorieName = categorieName;
+            this.myListItem = myListItem;
         }
         #endregion
 

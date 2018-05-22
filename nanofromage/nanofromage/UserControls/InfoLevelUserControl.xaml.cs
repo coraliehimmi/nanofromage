@@ -19,6 +19,7 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour InfoLevelUserControl.xaml
+    /// Permet l'affichage des infos level, xp et or du personnage
     /// </summary>
     public partial class InfoLevelUserControl : UserControl, INotifyPropertyChanged
     {
@@ -46,7 +47,6 @@ namespace nanofromage.UserControls
                 OnPropertyChanged("CurrentCharacter");
             }
         }
-
         #endregion
 
         #region Constructors

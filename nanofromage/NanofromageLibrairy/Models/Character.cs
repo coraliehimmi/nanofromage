@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace NanofromageLibrairy.Models
 {
-    public class Character : ModelBase, ActionsCharacter
+    public class Character : ModelBase
     {
         #region StaticVariables
         #endregion
@@ -20,15 +20,16 @@ namespace NanofromageLibrairy.Models
 
         #region Attributs
         private String name;
-        private String sex; /// M ou F
-        private int level; /// 1
-        private int money; /// 0
+        private String sex;
+        private int level;
+        private int money;
         private int ptLife;
         private int ptAttack;
         private int xp;
         private int idClan;
         private int hitPoint;
         private int magicPoint;
+        private Equipment equipment;
         #endregion
 
         #region Properties
@@ -131,6 +132,17 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("MagicPoint");
             }
         }
+
+        public Equipment Equipment
+        {
+            get { return equipment; }
+            set
+            {
+                equipment = value;
+                ///OnPropertyChanged("Equipment");
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -150,10 +162,26 @@ namespace NanofromageLibrairy.Models
             this.idClan = idClan;
             this.hitPoint = hitPoint;
             this.magicPoint = magicPoint;
-            ///base.PrecisionPoint = PrecisionPoint;
-
         }
-        
+
+        public Character(string name, string sex, int level, int money, int ptLife, int ptAttack, int xp, int idClan, int hitPoint, int magicPoint, Equipment equipment)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.level = level;
+            this.money = money;
+            this.ptLife = ptLife;
+            this.ptAttack = ptAttack;
+            this.xp = xp;
+            this.idClan = idClan;
+            this.hitPoint = hitPoint;
+            this.magicPoint = magicPoint;
+            this.equipment = equipment;
+        }
+        /// <summary>
+        /// Constructeur à utiliser pour faire l'update de l'id de l'équipement mais n'a pas pu etre fait
+        /// </summary>
+
         public void Attaque()
         {
             throw new NotImplementedException();

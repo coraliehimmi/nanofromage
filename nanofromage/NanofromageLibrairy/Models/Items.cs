@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace NanofromageLibrairy.Models
 {
     public class Items : ModelBase
-        
     {
         /// <summary>
         /// Inventaires de tous les objets existants
@@ -26,7 +25,16 @@ namespace NanofromageLibrairy.Models
         private String name;
         private double price;
         private String description;
-        private List<Categories> myList;
+        private List<Equipment> myListEquipments;
+        private List<Usable> myListUsables;
+        private String categorieName;
+        ////// <summary>
+        /// Les listes d'equipements sont faites pour permettre la gestions des clés étrangères en bdd
+        /// on a une liste d'quipement et une liste d'utilisables pour sauvegarder les items
+        /// présents dans chaques listes. Dans les equipements et les usables on retrouve la meme
+        /// chose pour permettre de créer plusieurs listes d'equipemets ou d'usables utilisant
+        /// les mêmes items
+        /// </summary>
         #endregion
 
         #region Properties
@@ -59,17 +67,20 @@ namespace NanofromageLibrairy.Models
                 OnPropertyChanged("Description");
             }
         }
-        public List<Categories> MyList
+
+        public List<Equipment> MyListEquipments { get; private set; }
+
+        public List<Usable> MyListUsables { get; private set; }
+
+        public String CategorieName
         {
-            get { return myList; }
+            get { return categorieName; }
             set
             {
-                myList = value;
-                OnPropertyChanged("MyList");
+                categorieName = value;
+                OnPropertyChanged("CategorieName");
             }
         }
-
-
         #endregion
 
         #region Constructors
@@ -78,11 +89,12 @@ namespace NanofromageLibrairy.Models
                 
         }
 
-        public Items(string name, double price, string description)
+        public Items(string name, double price, string description, string categorieName)
         {
             this.name = name;
             this.price = price;
             this.description = description;
+            this.categorieName = categorieName;
         }
         #endregion
 

@@ -19,10 +19,10 @@ namespace nanofromage.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour NameUserControl.xaml
+    /// Permet d'afficher le nom du personnage courant sur la page d'accueil
     /// </summary>
     public partial class NameUserControl : UserControl, INotifyPropertyChanged
     {
-
         #region StaticVariables
         #endregion
 
@@ -34,11 +34,9 @@ namespace nanofromage.UserControls
 
         #region Attributs
         public static String nameUC;
-        //private Character currentCharacter;
         #endregion
 
         #region Properties
-
         public String NameUC
         {
             get { return nameUC; }
@@ -48,16 +46,6 @@ namespace nanofromage.UserControls
                 OnPropertyChanged("NameUC");
             }
         }
-
-        /*public Character CurrentCharacter
-        {
-            get { return currentCharacter; }
-            set
-            {
-                currentCharacter = value;
-                OnPropertyChanged("CurrentCharacter");
-            }
-        }*/
         #endregion
 
         #region Constructors

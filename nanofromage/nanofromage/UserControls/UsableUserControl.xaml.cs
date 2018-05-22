@@ -1,5 +1,4 @@
-﻿using nanofromage.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,22 +16,14 @@ using System.Windows.Shapes;
 namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour ExitUserControl.xaml
+    /// Logique d'interaction pour UsableUserControl.xaml
+    /// Permet de gérer la ceinture du personnage
     /// </summary>
-    public partial class ExitUserControl : UserControl
+    public partial class UsableUserControl : UserControl
     {
-        public ExitUserControl()
+        public UsableUserControl()
         {
             InitializeComponent();
-        }
-        public void Event()
-        {
-            this.ExitUC.Click += Button_Click;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new FirstConnexion();
         }
     }
 }
