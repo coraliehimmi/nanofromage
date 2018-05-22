@@ -1,5 +1,8 @@
-﻿using LoggerUtil;
+﻿using Database.MySql;
+using LoggerUtil;
+using MySql.Data.MySqlClient;
 using nanofromage.Views;
+using NanofromageLibrairy.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -18,14 +21,51 @@ namespace nanofromage.ViewModels
 {
     public class QuestViewModel
     {
-        private int questEnd = 0;
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        private int questEnd;
+        #endregion
+
+        #region Attributs
+        private DispatcherTimer timer;
+        private int result;
+        private int exp;
+        private int monney;
+        private int idChar;
+        Character charTest = new Character();
+        Database<Character> DbChar = new Database<Character>();
+        #endregion
+
+        #region Properties
+        public Views.Quest page { get; private set; }
+        public MySqlConnection connection { get; private set; }
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="page"></param>
         public QuestViewModel(Views.Quest page)
         {
             this.page = page;
             CallWebService();
             Events();
         }
+        #endregion
 
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Call the webservice
+        /// </summary>
         private async void CallWebService()
         {
             Webservice ws = new Webservice(" https://bridge.buddyweb.fr/api/nanofromage");
@@ -40,125 +80,29 @@ namespace nanofromage.ViewModels
             SetUpView<WebService.Quest>(quest);
         }
 
+        /// <summary>
+        /// Make the quest view
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
         private void SetUpView<T>(T item)
         {
             String output = JsonConvert.SerializeObject(item);
-            Console.WriteLine("output = "+output);
-            
+            Console.WriteLine("output = " + output);
+
             JObject jObject = JsonConvert.DeserializeObject(output) as JObject;
             //Console.WriteLine(jObject);
-            Console.WriteLine("time =" +jObject["time"]);
+            Console.WriteLine("time =" + jObject["time"]);
             questEnd = Convert.ToInt32(jObject["time"]);
+            exp = Convert.ToInt32(jObject["xp"]);
+            monney = Convert.ToInt32(jObject["loot"]);
             this.page.lblName.Content = Convert.ToString(jObject["name"]);
-            this.page.lblXp.Content = "XP :" + Convert.ToInt32(jObject["xp"]);
-            this.page.lblLoot.Content = "Loot :  " + Convert.ToInt32(jObject["loot"]);
+            this.page.lblXp.Content = "XP : " + exp;
+            this.page.lblLoot.Content = "Loot :  " + monney;
             //this.page.MainGrid.Children.Add(BuildElement(jObject));
-           
+            
         }
 
-        private ScrollViewer BuildElement(JObject jObject)
-        {
-            ScrollViewer scrollViewer = new ScrollViewer();
-            Grid content = new Grid();
-
-            if (jObject.Count > 0)
-            {
-                /*content.ColumnDefinitions.Add(new ColumnDefinition
-                {
-                    Width = GridLength.Auto
-                });
-                content.ColumnDefinitions.Add(new ColumnDefinition());*/
-                int currentRow = 0;
-                foreach (var x in jObject)
-                {
-                    string name = x.Key;
-                    JToken value = x.Value;
-
-                    if (value != null)
-                    {
-                        content.RowDefinitions.Add(new RowDefinition());
-
-                        Label lbl = new Label();
-                        lbl.Content = name;
-                        Grid.SetRow(lbl, currentRow);
-                        Grid.SetColumn(lbl, 3);
-                        content.Children.Add(lbl);
-
-                        if (value.Type == JTokenType.Array)
-                        {
-                            ScrollViewer subScrollViewer = new ScrollViewer();
-                            subScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-
-                            StackPanel subGrid = new StackPanel();
-                            subGrid.Orientation = Orientation.Horizontal;
-
-                            foreach (var item in value)
-                            {
-                                subGrid.Children.Add(BuildElement(item.Value<JObject>()));
-                            }
-
-                            subScrollViewer.Content = subGrid;
-
-                            Grid.SetRow(subScrollViewer, currentRow);
-                            Grid.SetColumn(subScrollViewer, 3);
-                            content.Children.Add(subScrollViewer);
-                        }
-                        else if (value.Type == JTokenType.Object)
-                        {
-                            ScrollViewer subGrid = BuildElement(value.Value<JObject>());
-                            Grid.SetRow(subGrid, currentRow);
-                            Grid.SetColumn(subGrid, 1);
-                            content.Children.Add(subGrid);
-                        }
-                        else if (value.ToString().EndsWith(".png") || value.ToString().EndsWith(".jpg"))
-                        {
-                            Image image = new Image();
-                            image.MaxHeight = 120;
-                            image.MaxWidth = 120;
-                            BitmapImage bmi = new BitmapImage(new Uri(value.ToString()));
-                            image.Source = bmi;
-                            Grid.SetRow(image, currentRow);
-                            Grid.SetColumn(image, 1);
-                            content.Children.Add(image);
-                        }
-                        else
-                        {
-                            TextBox txtBox = new TextBox();
-                            Thickness border = new Thickness(0);
-                            txtBox.BorderThickness = border;
-                            txtBox.TextWrapping = TextWrapping.Wrap;
-                            txtBox.IsReadOnly = true;
-                            txtBox.Text = value.ToString();
-                            Grid.SetRow(txtBox, currentRow);
-                            Grid.SetColumn(txtBox, 5);
-                            Console.WriteLine(txtBox);
-                            content.Children.Add(txtBox);
-                        }
-                    }
-
-                    currentRow++;
-                }
-            }
-
-            scrollViewer.Content = content;
-            return scrollViewer;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-
-
-        
-        private DispatcherTimer timer;
         /// <summary>
         /// Initialize the timer for the countdown
         /// </summary>
@@ -171,27 +115,80 @@ namespace nanofromage.ViewModels
             timer.Start();
 
         }
+        
         /// <summary>
-        /// CountDown every second
+        /// Get the current user id
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void timer_Tick(object sender, EventArgs e)
+        /// <param name="valeur"></param>
+        /// <returns></returns>
+        private int RecupId(String valeur)
         {
-            if (questEnd != 0)
+            try
             {
-                this.page.lblTime.Content = string.Format("{0}:{1}:{2}", questEnd / 3600, (questEnd / 60) % 60, questEnd % 60);
-                questEnd--;
+                String table = "users";
+                String champ = "Login";
+                connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT IdCharacter FROM " + table + " WHERE " + champ + " = @" + champ;
+                cmd.Parameters.AddWithValue(champ, valeur);
+                using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        result = int.Parse(dataReader["IdCharacter"].ToString());
+                    }
+                }
             }
-            else
+            catch (MySqlException e)
             {
-                timer.Stop();
-                MessageBox.Show("La quete est finie");
+                MessageBox.Show(e.Message);
             }
+
+            connection.Close();
+            return result;
         }
 
+        /// <summary>
+        /// Update request basic informations
+        /// </summary>
+        /// <param name="myWhereClause"></param>
+        /// <param name="myTable"></param>
+        private void SetParameters(String myWhereClause, String myTable)
+        {
+            String champ = myWhereClause;
+            String table = myTable;
 
+        }
 
+        /// <summary>
+        /// Update characters data according to the reward
+        /// </summary>
+        /// <param name="xp"></param>
+        /// <param name="money"></param>
+        public void SaveInfo(int xp, int money)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(ModelBase.CONNECTIONSTRING);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE characters SET Money = @Money, Xp = @Xp WHERE Id = @Id";
+                SetParameters("Name", "characters");
+                cmd.Parameters.AddWithValue("Money", money);
+                cmd.Parameters.AddWithValue("Xp", xp);
+                cmd.Parameters.AddWithValue("Id", result);
+                cmd.ExecuteNonQuery();
+                Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Events
         /// <summary>
         /// Manage all the event of the page
         /// </summary>
@@ -203,6 +200,30 @@ namespace nanofromage.ViewModels
             this.page.XAMLMenuUserControl.quest.Click += Quest_Click;
             this.page.XAMLMenuUserControl.shop.Click += Shop_Click;
             DispatcherTimerSample();
+        }
+
+        /// <summary>
+        /// CountDown every second
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void timer_Tick(object sender, EventArgs e)
+        {
+            if (questEnd != 0)
+            {
+                this.page.lblTime.Content = string.Format("{0}:{1}:{2}", questEnd / 3600, (questEnd / 60) % 60, questEnd % 60);
+                questEnd--;
+            }
+            else
+            {
+                timer.Stop();
+                MessageBox.Show("La quete est finie");
+                idChar = RecupId(FirstConnexionViewModel.currentName);
+                charTest = DbChar.Get(idChar).Result;
+                exp = charTest.Xp + exp;
+                monney = charTest.Money + monney;
+                SaveInfo(exp, monney);
+            }
         }
 
         /// <summary>
@@ -223,7 +244,7 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Views.Quest();
         }
-        
+
         /// <summary>
         /// Shop redirection function
         /// </summary>
@@ -232,8 +253,7 @@ namespace nanofromage.ViewModels
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
             Loger loger;
-            int level = 0;
-            if(level > 1)
+            if (charTest.Level > 1)
             {
                 Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Shop();
             }
@@ -242,7 +262,7 @@ namespace nanofromage.ViewModels
                 loger = new Loger(new List<Alert> { Alert.MESSAGE_BOX }, new List<Mode> { Mode.NONE });
                 loger.Log("Vous devez être niveau 2");
             }
-            
+
 
         }
 
@@ -253,7 +273,7 @@ namespace nanofromage.ViewModels
         /// <param name="e"></param>
         private void Fight_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Fight();
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Views.Fight();
         }
 
         /// <summary>
@@ -265,9 +285,7 @@ namespace nanofromage.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).Content = new Home();
         }
+        #endregion
 
-        public Views.Quest page { get; private set; }
     }
-
-    
 }

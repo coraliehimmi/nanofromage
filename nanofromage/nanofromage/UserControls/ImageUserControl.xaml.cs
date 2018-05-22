@@ -1,9 +1,5 @@
-﻿using nanofromage.ViewModels;
-using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WebService;
-using System.Timers;
-using System.Windows.Threading;
 
-namespace nanofromage.Views
+namespace nanofromage.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour Fight.xaml
+    /// Logique d'interaction pour ImageUserControl.xaml
     /// </summary>
-    public partial class Fight : Page
+    public partial class ImageUserControl : UserControl
     {
-
         #region StaticVariables
         #endregion
 
@@ -35,6 +27,7 @@ namespace nanofromage.Views
         #endregion
 
         #region Variables
+
         #endregion
 
         #region Attributs
@@ -47,10 +40,9 @@ namespace nanofromage.Views
         /// <summary>
         /// Constructor
         /// </summary>
-        public Fight()
+        public ImageUserControl()
         {
             InitializeComponent();
-            new FightViewModel(this);
         }
         #endregion
 

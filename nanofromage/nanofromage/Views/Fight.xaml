@@ -15,6 +15,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -35,15 +38,16 @@
         </Grid>
         
         <uc:Menu x:Name="XAMLMenuUserControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8"/>
-        <!--<uc:CharacterUserControl x:Name="XAMLCharacterUserControl" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Background="Salmon"/>
-        <uc:StatUserControl x:Name="XAMLStatUserControl" Grid.Column="3" Grid.Row="4" Background="GreenYellow"/>
-        <Label Name="combat" Content="Action Combat" Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" FontSize="36" Background="DarkRed"/>
-        <Label Content="Fantastic" Grid.Column="2" FontSize="36" Grid.Row="0" Grid.RowSpan="2" Background="AliceBlue"/>
-        <uc:CharacterUserControl x:Name="XAMLCharacterUserControl2" Grid.Column="4" Grid.Row="0" Grid.RowSpan="4" Background="Salmon"/>
-        <uc:StatUserControl x:Name="XAMLStatUserControl2" Grid.Column="1" Grid.Row="4" Background="GreenYellow"/>
+        <uc:ImageUserControl x:Name="XAMLImageUserControl" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="4" />
+        <uc:StatUserControl x:Name="XAMLStatUserControlEnnemy" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Background="GreenYellow"/>
+        <Label Name="combat" Content="Action Combat" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4" FontSize="36" Background="DarkRed"/>
+        <Label Name="dongonName" Grid.Column="3" Grid.ColumnSpan="2" FontSize="36" Grid.Row="0" Grid.RowSpan="2" Background="AliceBlue"/>
+        <uc:ImageUserControl x:Name="XAMLImageUserControlEnnemy" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="4"/>
+        <uc:StatUserControl x:Name="XAMLStatUserControl" Grid.Column="1" Grid.Row="4" Background="GreenYellow"/>
+        <Button Name="attaque" Grid.Column="2" Grid.Row="4" Content="Attaque"/>
         <Image Grid.Column="2" Grid.Row="2" Grid.RowSpan="2"/>
-        <uc:ButtonsGameUserControl x:Name="XAMLButtonsGameUserControl" Grid.Column="1" Grid.RowSpan="3" Grid.Row="5" Background="LawnGreen"/>
-        <uc:ButtonsGameUserControl x:Name="XAMLButtonsGameUserControl2" Grid.Column="4" Grid.Row="5" Grid.RowSpan="3" Background="LawnGreen"/>-->
-
+        <uc:ButtonsGameUserControl x:Name="XAMLButtonsGameUserControl" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Grid.Row="5" Background="LawnGreen"/>
+        <uc:ButtonsGameUserControl x:Name="XAMLButtonsGameUserControl2" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="LawnGreen"/>
+        
     </Grid>
 </Page>

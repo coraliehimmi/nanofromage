@@ -64,6 +64,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="ToastNotifications, Version=2.2.5.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.2.2.5\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages, Version=2.2.5.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.Messages.2.2.5\lib\net40\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="UserControls\ExitUserControl.xaml.cs">
       <DependentUpon>ExitUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ImageUserControl.xaml.cs">
+      <DependentUpon>ImageUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\InfoLevelUserControl.xaml.cs">
       <DependentUpon>InfoLevelUserControl.xaml</DependentUpon>
@@ -166,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ExitUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ImageUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,9 +319,9 @@
     <Resource Include="Resources\3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Resources\4.png">
+    <Resource Include="Resources\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Quest">
 
-    <Grid x:Name="MainGrid">
+    <Grid x:Name="MainGrid" Background="Snow">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

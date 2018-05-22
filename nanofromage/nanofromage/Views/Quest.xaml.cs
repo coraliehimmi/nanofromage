@@ -21,10 +21,40 @@ namespace nanofromage.Views
     /// </summary>
     public partial class Quest : Page
     {
+        #region StaticVariables
+        #endregion
+
+        #region Constants
+        #endregion
+
+        #region Variables
+        #endregion
+
+        #region Attributs
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Quest()
         {
             InitializeComponent();
             new QuestViewModel(this);
         }
+        #endregion
+
+        #region StaticFunctions
+        #endregion
+
+        #region Functions
+        #endregion
+
+        #region Events
+        #endregion
+
     }
 }
